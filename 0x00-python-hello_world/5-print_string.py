@@ -1,2 +1,6 @@
-str = "Holberton School"
-print(str * 3, "\n", str[:9])
+#!/usr/bin/python3
+string = "Holberton School"
+multiplied_string = string * 3
+print(multiplied_string)
+substring = string[:9]
+print(substring)
