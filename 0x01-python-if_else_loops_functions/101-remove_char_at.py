@@ -1,7 +1,6 @@
 #!/usr/bin/python3
-# Author - Godswill Kalu
 
-def remove_char_at(str, n):
-    if n < 0:
-        return (str)
-    return (str[:n] + str[n+1:])
+def remove_char_at(string, index):
+    if index < 0:
+        return string
+    return string[:index] + string[index+1:]
