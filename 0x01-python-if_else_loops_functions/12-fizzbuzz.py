@@ -13,3 +13,6 @@ def fizzbuzz():
         else:
             output.append(str(number))
     return ' '.join(output)
+
+result = fizzbuzz()
+print(result)
