@@ -52,9 +52,7 @@ Prototypes for functions written in this project:
   * Prints every letter except for `q` and `e`.
 
 * **4. Hexadecimal printing** `mandatory`
-  * [4-print_hexa.py](./4-print_hexa.py): Python program that prints all numbers from `0` to `98` in decimal and hexadecimal.
-  * Using only one `print` and one loop.
-  * Without storing numbers or strings in variables or importing modules.
+  * [4-print_hexa.py](./4-print_hexa.py): Python program that prints all nu  * Without storing numbers or strings in variables or importing modules.
   * Printing format: `[decimal] = [hexadecimal]`
 
 * **5. 00...99** `mandatory`
