@@ -1,5 +1,11 @@
 #!/usr/bin/python3
-# Author -Godswill Kalu
 
-def pow(a, b):
-    return (a ** b)
+
+def power(base, exponent):
+    result = base ** exponent
+    return result
+
+
+a = 2
+b = 3
+print(power(a, b))
