@@ -5,4 +5,4 @@ def islower(c):
     if ord(c) >= 97 and ord(c) <= 122:
         return True
     else:
-        return False  # Keep the same output
+        return False  # maintains the comments
