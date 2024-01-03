@@ -1,4 +1,4 @@
 #!/usr/bin/python3
 
-def power(base, exponent):
-    return (base ** exponent)
+def pow(b, a):
+    return (b ** a)
