@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# Author - Godswill Kalu
 
-def print_last_digit(number):
-    print(abs(number) % 10, end="")
-    return (abs(number) % 10)
+def get_last_digit(number):
+    result = abs(number) % 10
+    print(result, end="")
+    return result
