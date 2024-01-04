@@ -3,7 +3,7 @@ import sys
 from calculator_1 import add, sub, mul, div
 
 def main():
-    if len(sys.argv) != 4:
+if len(sys.argv) != 4:
         print("Usage: {:s} <a> <operator> <b>".format(sys.argv[0]))
         sys.exit(1)
 
@@ -11,15 +11,15 @@ def main():
     operator = sys.argv[2]
     b = int(sys.argv[3])
 
-    if operator == '+':
+if operator == '+':
         result = add(a, b)
-    elif operator == '-':
+elif operator == '-':
         result = sub(a, b)
-    elif operator == '*':
+elif operator == '*':
         result = mul(a, b)
-    elif operator == '/':
+elif operator == '/':
         result = div(a, b)
-    else:
+else:
         print("Unknown operator. Available operators: +, -, *, and /")
         sys.exit(1)
 
