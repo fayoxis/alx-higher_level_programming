@@ -1,31 +1,29 @@
 #!/usr/bin/python3
-from sys import argv
+import sys
 from calculator_1 import add, sub, mul, div
 
-def calculate_result(a, operator, b):
+def main():
+    if len(sys.argv) != 4:
+        print("Usage: {:s} <a> <operator> <b>".format(sys.argv[0]))
+        sys.exit(1)
+
+    a = int(sys.argv[1])
+    operator = sys.argv[2]
+    b = int(sys.argv[3])
+
     if operator == '+':
-        return add(a, b)
+        result = add(a, b)
     elif operator == '-':
-        return sub(a, b)
+        result = sub(a, b)
     elif operator == '*':
-        return mul(a, b)
+        result = mul(a, b)
     elif operator == '/':
-        return div(a, b)
+        result = div(a, b)
     else:
-        return None
+        print("Unknown operator. Available operators: +, -, *, and /")
+        sys.exit(1)
+
+    print("{:d} {:s} {:d} = {:d}".format(a, operator, b, result))
 
 if __name__ == "__main__":
-    if len(argv) != 4:
-        print("Usage: {:s} <a> <operator> <b>".format(argv[0]))
-        exit(1)
-    
-    a = int(argv[1])
-    operator = argv[2]
-    b = int(argv[3])
-    
-    result = calculate_result(a, operator, b)
-    if result is None:
-        print("Unknown operator. Available operators: +, -, *, and /")
-        exit(1)
-    
-    print("{:d} {:s} {:d} = {:d}".format(a, operator, b, result))
+    main()
