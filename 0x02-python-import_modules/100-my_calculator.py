@@ -4,7 +4,7 @@ from calculator_1 import add, sub, mul, div
 
 def main():
     if len(sys.argv) != 4:
-    print("Usage: {:s} <a> <operator> <b>".format(sys.argv[0]))
+        print("Usage: {:s} <a> <operator> <b>".format(sys.argv[0]))
         sys.exit(1)
 
     a = int(sys.argv[1])
@@ -20,7 +20,7 @@ def main():
     elif operator == '/':
         result = div(a, b)
     else:
-    print("Unknown operator. Available operators: +, -, *, and /")
+        print("Unknown operator. Available operators: +, -, *, and /")
         sys.exit(1)
 
     print("{:d} {:s} {:d} = {:d}".format(a, operator, b, result))
