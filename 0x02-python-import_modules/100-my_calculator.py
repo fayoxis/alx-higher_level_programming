@@ -1,29 +1,29 @@
 #!/usr/bin/python3
-import sys
+from sys import argv
 from calculator_1 import add, sub, mul, div
 
-def main():
-if len(sys.argv) != 4:
-        print("Usage: {:s} <a> <operator> <b>".format(sys.argv[0]))
-        sys.exit(1)
+if __name__ != "__main__":
+    exit()
 
-    a = int(sys.argv[1])
-    operator = sys.argv[2]
-    b = int(sys.argv[3])
+argc = len(argv) - 1
 
-if operator == '+':
-        result = add(a, b)
-elif operator == '-':
-        result = sub(a, b)
-elif operator == '*':
-        result = mul(a, b)
-elif operator == '/':
-        result = div(a, b)
+if argc != 3:
+    print("Usage: {:s} <a> <operator> <b>".format(argv[0]))
+    exit(1)
+elif argv[2] not in ['+', '-', '*', '/']:
+    print("Unknown operator. Available operators: +, -, *, and /")
+    exit(1)
 else:
-        print("Unknown operator. Available operators: +, -, *, and /")
-        sys.exit(1)
+    operator = argv[2]
+    operands = (int(argv[1]), int(argv[3]))
 
-    print("{:d} {:s} {:d} = {:d}".format(a, operator, b, result))
+    if operator == '+':
+        result = add(*operands)
+    elif operator == '-':
+        result = sub(*operands)
+    elif operator == '*':
+        result = mul(*operands)
+    elif operator == '/':
+        result = div(*operands)
 
-if __name__ == "__main__":
-    main()
+    print("{:d} {:s} {:d} = {:d}".format(*operands, result))
