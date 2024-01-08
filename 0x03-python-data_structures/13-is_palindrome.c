@@ -11,41 +11,33 @@ int list_equiv(listint_t *l1, listint_t *l2);
  * Return: 0 (not palindrome) 1 (is palindrome)
  */
 int is_palindrome(listint_t **head)
-{
-listint_t *slow, *fast, *prev_slow, *first_half, *second_half, *mid;
-
+{ 
+listint_t *slowPtr, *fastPtr, *prevSlowPtr, *firstHalf, *secondHalf, *midPtr;
 if (!head || !(*head) || !((*head)->next))
-    return 1;
+return (1);
 
-slow = fast = prev_slow = *head;
-second_half = mid = NULL;
+    firstHalf = slowPtr = fastPtr = prevSlowPtr = *head;
+    secondHalf = midPtr = NULL;
 
-do
-{
-    fast = fast->next;
-    if (fast)
-    {
-        fast = fast->next;
-        prev_slow = slow;
-        slow = slow->next;
+    for (; fastPtr && fastPtr->next; slowPtr = slowPtr->next, fastPtr = fastPtr->next->next) {
+        prevSlowPtr = slowPtr;
     }
-} while (fast && fast->next);
 
-if (fast == NULL)
-    second_half = slow;
-else
-{
-    mid = slow;
-    second_half = slow->next;
+    if (fastPtr == NULL)
+        secondHalf = slowPtr;
+    else {
+        midPtr = slowPtr;
+        secondHalf = slowPtr->next;
+    }
+
+    prevSlowPtr->next = NULL;
+    reverse_list(&secondHalf);
+
+    if (list_equiv(firstHalf, secondHalf))
+        return 1;
+    else
+        return 0;
 }
-
-prev_slow->next = NULL;
-reverseList(&second_half);
-
-if (areListsEqual(*head, second_half))
-    return 1;
-else
-    return 0;
 
 /**
  * list_equiv - checks if two linked lists contain identical data and are
@@ -57,16 +49,16 @@ else
  */
 int list_equiv(listint_t *l1, listint_t *l2)
 {
-	while (l1 || l2)
-	{
-		if (l1->n != l2->n || !l1 || !l2)
-			return (0);
-		if (l1)
-			l1 = l1->next;
-		if (l2)
-			l2 = l2->next;
-	}
-	return (1);
+	 while (l1 || l2)
+    {
+        if (!l1 || !l2 || l1->n != l2->n)
+            return 0;
+        
+        l1 = l1->next;
+        l2 = l2->next;
+    }
+    
+    return 1;
 }
 
 /**
