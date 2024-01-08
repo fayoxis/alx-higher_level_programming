@@ -11,32 +11,35 @@ int listequiv(listint_t *list1, listint_t *list2);
  * Return: 0 (not palindrome) 1 (is palindrome)
  */
 int isPalindrome(listint_t **head) {
-    listint_t *slowPtr, *fastPtr, *prevSlowPtr, *firstHalf, *secondHalf, *midPtr;
+  listint_t *skip_1, *skip_2, *prev_s1, *first_half, *second_half, *mid;
 
-    if (!head || !(*head) || !((*head)->next))
-        return 1;
+	
+	if (!head || !(*head) || !((*head)->next))
+		return (1);
 
-    firstHalf = slowPtr = fastPtr = prevSlowPtr = *head;
-    secondHalf = midPtr = NULL;
+	first_half = skip_1 = skip_2 = prev_s1 = *head;
+	second_half = mid = NULL;
 
-    for (; fastPtr && fastPtr->next; slowPtr = slowPtr->next, fastPtr = fastPtr->next->next) {
-        prevSlowPtr = slowPtr;
-    }
+	while (skip_1 && skip_2 && skip_2->next)
+	{
+		prev_s1 = skip_1;
+		skip_1 = skip_1->next;
+		skip_2 = skip_2->next->next;
+	}
+	if (skip_2 == NULL) 
+		second_half = skip_1;
+	else 
+	{
+		mid = skip_1;
+		second_half = skip_1->next;
+	}
+	prev_s1->next = NULL;
+	reverse_list(&second_half);
 
-    if (fastPtr == NULL)
-        secondHalf = slowPtr;
-    else {
-        midPtr = slowPtr;
-        secondHalf = slowPtr->next;
-    }
-
-    prevSlowPtr->next = NULL;
-    reverse_list(&secondHalf);
-
-    if (list_equiv(firstHalf, secondHalf))
-        return 1;
-    else
-        return 0;
+	if (list_equiv(first_half, second_half))
+		return (1);
+	else
+		return (0);
 }
 /**
  * listequiv - checks if two linked lists contain identical data and are
