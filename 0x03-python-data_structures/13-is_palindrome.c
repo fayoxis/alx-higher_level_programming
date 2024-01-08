@@ -15,28 +15,23 @@ int is_palindrome(listint_t **head)
 listint_t *slowPtr, *fastPtr, *prevSlowPtr, *firstHalf, *secondHalf, *midPtr;
 if (!head || !(*head) || !((*head)->next))
 return (1);
-
-    firstHalf = slowPtr = fastPtr = prevSlowPtr = *head;
-    secondHalf = midPtr = NULL;
-
-    for (; fastPtr && fastPtr->next; slowPtr = slowPtr->next, fastPtr = fastPtr->next->next) {
-        prevSlowPtr = slowPtr;
-    }
-
-    if (fastPtr == NULL)
-        secondHalf = slowPtr;
-    else {
-        midPtr = slowPtr;
-        secondHalf = slowPtr->next;
-    }
-
-    prevSlowPtr->next = NULL;
-    reverse_list(&secondHalf);
-
-    if (list_equiv(firstHalf, secondHalf))
-        return 1;
-    else
-        return 0;
+firstHalf = slowPtr = fastPtr = prevSlowPtr = *head;
+secondHalf = midPtr = NULL;
+for (; fastPtr && fastPtr->next; slowPtr = slowPtr->next, fastPtr = fastPtr->next->next) {
+prevSlowPtr = slowPtr;
+}
+if (fastPtr == NULL)
+secondHalf = slowPtr;
+else {
+midPtr = slowPtr;
+secondHalf = slowPtr->next;
+}
+prevSlowPtr->next = NULL;
+reverse_list(&secondHalf);
+if (list_equiv(firstHalf, secondHalf))
+return (1);
+else
+return (0);
 }
 
 /**
@@ -49,16 +44,14 @@ return (1);
  */
 int list_equiv(listint_t *list1, listint_t *list2)
 {
-	 while (list1 || list2)
-    {
-        if (!list1 || !list2 || list1->n != list2->n)
-            return 0;
-        
-        list1 = list1->next;
-        list2 = list2->next;
-    }
-    
-    return 1;
+while (list1 || list2)
+{
+if (!list1 || !list2 || list1->n != list2->n)
+return (0);
+list1 = list1->next;
+list2 = list2->next;
+}
+return (1);
 }
 
 /**
@@ -69,15 +62,14 @@ int list_equiv(listint_t *list1, listint_t *list2)
  */
 void reverse_list(listint_t **head)
 {
-	listint_t *next = NULL, *prev = NULL, *cur;
-
-    cur = *head;
-    while (cur)
-    {
-        next = cur->next;
-        cur->next = prev;
-        prev = cur;
-        cur = next;
-    }
-    *head = prev;
+listint_t *next = NULL, *prev = NULL, *cur;
+cur = *head;
+while (cur)
+{
+next = cur->next;
+cur->next = prev;
+prev = cur;
+cur = next;
+}
+*head = prev;
 }
