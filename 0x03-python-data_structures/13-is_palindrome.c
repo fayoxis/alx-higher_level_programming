@@ -12,35 +12,32 @@ int list_equiv(listint_t *l1, listint_t *l2);
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *skip_1, *skip_2, *prev_s1, *first_half, *second_half, *mid;
+	listint_t *slowPtr, *fastPtr, *prevSlowPtr, *firstHalf, *secondHalf, *midPtr;
 
-	/* linked lists of length 0 and 1 are palindromes by default */
-	if (!head || !(*head) || !((*head)->next))
-		return (1);
+    if (!head || !(*head) || !((*head)->next))
+        return 1;
 
-	first_half = skip_1 = skip_2 = prev_s1 = *head;
-	second_half = mid = NULL;
+    firstHalf = slowPtr = fastPtr = prevSlowPtr = *head;
+    secondHalf = midPtr = NULL;
 
-	while (skip_1 && skip_2 && skip_2->next)
-	{
-		prev_s1 = skip_1;
-		skip_1 = skip_1->next;
-		skip_2 = skip_2->next->next;
-	}
-	if (skip_2 == NULL) /* Even # of nodes */
-		second_half = skip_1;
-	else /* odd number of nodes, there is a middle node */
-	{
-		mid = skip_1;
-		second_half = skip_1->next;
-	}
-	prev_s1->next = NULL; /* null terminate first half */
-	reverse_list(&second_half);
+    for (; fastPtr && fastPtr->next; slowPtr = slowPtr->next, fastPtr = fastPtr->next->next) {
+        prevSlowPtr = slowPtr;
+    }
 
-	if (list_equiv(first_half, second_half))
-		return (1); /* equivalent lists, palindrome found */
-	else
-		return (0);
+    if (fastPtr == NULL)
+        secondHalf = slowPtr;
+    else {
+        midPtr = slowPtr;
+        secondHalf = slowPtr->next;
+    }
+
+    prevSlowPtr->next = NULL;
+    reverse_list(&secondHalf);
+
+    if (list_equiv(firstHalf, secondHalf))
+        return 1;
+    else
+        return 0;
 }
 
 /**
