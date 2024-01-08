@@ -5,12 +5,12 @@ void reverse_list(listint_t **head);
 int listequiv(listint_t *l1, listint_t *l2);
 
 /**
- * ispalindrome - checks if a linked list is a palindrome
+ * is_palindrome - checks if a linked list is a palindrome
  * @head: double pointer to the head of the linked list
  *
  * Return: 0 (not palindrome) 1 (is palindrome)
  */
-int ispalindrome(listint_t **head)
+int is_palindrome(listint_t **head)
 {
 	listint_t *skip_1, *skip_2, *prev_s1, *first_half, *second_half, *mid;
 
