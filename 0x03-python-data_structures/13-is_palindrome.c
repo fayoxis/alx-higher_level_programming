@@ -1,77 +1,72 @@
 #include "lists.h"
 #include <stdio.h>
 
-void reverse_list(listint_t **head);
-int list_equiv(listint_t *l1, listint_t *l2);
+void reverselist(listint_t **head);
+int listequiv(listint_t *list1, listint_t *list2);
 
 /**
- * is_palindrome - checks if a linked list is a palindrome
+ * ispalindrome - checks if a linked list is a palindrome
  * @head: double pointer to the head of the linked list
  *
  * Return: 0 (not palindrome) 1 (is palindrome)
  */
-int is_palindrome(listint_t **head)
-{
-	listint_t *skip_1, *skip_2, *prev_s1, *first_half, *second_half, *mid;
+int isPalindrome(listint_t **head) {
+    listint_t *slowPtr, *fastPtr, *prevSlowPtr, *firstHalf, *secondHalf, *midPtr;
 
-	/* linked lists of length 0 and 1 are palindromes by default */
-	if (!head || !(*head) || !((*head)->next))
-		return (1);
+    if (!head || !(*head) || !((*head)->next))
+        return 1;
 
-	first_half = skip_1 = skip_2 = prev_s1 = *head;
-	second_half = mid = NULL;
+    firstHalf = slowPtr = fastPtr = prevSlowPtr = *head;
+    secondHalf = midPtr = NULL;
 
-	while (skip_1 && skip_2 && skip_2->next)
-	{
-		prev_s1 = skip_1;
-		skip_1 = skip_1->next;
-		skip_2 = skip_2->next->next;
-	}
-	if (skip_2 == NULL) /* Even # of nodes */
-		second_half = skip_1;
-	else /* odd number of nodes, there is a middle node */
-	{
-		mid = skip_1;
-		second_half = skip_1->next;
-	}
-	prev_s1->next = NULL; /* null terminate first half */
-	reverse_list(&second_half);
+    for (; fastPtr && fastPtr->next; slowPtr = slowPtr->next, fastPtr = fastPtr->next->next) {
+        prevSlowPtr = slowPtr;
+    }
 
-	if (list_equiv(first_half, second_half))
-		return (1); /* equivalent lists, palindrome found */
-	else
-		return (0);
+    if (fastPtr == NULL)
+        secondHalf = slowPtr;
+    else {
+        midPtr = slowPtr;
+        secondHalf = slowPtr->next;
+    }
+
+    prevSlowPtr->next = NULL;
+    reverse_list(&secondHalf);
+
+    if (list_equiv(firstHalf, secondHalf))
+        return 1;
+    else
+        return 0;
 }
-
 /**
- * list_equiv - checks if two linked lists contain identical data and are
+ * listequiv - checks if two linked lists contain identical data and are
  * the same length as each other
- * @l1: list one to compare to list two
- * @l2: list two to compare to list one
+ * @list1: list one to compare to list two
+ * @list2: list two to compare to list one
  *
  * Return: 1 (equivalent) 0 (not equal)
  */
-int list_equiv(listint_t *l1, listint_t *l2)
+int listequiv(listint_t *list1, listint_t *list2)
 {
-	while (l1 || l2)
+	while (list1 || list2)
 	{
-		if (l1->n != l2->n || !l1 || !l2)
+		if (list1->n != list2->n || !list1 || !list2)
 			return (0);
-		if (l1)
-			l1 = l1->next;
-		if (l2)
-			l2 = l2->next;
+		if (list1)
+			list1 = list1->next;
+		if (list2)
+			list2 = list2->next;
 	}
 	return (1);
 }
 
 /**
- * reverse_list - reverses a linked list
+ * reverselist - reverses a linked list
  * @head: double pointer to head of linked list so we can modify it
  *
  * Return: always void, modifies head itself.
  */
-void reverse_list(listint_t **head)
+void reverselist(listint_t **head)
 {
 	listint_t *next = NULL, *prev = NULL, *cur;
 
