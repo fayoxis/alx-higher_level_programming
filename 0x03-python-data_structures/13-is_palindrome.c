@@ -1,8 +1,8 @@
 #include "lists.h"
 #include <stdio.h>
 
-void reverselist(listint_t **head);
-int listequiv(listint_t *list1, listint_t *list2);
+void reverse_list(listint_t **head);
+int list_equiv(listint_t *l1, listint_t *l2);
 
 /**
  * is_palindrome - checks if a linked list is a palindrome
@@ -42,35 +42,36 @@ int is_palindrome(listint_t **head)
 	else
 		return (0);
 }
+
 /**
- * listequiv - checks if two linked lists contain identical data and are
+ * list_equiv - checks if two linked lists contain identical data and are
  * the same length as each other
- * @list1: list one to compare to list two
- * @list2: list two to compare to list one
+ * @l1: list one to compare to list two
+ * @l2: list two to compare to list one
  *
  * Return: 1 (equivalent) 0 (not equal)
  */
-int listequiv(listint_t *list1, listint_t *list2)
+int list_equiv(listint_t *l1, listint_t *l2)
 {
-	while (list1 || list2)
+	while (l1 || l2)
 	{
-		if (list1->n != list2->n || !list1 || !list2)
+		if (l1->n != l2->n || !l1 || !l2)
 			return (0);
-		if (list1)
-			list1 = list1->next;
-		if (list2)
-			list2 = list2->next;
+		if (l1)
+			l1 = l1->next;
+		if (l2)
+			l2 = l2->next;
 	}
 	return (1);
 }
 
 /**
- * reverselist - reverses a linked list
+ * reverse_list - reverses a linked list
  * @head: double pointer to head of linked list so we can modify it
  *
  * Return: always void, modifies head itself.
  */
-void reverselist(listint_t **head)
+void reverse_list(listint_t **head)
 {
 	listint_t *next = NULL, *prev = NULL, *cur;
 
