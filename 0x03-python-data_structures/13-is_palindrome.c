@@ -40,44 +40,44 @@ return (1);
 }
 
 /**
- * list_equiv - checks if two linked lists contain identical data and are
- * the same length as each other
- * @l1: list one to compare to list two
- * @l2: list two to compare to list one
+ * list_equiv - you have to checks if two linked lists contain
+ * identical data and are the same length as each other
+ * @list1: list one to compare with that of  list two
+ * @list2: list two to compare to with that of list one
  *
  * Return: 1 (equivalent) 0 (not equal)
  */
-int list_equiv(listint_t *l1, listint_t *l2)
+int list_equiv(listint_t *list1, listint_t *list2)
 {
-	 while (l1 || l2)
+	 while (list1 || list2)
     {
-        if (!l1 || !l2 || l1->n != l2->n)
+        if (!list1 || !list2 || list1->n != list2->n)
             return 0;
         
-        l1 = l1->next;
-        l2 = l2->next;
+        list1 = list1->next;
+        list2 = list2->next;
     }
     
     return 1;
 }
 
 /**
- * reverse_list - reverses a linked list
- * @head: double pointer to head of linked list so we can modify it
+ * reverse_list - it reverses a linked list
+ * @head: it double pointer to head of linked list so we can modify it
  *
- * Return: always void, modifies head itself.
+ * Return: return always void, modifies head itself.
  */
 void reverse_list(listint_t **head)
 {
 	listint_t *next = NULL, *prev = NULL, *cur;
 
-	cur = *head;
-	while (cur)
-	{
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
-	}
-	*head = prev;
+    cur = *head;
+    while (cur)
+    {
+        next = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = next;
+    }
+    *head = prev;
 }
