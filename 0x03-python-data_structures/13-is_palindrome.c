@@ -12,36 +12,40 @@ int areListsEquivalent(listint_t *list1, listint_t *list2);
  */
 int isPalindrome(listint_t **head)
 {
-    listint_t *slow, *fast, *prev_slow, *first_half, *second_half, *mid;
+listint_t *slow, *fast, *prev_slow, *first_half, *second_half, *mid;
 
-    if (!head || !(*head) || !((*head)->next))
-        return 1;
+if (!head || !(*head) || !((*head)->next))
+    return 1;
 
-    slow = fast = prev_slow = *head;
-    second_half = mid = NULL;
+slow = fast = prev_slow = *head;
+second_half = mid = NULL;
 
-    while (fast && fast->next)
+do
+{
+    fast = fast->next;
+    if (fast)
     {
-        fast = fast->next->next;
+        fast = fast->next;
         prev_slow = slow;
         slow = slow->next;
     }
+} while (fast && fast->next);
 
-    if (fast == NULL)
-        second_half = slow;
-    else
-    {
-        mid = slow;
-        second_half = slow->next;
-    }
+if (fast == NULL)
+    second_half = slow;
+else
+{
+    mid = slow;
+    second_half = slow->next;
+}
 
-    prev_slow->next = NULL;
-    reverseList(&second_half);
+prev_slow->next = NULL;
+reverseList(&second_half);
 
-    if (areListsEqual(*head, second_half))
-        return 1;
-    else
-        return 0;
+if (areListsEqual(*head, second_half))
+    return 1;
+else
+    return 0;
 }
 
 /**
