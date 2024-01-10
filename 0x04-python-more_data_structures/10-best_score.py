@@ -1,15 +1,11 @@
 #!/usr/bin/python3
 
-
-def best_score(a_dictionary):
-    """
-    gets the best value from a dictionary (greatest integer)
-    """
-    win_n = 0
-    winner = None
-    if type(a_dictionary) is dict:
-        for (key, value) in a_dictionary.items():
-            if value > win_n:
-                win_n = value
-                winner = key
-    return winner
+def best_score(a_dict):
+    max_score = 0
+    best_player = None
+    if isinstance(a_dict, dict):
+        for player, score in a_dict.items():
+            if score > max_score:
+                max_score = score
+                best_player = player
+    return best_player
