@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-delete_at = __import__('11-delete_at').delete_at
+mutiply_list_map = __import__('11-mutiply_list_map').mutiply_list_map
 
-my_list = [1, 2, 3, 4, 5]
-idx = 3
-new_list = delete_at(my_list, idx)
+my_list = [1, 2, 3, 4, 6]
+new_list = mutiply_list_map(my_list, 4)
 print(new_list)
 print(my_list)
