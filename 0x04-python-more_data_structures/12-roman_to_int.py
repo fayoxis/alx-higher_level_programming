@@ -1,55 +1,36 @@
-#!/usr/bin/python3
+def to_subtract(list_num):
+    to_sub = 0
+    max_list = max(list_num)
 
-def convert_roman(ch):
-    ret = -1
-    if ch == 'I':
-        ret = 1
-    elif ch == 'V':
-        ret = 5
-    elif ch == 'X':
-        ret = 10
-    elif ch == 'L':
-        ret = 50
-    elif ch == 'C':
-        ret = 100
-    elif ch == 'D':
-        ret = 500
-    elif ch == 'M':
-        ret = 1000
-    return ret
+    for n in list_num:
+        if max_list > n:
+            to_sub += n
+
+    return max_list - to_sub
 
 
 def roman_to_int(roman_string):
-    cur_max = -1
-    cur = conv = 0
-    holder = []
-
-    if roman_string is None or not isinstance(roman_string, str):
+    if not roman_string or not isinstance(roman_string, str):
         return 0
-    for c in roman_string:
-        cur = convert_roman(c)
-        if cur == -1:
-            return 0
-        if len(holder) == 0:
-            if cur == cur_max or cur_max == -1:
-                cur_max = cur
-                conv += cur
-            elif cur < cur_max:
-                holder.append(cur)
-            elif cur > cur_max:  # only happens if smaller is starting number
-                # for example: IIX, VXC
-                cur_max = cur
-                cur -= conv
-                conv = cur
-        else:
-            if cur > holder[-1]:
-                cur_max = cur
-                cur -= sum(holder)
-                conv += cur
-                holder.clear()
-            else:
-                holder.append(cur)
 
-    if len(holder) != 0:
-        conv += sum(holder)
-    return conv
+    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+    list_keys = list(rom_n.keys())
+
+    num = 0
+    last_rom = 0
+    list_num = [0]
+
+    for ch in roman_string:
+        for r_num in list_keys:
+            if r_num == ch:
+                if rom_n.get(ch) <= last_rom:
+                    num += to_subtract(list_num)
+                    list_num = [rom_n.get(ch)]
+                else:
+                    list_num.append(rom_n.get(ch))
+
+                last_rom = rom_n.get(ch)
+
+    num += to_subtract(list_num)
+
+    return num
