@@ -2,10 +2,10 @@
 #include <Python.h>
 
 /**
- * print_python_bytes - Prints bytes information
+ * print_python_bytes - it Prints bytes information
  *
- * @p: Python Object
- * Return: no return
+ * @p: it is Python Object
+ * Return: it return nothing : return
  */
 void print_python_bytes(PyObject *p)
 {
@@ -32,22 +32,24 @@ void print_python_bytes(PyObject *p)
 
     printf("  first %ld bytes:", limit);
 
-    for (i = 0; i < limit; i++)
+    i = 0;
+    while (i < limit)
     {
         if (string[i] >= 0)
             printf(" %02x", string[i]);
         else
             printf(" %02x", 256 + string[i]);
+        i++;
     }
 
     printf("\n");
 }
 
 /**
- * print_python_list - Prints list information
+ * print_python_list - it Prints the list information
  *
- * @p: Python Object
- * Return: no return
+ * @p: it is the Python Object
+ * Return: it returns nothing :return
  */
 void print_python_list(PyObject *p)
 {
@@ -62,11 +64,13 @@ void print_python_list(PyObject *p)
     printf("[*] Size of the Python List = %ld\n", size);
     printf("[*] Allocated = %ld\n", list->allocated);
 
-    for (i = 0; i < size; i++)
+    i = 0;
+    while (i < size)
     {
         obj = list->ob_item[i];
-        printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
+        printf("Element %ld: %s\n", i, Py_TYPE(obj)->tp_name);
         if (PyBytes_Check(obj))
             print_python_bytes(obj);
+        i++;
     }
 }
