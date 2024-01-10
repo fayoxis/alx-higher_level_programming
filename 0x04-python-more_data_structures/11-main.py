@@ -1,4 +1,3 @@
-guillaume@ubuntu:~/0x04$ cat 11-main.py
 #!/usr/bin/python3
 multiply_list_map = __import__('11-multiply_list_map').multiply_list_map
 
