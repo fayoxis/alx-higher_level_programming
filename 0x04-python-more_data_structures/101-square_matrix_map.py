@@ -1,10 +1,3 @@
 #!/usr/bin/python3
-
 def square_matrix_map(matrix=[]):
-    squared_matrix = []
-    for row in matrix:
-        squared_row = []
-        for x in row:
-            squared_row.append(x ** 2)
-        squared_matrix.append(squared_row)
-    return squared_matrix
+    return list(map(lambda row: list(map(lambda x: x**2, row)), matrix))
