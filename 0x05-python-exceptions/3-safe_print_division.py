@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+from __future__ import print_function
+
 
 def safe_print_division(a, b):
     try:
