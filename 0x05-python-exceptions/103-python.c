@@ -75,42 +75,45 @@ void print_python_float(PyObject *p)
 }
 
 /**
- * print_python_list - Prints list information
+ * print_python_list - it is the Printed list of information
  *
- * @p: Python Object
- * Return: no return
+ * @p: it is the Python Object
+ * Return: return no return
  */
 void print_python_list(PyObject *p)
 {
-	long int size, i;
-	PyListObject *list;
-	PyObject *obj;
+    long int s, i;
+    PyListObject *list;
+    PyObject *obj;
 
-	setbuf(stdout, NULL);
-	printf("[*] Python list info\n");
+    setbuf(stdout, NULL);
+    printf("[*] Python list info\n");
 
-	if (!PyList_Check(p))
-	{
-		printf("  [ERROR] Invalid List Object\n");
-		setbuf(stdout, NULL);
-		return;
-	}
+    if (!PyList_Check(p))
+    {
+        printf("  [ERROR] Invalid List Object\n");
+        setbuf(stdout, NULL);
+        return;
+    }
 
-	size = ((PyVarObject *)(p))->ob_size;
-	list = (PyListObject *)p;
+    s = ((PyVarObject *)(p))->ob_size;
+    list = (PyListObject *)p;
 
-	printf("[*] Size of the Python List = %ld\n", size);
-	printf("[*] Allocated = %ld\n", list->allocated);
+    printf("[*] Size of the Python List = %ld\n", s);
+    printf("[*] Allocated = %ld\n", list->allocated);
 
-	for (i = 0; i < size; i++)
-	{
-		obj = list->ob_item[i];
-		printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
+    i = 0;
+    while (i < s)
+    {
+        obj = list->ob_item[i];
+        printf("Element %ld: %s\n", i, ((obj)->ob_type)->tp_name);
 
-		if (PyBytes_Check(obj))
-			print_python_bytes(obj);
-		if (PyFloat_Check(obj))
-			print_python_float(obj);
-	}
-	setbuf(stdout, NULL);
+        if (PyBytes_Check(obj))
+            print_python_bytes(obj);
+        if (PyFloat_Check(obj))
+            print_python_float(obj);
+
+        i++;
+    }
+    setbuf(stdout, NULL);
 }
