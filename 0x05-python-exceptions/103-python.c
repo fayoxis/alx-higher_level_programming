@@ -2,10 +2,10 @@
 #include <Python.h>
 
 /**
- * print_python_bytes - Prints bytes information
- *
- * @p: Python Object
- * Return: no return
+ * print_python_bytes - it is the Prints bytes information
+ * required
+ * @p: it is the Python Object
+ * Return: return no return
  */
 void print_python_bytes(PyObject *p) {
     char *str;
@@ -39,31 +39,39 @@ void print_python_bytes(PyObject *p) {
 }
 
 /**
- * print_python_float - Prints float information
+ * print_python_float - it Prints  the float information
  *
- * @p: Python Object
- * Return: no return
+ * @p: it is the Python Object
+ * Return: return no return
  */
 void print_python_float(PyObject *p)
 {
-	double val;
-	char *nf;
+    double v;
+    char *f;
 
-	setbuf(stdout, NULL);
-	printf("[.] float object info\n");
+    setbuf(stdout, NULL);
+    printf("[.] float object info\n");
 
-	if (!PyFloat_Check(p))
-	{
-		printf("  [ERROR] Invalid Float Object\n");
-		setbuf(stdout, NULL);
-		return;
-	}
+    if (!PyFloat_Check(p))
+    {
+        printf("  [ERROR] Invalid Float Object\n");
+        setbuf(stdout, NULL);
+        return;
+    }
 
-	val = ((PyFloatObject *)(p))->ob_fval;
-	nf = PyOS_double_to_string(val, 'r', 0, Py_DTSF_ADD_DOT_0, Py_DTST_FINITE);
+    v = ((PyFloatObject *)(p))->ob_fval;
+    f = PyOS_double_to_string(v, 'r', 0, Py_DTSF_ADD_DOT_0, Py_DTST_FINITE);
 
-	printf("  value: %s\n", nf);
-	setbuf(stdout, NULL);
+    // Loop to print each character of the string
+    int i;
+    printf("  value: ");
+    for (i = 0; f[i] != '\0'; i++)
+    {
+        printf("%c", f[i]);
+    }
+    printf("\n");
+
+    setbuf(stdout, NULL);
 }
 
 /**
