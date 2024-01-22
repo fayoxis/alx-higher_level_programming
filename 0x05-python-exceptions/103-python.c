@@ -1,13 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <Python.h>
-
 /**
  * print_python_bytes -this  Prints bytes the  information
  * required 
  * @p: this is the Python Object
  * Return: return no return
  */
-void print_python_bytes(PyObject *p)
+void print_python_bytes(PyObject *p);
+void print_python_float(PyObject *p);
+void print_python_list(PyObject *p);
 {
 	char *str;
 	long int s, i, limit;
