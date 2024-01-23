@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""Class Square that defines a square"""
+"""Square class that defines a square"""
 
 
 class Square:
-    """Class Square that defines a square"""
+    """Square class that defines a square"""
     def __init__(self, size=0):
-        """Initialize a square
+        """Initialize the square.
 
         Args:
             size (int): Size of the square.
@@ -17,7 +17,7 @@ class Square:
         """int: Private size of the square.
 
         Returns:
-            Private size.
+            The private size of the square.
         """
         return self.__size
 
@@ -28,10 +28,10 @@ class Square:
         Args:
             value (int): Size of the square.
         """
-        if type(value) is not int or type(value) is not float:
-            raise TypeError('Size must be a number')
+        if type(value) is not int:
+            raise TypeError('size must be an integer')
         elif value < 0:
-            raise ValueError('Size must be >= 0')
+            raise ValueError('size must be >= 0')
         else:
             self.__size = value
 
@@ -41,63 +41,59 @@ class Square:
         Returns:
             The area of the square.
         """
-        return self.__size**2
+        return self.__size ** 2
 
     def __lt__(self, other):
-        """Check if the size of the current square is
-        less than the size of another square.
+        """Compare the size of two squares.
 
         Args:
-            other (Square): Another square object.
+            other (Square): The other square to compare.
 
         Returns:
-            True if the current square is smaller, False otherwise.
+            True if the size of the current square is less than the other square, False otherwise.
         """
         return self.size < other.size
 
     def __le__(self, other):
-        """Check if the size of the current square is less
-        than or equal to the size of another square.
+        """Compare the size of two squares.
 
         Args:
-            other (Square): Another square object.
+            other (Square): The other square to compare.
 
         Returns:
-            True if the current square is smaller or equal, False otherwise.
+            True if the size of the current square is less than or equal to the other square, False otherwise.
         """
         return self.size <= other.size
 
     def __eq__(self, other):
-        """Check if the size of the current square is equal to the size of another square.
+        """Compare the size of two squares.
 
         Args:
-            other (Square): Another square object.
+            other (Square): The other square to compare.
 
         Returns:
-            True if the squares are equal in size, False otherwise.
+            True if the size of the current square is equal to the other square, False otherwise.
         """
         return self.size == other.size
 
     def __ne__(self, other):
-        """Check if the size of the current square is
-        not equal to the size of another square.
+        """Compare the size of two squares.
 
         Args:
-            other (Square): Another square object.
+            other (Square): The other square to compare.
 
         Returns:
-            True if the squares are not equal in size, False otherwise.
+            True if the size of the current square is not equal to the other square, False otherwise.
         """
         return self.size != other.size
 
     def __ge__(self, other):
-        """Check if the size of the current square is
-        greater than or equal to the size of another square.
+        """Compare the size of two squares.
 
         Args:
-            other (Square): Another square object.
+            other (Square): The other square to compare.
 
         Returns:
-            True if the current square is larger or equal, False otherwise.
+            True if the size of the current square is greater than or equal to the other square, False otherwise.
         """
         return self.size >= other.size
