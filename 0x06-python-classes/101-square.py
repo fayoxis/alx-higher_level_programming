@@ -35,18 +35,16 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if (
-            not isinstance(value, tuple)
-            or len(value) != 2
-            or not all(isinstance(num, int) for num in value)
-            or not all(num >= 0 for num in value)
-        ):
+        if (not isinstance(value, tuple) or
+                len(value) != 2 or
+                not all(isinstance(num, int) for num in value) or
+                not all(num >= 0 for num in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     def area(self):
         """Return the current area of the square."""
-        return self.__size ** 2
+        return self.__size * self.__size
 
     def my_print(self):
         """Print the square with the # character."""
@@ -56,7 +54,6 @@ class Square:
 
         for _ in range(self.__position[1]):
             print("")
-
         for _ in range(self.__size):
             for _ in range(self.__position[0]):
                 print(" ", end="")
@@ -66,15 +63,22 @@ class Square:
 
     def __str__(self):
         """Define the print() representation of a Square."""
-        result = ""
+        output = ""
         if self.__size != 0:
             for _ in range(self.__position[1]):
-                result += "\n"
+                output += "\n"
+        for _ in range(self.__size):
+            for _ in range(self.__position[0]):
+                output += " "
             for _ in range(self.__size):
-                for _ in range(self.__position[0]):
-                    result += " "
-                for _ in range(self.__size):
-                    result += "#"
-                if _ != self.__size - 1:
-                    result += "\n"
-        return result
+                output += "#"
+            if i != self.__size - 1:
+                output += "\n"
+        return output
+
+
+# Testing the Square class
+square1 = Square(5, (2, 3))
+print(square1)
+square2 = Square(0)
+print(square2)
