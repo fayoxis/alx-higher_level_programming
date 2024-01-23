@@ -46,7 +46,7 @@ class Square:
 
     def area(self):
         """Return the current area of the square."""
-        return self.__size ** 2
+        return self.__size * self.__size
 
     def my_print(self):
         """Print the square with the # character."""
@@ -55,17 +55,19 @@ class Square:
             return
 
         for _ in range(self.__position[1]):
-            print()
+            print("")
         for _ in range(self.__size):
             print(" " * self.__position[0], end="")
             print("#" * self.__size)
-        print()
 
     def __str__(self):
         """Define the print() representation of a Square."""
-        if self.__size == 0:
-            return ""
-
-        square_str = "\n" * self.__position[1]
-        square_str += "".join(" " * self.__position[0] + "#" * self.__size + "\n" for _ in range(self.__size))
-        return square_str
+        if self.__size != 0:
+            for _ in range(self.__position[1]):
+                print("")
+        for _ in range(self.__size):
+            print(" " * self.__position[0], end="")
+            print("#" * self.__size)
+            if _ != self.__size - 1:
+                print("")
+        return ""
