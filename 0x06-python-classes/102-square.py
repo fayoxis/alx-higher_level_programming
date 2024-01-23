@@ -45,56 +45,20 @@ class Square:
         return self.__size ** 2
 
     def __lt__(self, other) -> bool:
-        """Compare the size of two squares.
-
-        Args:
-            other (Square): The other square to compare.
-
-        Returns:
-            True if the size of the current square is less than the other square, False otherwise.
-        """
+      
         return self.size < other.size
 
     def __le__(self, other) -> bool:
-        """Compare the size of two squares.
-
-        Args:
-            other (Square): The other square to compare.
-
-        Returns:
-            True if the size of the current square is less than or equal to the other square, False otherwise.
-        """
+      
         return self.size <= other.size
 
     def __eq__(self, other) -> bool:
-        """Compare the size of two squares.
-
-        Args:
-            other (Square): The other square to compare.
-
-        Returns:
-            True if the size of the current square is equal to the other square, False otherwise.
-        """
+   
         return self.size == other.size
 
     def __ne__(self, other) -> bool:
-        """Compare the size of two squares.
-
-        Args:
-            other (Square): The other square to compare.
-
-        Returns:
-            True if the size of the current square is not equal to the other square, False otherwise.
-        """
+    
         return self.size != other.size
 
     def __ge__(self, other) -> bool:
-        """Compare the size of two squares.
-
-        Args:
-            other (Square): The other square to compare.
-
-        Returns:
-            True if the size of the current square is greater than or equal to the other square, False otherwise.
-        """
         return self.size >= other.size
