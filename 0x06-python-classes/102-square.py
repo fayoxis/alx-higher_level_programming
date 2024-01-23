@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-""" 
+"""
 This is the Square class that defines a square.
 """
 
 
 class Square:
-    """ 
+    """
     This class defines a square.
     """
     def __init__(self, size=0):
-        """ 
+        """
         Initializes an instance of the Square class.
 
         Args:
@@ -29,7 +29,7 @@ class Square:
 
     @size.setter
     def size(self, value):
-        """ 
+        """
         Sets the size of the square.
 
         Args:
@@ -43,16 +43,16 @@ class Square:
             self.__size = value
 
     def area(self):
-        """ 
+        """
         Calculates the area of the square.
 
         Returns:
             int: The area of the square.
         """
-        return self.__size**2
+        return self.__size ** 2
 
     def __lt__(self, other):
-        """ 
+        """
         Checks if the size of the current square.
 
         Args:
@@ -64,19 +64,19 @@ class Square:
         return self.size < other.size
 
     def __le__(self, other):
-        """ 
+        """
         Checks if the size of the current square.
 
         Args:
             other (Square): Another square to compare with.
 
         Returns:
-            bool: True if the current square is smaller or equal, False otherwise.
+            bool: True if the current square.
         """
         return self.size <= other.size
 
     def __eq__(self, other):
-        """ 
+        """
         Checks if the size of the current square.
 
         Args:
@@ -88,7 +88,7 @@ class Square:
         return self.size == other.size
 
     def __ne__(self, other):
-        """ 
+        """
         Checks if the size of the current square.
 
         Args:
@@ -100,13 +100,13 @@ class Square:
         return self.size != other.size
 
     def __ge__(self, other):
-        """ 
+        """
         Checks if the size of the current square.
 
         Args:
             other (Square): Another square to compare with.
 
         Returns:
-            bool: True if the current square
+            bool: True if the current square.
         """
         return self.size >= other.size
