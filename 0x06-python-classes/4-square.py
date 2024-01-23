@@ -1,43 +1,37 @@
 #!/usr/bin/python3
-
 class Square:
-    """A class representing a square"""
-
-    def __init__(self, size=0):
-        """Initializes the square instance.
+    """This class represents a square."""
+    def __init__(self, side_length=0):
+        """Initialize the Square class.
 
         Args:
-            size (int): The size of the square.
+            side_length (int): The length of the side of the square.
         """
-        self.size = size
+        self.side_length = side_length
 
     @property
-    def size(self):
-        """Gets the size of the square."""
-        return self.__size
+    def side_length(self):
+        """Get the length of the side of the square."""
+        return self.__side_length
 
-    @size.setter
-    def size(self, value):
-        """Sets the size of the square.
+    @side_length.setter
+    def side_length(self, value):
+        """Set the length of the side of the square.
 
         Args:
-            value (int): The size value to set.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than 0.
+            value (int): The length of the side of the square.
         """
         if not isinstance(value, int):
-            raise TypeError("size must be an integer")
+            raise TypeError("side_length must be an integer")
         elif value < 0:
-            raise ValueError("size must be >= 0")
+            raise ValueError("side_length must be >= 0")
         else:
-            self.__size = value
+            self.__side_length = value
 
     def area(self):
-        """Calculates the area of the square.
+        """Calculate the area of the square.
 
         Returns:
             int: The area of the square.
         """
-        return self.__size * self.__size
+        return self.__side_length * self.__side_length
