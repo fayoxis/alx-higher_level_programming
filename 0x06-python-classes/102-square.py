@@ -1,64 +1,112 @@
 #!/usr/bin/python3
-"""Square class that defines a square"""
+""" 
+This is the Square class that defines a square.
+"""
 
 
 class Square:
-    """Square class that defines a square"""
-
-    def __init__(self, size: int = 0):
-        """Initialize the square.
+    """ 
+    This class defines a square.
+    """
+    def __init__(self, size=0):
+        """ 
+        Initializes an instance of the Square class.
 
         Args:
-            size (int): Size of the square.
+            size (int): The size of the square.
         """
-        self.size = size
+        self.__size = size
 
     @property
-    def size(self) -> int:
-        """int: Private size of the square.
+    def size(self):
+        """
+        Retrieves the size of the square.
 
         Returns:
-            The private size of the square.
+            int: The size of the square.
         """
         return self.__size
 
     @size.setter
-    def size(self, new_size: int):
-        """Set the size of the square.
+    def size(self, value):
+        """ 
+        Sets the size of the square.
 
         Args:
-            new_size (int): Size of the square.
+            value (int): The size of the square.
         """
-        if not isinstance(new_size, int):
-            raise TypeError('size must be an integer')
-        elif new_size < 0:
+        if type(value) is not int and type(value) is not float:
+            raise TypeError('size must be a number')
+        elif value < 0:
             raise ValueError('size must be >= 0')
         else:
-            self.__size = new_size
+            self.__size = value
 
-    def area(self) -> int:
-        """Calculate the area of the square.
+    def area(self):
+        """ 
+        Calculates the area of the square.
 
         Returns:
-            The area of the square.
+            int: The area of the square.
         """
-        return self.__size ** 2
+        return self.__size**2
 
-    def __lt__(self, other) -> bool:
-      
+    def __lt__(self, other):
+        """ 
+        Checks if the size of the current square.
+
+        Args:
+            other (Square): Another square to compare with.
+
+        Returns:
+            bool: True if the current square is smaller, False otherwise.
+        """
         return self.size < other.size
 
-    def __le__(self, other) -> bool:
-      
+    def __le__(self, other):
+        """ 
+        Checks if the size of the current square.
+
+        Args:
+            other (Square): Another square to compare with.
+
+        Returns:
+            bool: True if the current square is smaller or equal, False otherwise.
+        """
         return self.size <= other.size
 
-    def __eq__(self, other) -> bool:
-   
+    def __eq__(self, other):
+        """ 
+        Checks if the size of the current square.
+
+        Args:
+            other (Square): Another square to compare with.
+
+        Returns:
+            bool: True if the current square is equal, False otherwise.
+        """
         return self.size == other.size
 
-    def __ne__(self, other) -> bool:
-    
+    def __ne__(self, other):
+        """ 
+        Checks if the size of the current square.
+
+        Args:
+            other (Square): Another square to compare with.
+
+        Returns:
+            bool: True if the current square is not equal, False otherwise.
+        """
         return self.size != other.size
 
-    def __ge__(self, other) -> bool:
+    def __ge__(self, other):
+        """ 
+        Checks if the size of the current square.
+
+        Args:
+            other (Square): Another square to compare with.
+
+        Returns:
+            bool: True if the current square
+        """
         return self.size >= other.size
