@@ -1,34 +1,34 @@
 #!/usr/bin/python3
-"""Define  a singly-linkedlist."""
+"""Define classes for singly-linked list."""
 
 
 class Node:
-    """Represents a node in singly-linkedlist."""
+    """Represents node in a singly-linked list."""
 
     def __init__(self, data, next_node=None):
-        """Initialize the new Node.
+        """Initialize a new Node.
 
         Args:
-            data (int): The data of  new Node.
-            next_node (Node):  next node of the new Node.
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
         """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """Get || set the data of the Node."""
+        """Get or set the data of the Node."""
         return self.__data
 
     @data.setter
     def data(self, value):
         if not isinstance(value, int):
-            raise TypeError("the data must be an integer")
+            raise TypeError("data must be an integer")
         self.__data = value
 
     @property
     def next_node(self):
-        """Get || set the next_node of  Node."""
+        """Get or set the next_node of the Node."""
         return self.__next_node
 
     @next_node.setter
@@ -39,17 +39,17 @@ class Node:
 
 
 class SinglyLinkedList:
-    """Represents the singly-linked list."""
+    """Represents  singly-linked list."""
 
     def __init__(self):
         """Initialize  new SinglyLinkedList."""
         self.__head = None
 
     def sorted_insert(self, value):
-        """Insert a new Node in SinglyLinkedList.
+        """Insert  new Node into the SinglyLinkedList.
 
-        The node is inserted into the list at the exact
-        ordered position.
+        The node inserted into the list at the correct
+        ordered numerical position.
 
         Args:
             value (Node): The new Node to insert.
