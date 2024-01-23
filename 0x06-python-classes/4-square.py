@@ -1,48 +1,44 @@
 #!/usr/bin/python3
+"""Class Square that represents a square"""
 
 
 class Square:
-    """
-    class square that has attributes:
-        size
-    some attributes are protected from input.
-    """
-    def __init__(self, size=0):
+    """Class Square that represents a square"""
+    def __init__(self, side_length=0):
+        """Initialize the square
+
+        Args:
+            side_length (int): Length of the side of the square.
         """
-        initialization function for our square clasee
-        """
-        if self.__validate_size(size):
-            self.__size = size
+        self.side_length = side_length
 
     @property
-    def size(self):
-        """
-        getter for size attribute
-        """
-        return self.__size
+    def side_length(self):
+        """int: Length of the side of the square.
 
-    @size.setter
-    def size(self, value):
+        Returns:
+            Length of the side of the square.
         """
-        setter for size attribute
+        return self.__side_length
+
+    @side_length.setter
+    def side_length(self, value):
+        """Set the value as the side length of the square, must be an int.
+
+        Args:
+            value (int): Length of the side of the square.
         """
-        if self.__validate_size(value):
-            self.__size = value
+        if type(value) is not int:
+            raise TypeError('side_length must be an integer')
+        elif value < 0:
+            raise ValueError('side_length must be >= 0')
+        else:
+            self.__side_length = value
 
     def area(self):
-        """
-        calculates the area of the square
-        """
-        return self.__size ** 2
+        """Calculate and return the area of the square.
 
-    def __validate_size(self, size):
+        Returns:
+            Area of the square.
         """
-        validates the size, checking for errors
-        """
-        if type(size) != int:
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            return True
-        return False
+        return self.__side_length ** 2
