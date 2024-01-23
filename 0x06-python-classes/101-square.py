@@ -52,27 +52,25 @@ class Square:
             print("")
             return
 
-        for _ in range(self.__position[1]):
+        for i in range(self.__position[1]):
             print("")
-        for _ in range(self.__size):
-            for _ in range(self.__position[0]):
+        for i in range(self.__size):
+            for j in range(self.__position[0]):
                 print(" ", end="")
-            for _ in range(self.__size):
+            for k in range(self.__size):
                 print("#", end="")
             print("")
 
     def __str__(self):
         """Define the print() representation of a Square."""
-        if self.__size == 0:
-            return ""
-
-        output = ""
-        for _ in range(self.__position[1]):
-            output += "\n"
-        for _ in range(self.__size):
-            for _ in range(self.__position[0]):
-                output += " "
-            for _ in range(self.__size):
-                output += "#"
-            output += "\n"
-        return output
+        if self.__size != 0:
+            for i in range(self.__position[1]):
+                print("")
+            for i in range(self.__size):
+                for j in range(self.__position[0]):
+                    print(" ", end="")
+                for k in range(self.__size):
+                    print("#", end="")
+                if i != self.__size - 1:
+                    print("")
+        return ""
