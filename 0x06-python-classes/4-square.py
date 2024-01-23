@@ -1,44 +1,52 @@
 #!/usr/bin/python3
-"""Class Square that represents a square"""
 
+"""
+This program defines a class Square that represents a square shape.
+"""
 
 class Square:
-    """Class Square that represents a square"""
-    def __init__(self, side_length=0):
-        """Initialize the square
+    """
+    This class represents a square shape.
+    """
+    def __init__(self, size=0):
+        """
+        Initializes a square object.
 
         Args:
-            side_length (int): Length of the side of the square.
+            size (int): The size of the square. Default is 0.
         """
-        self.side_length = side_length
+        self.size = size
 
     @property
-    def side_length(self):
-        """int: Length of the side of the square.
+    def size(self):
+        """
+        Gets the size of the square.
 
         Returns:
-            Length of the side of the square.
+            int: The size of the square.
         """
-        return self.__side_length
+        return self.__size
 
-    @side_length.setter
-    def side_length(self, value):
-        """Set the value as the side length of the square, must be an int.
+    @size.setter
+    def size(self, value):
+        """
+        Sets the size of the square.
 
         Args:
-            value (int): Length of the side of the square.
+            value (int): The size of the square.
         """
         if type(value) is not int:
-            raise TypeError('side_length must be an integer')
+            raise TypeError('size must be an integer')
         elif value < 0:
-            raise ValueError('side_length must be >= 0')
+            raise ValueError('size must be >= 0')
         else:
-            self.__side_length = value
+            self.__size = value
 
     def area(self):
-        """Calculate and return the area of the square.
+        """
+        Calculates the area of the square.
 
         Returns:
-            Area of the square.
+            int: The area of the square.
         """
-        return self.__side_length ** 2
+        return self.__size ** 2
