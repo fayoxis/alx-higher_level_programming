@@ -3,7 +3,7 @@
 
 class Rectangle:
     """
-    The `Rectangle` class represents a rectangle object with a given width and height. 
+    The `Rectangle` class represents a rectangle object with a given width and height.
     - `number_of_instances`: A class attribute that keeps track of the number of `Rectangle` instances created.
     - `print_symbol`: A class attribute that represents the symbol used to print the rectangle.
     """
@@ -12,7 +12,7 @@ class Rectangle:
 
     def __init__(self, width=0, height=0):
         """
-        Initializes a `Rectangle` object with the specified width and height. 
+        Initializes a `Rectangle` object with the specified width and height.
         Args:
         - `width`: The width of the rectangle (default: 0).
         - `height`: The height of the rectangle (default: 0).
@@ -96,7 +96,7 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns a string representation of the rectangle, using the `print_symbol` 
+        Returns a string representation of the rectangle, using the `print_symbol`
         
         Returns:
         - A string representation of the rectangle.
