@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <string.h>
 #include <locale.h>
 #include <Python.h>
 #include <unicodeobject.h>
