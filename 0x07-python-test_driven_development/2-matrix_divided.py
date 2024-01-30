@@ -53,7 +53,5 @@ def matrix_divided(matrix, div):
     new_matrix = [[round(j / div, 2) for j in i] for i in matrix]
 
     return new_matrix
-
-matrix = [[1.0, 2.0, 3.0], [1.0, 2.0, 3.0]]
 div = 2
 print(matrix_divided(matrix, div))
