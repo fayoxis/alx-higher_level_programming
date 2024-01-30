@@ -54,6 +54,6 @@ def matrix_divided(matrix, div):
 
     return new_matrix
 
-matrix = [[1, 2, 3], [1, 2, 3]]
+matrix = [[1.0, 2.0, 3.0], [1.0, 2.0, 3.0]]
 div = 2
 print(matrix_divided(matrix, div))
