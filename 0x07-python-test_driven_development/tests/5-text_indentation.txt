@@ -45,8 +45,8 @@ Printing a word with a special character at the end:
 
 Passing a text with spaces between words and a special character at the end:
 
-  >>> text_indentation("What is up baby doll?    how are you?")
-    What is up baby doll?
+  >>> text_indentation("What is up?    how are you?")
+    What is up?
     <BLANKLINE>
     how are you?
     <BLANKLINE>
@@ -65,17 +65,13 @@ Passing None as text will raise a TypeError:
         ...
     TypeError: text must be a string
 
-If no arguments are passed to text_indentation(), it will raise a
-TypeError with a message indicating a missing argument:
-
+Passing no arguments to text_indentation.
     >>> text_indentation()
     Traceback (most recent call last):
         ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
 
-Passing more than one argument to text_indentation() will raise a
-TypeError with a message indicating that only one argument is expected:
-
+Passing more than one argument to text_indentation.
     >>> text_indentation("Hola", "Commo Estas") #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
