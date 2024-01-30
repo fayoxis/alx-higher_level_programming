@@ -21,48 +21,61 @@ example 1 : Passing the given text.
     <BLANKLINE>
     
 
-Passing an empty string as text.
+Here are some additional examples of using the text_indentation() function:
+
+Passing an empty string as text:
+
     >>> text_indentation("")
 
-Passing a text with space at the beginning.
+Passing a text with spaces at the beginning:
+
     >>> text_indentation("        Hello Breezy")
     Hello Breezy
 
-Printing a word with spaces around it.
+Printing a word with spaces around it:
+
     >>> text_indentation("    Villegas    ")
     Villegas
 
-Printing a word with a special character at the end.
+Printing a word with a special character at the end:
+
     >>> text_indentation("    Hello    .")
     Hello.
     <BLANKLINE>
 
-Passing a text with space between words and a special character at end.
-    >>> text_indentation("What is up baby doll?    how are you?")
-    What is up baby doll?
+Passing a text with spaces between words and a special character at the end:
+
+    >>> text_indentation("What is up ?    how are you?")
+    What is up ?
     <BLANKLINE>
     how are you?
     <BLANKLINE>
 
-Passing a non-string as text.
+Passing a non-string as text will raise a TypeError:
+
     >>> text_indentation(123)
     Traceback (most recent call last):
         ...
     TypeError: text must be a string
 
-Passing None as text:
+Passing None as text will raise a TypeError:
+
     >>> text_indentation(None)
     Traceback (most recent call last):
         ...
     TypeError: text must be a string
 
-Passing no arguments to text_indentation.
+If no arguments are passed to text_indentation(), it will raise a
+TypeError with a message indicating a missing argument:
+
     >>> text_indentation()
     Traceback (most recent call last):
         ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
 
-Passing more than one argument to text_indentation.
+Passing more than one argument to text_indentation() will raise a
+TypeError with a message indicating that only one argument is expected:
+
     >>> text_indentation("Hola", "Commo Estas") #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
