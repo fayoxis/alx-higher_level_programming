@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <locale.h>
+#include <Python.h>
+#include <unicodeobject.h>
 /**
  * print_python_string - Function that prints information
  * about Python strings
