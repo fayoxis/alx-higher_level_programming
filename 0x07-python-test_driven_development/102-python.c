@@ -2,7 +2,7 @@
 #include <string.h>
 
 /**
- * print_python_strings - Function that prints information
+ * print_python_string - Function that prints information
  * about Python strings
  * @objects: Array of PyObject pointers representing Python objects.
  * @size: Size of the array.
@@ -10,7 +10,7 @@
  * and prints information
  * about each Python string object in the array.
  */
-void print_python_strings(PyObject **objects, int size)
+void print_python_string(PyObject *objects)
 {
 PyObject *str, *repr;
 (void)repr;
