@@ -1,6 +1,6 @@
-# This is the ``3-say_my_name`` module
+# This is the  ``3-say_my_name`` module
 ============================================
-diferent  ways to use to use 3-say_my_name.py
+different ways to use 3-say_my_name.py
 ============================================
 
 This is an example of how to use the 3-say_my_name.py library.
@@ -8,14 +8,13 @@ This is an example of how to use the 3-say_my_name.py library.
 The library contains a single function called say_my_name().
 
 To import the say_my_name() function, use the following code:
-``say_my_name()`` prints a person's first name and last name.
 
 Importing the function say_my_name.
     >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Here are some examples of how to use the function correctly:
 
-Example 1: Passing both the first name and the last name.
+Example 1: Passing both the first name and the last name
 
     >>> say_my_name("Wendy", "Munyasi")
     My name is Wendy Munyasi
@@ -23,42 +22,36 @@ Example 1: Passing both the first name and the last name.
     >> say_my_name("Breezy")
     My name is Breezy
 
-Example 2: Passing only the first name
+Passing last_name as None.
     >>> say_my_name("Wendy", None)
     Traceback (most recent call last):
         ...
     TypeError: last_name must be a string
 
-Please note that there are some error cases that you should be aware of:
-Error 1: Passing None as the last name:
-
+Passing first_name and last_name as None.
     >>> say_my_name(None, None)
     Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
 
-Error 2: Passing None as both the first name and the last name:
-
+Passing first name as None.
     >>> say_my_name(None, "Breezy")
     Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
 
-Error 3: Passing None as the first name:
-
+Passing wrong types as first_name and last_name
     >>> say_my_name(1, "Breezy")
     Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
-Error 4: Passing incorrect types for the first name and the last name:
 
     >>> say_my_name("Chris", [4])
     Traceback (most recent call last):
         ...
     TypeError: last_name must be a string
 
-Error 5: Passing more than two arguments to say_my_name():
-
+Passing more than two arguments to say_my_name().
     >>> say_my_name("Chris", "Breezy", "Brown") #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
