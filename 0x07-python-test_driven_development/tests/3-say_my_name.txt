@@ -38,13 +38,14 @@ Error 1: Passing None as the last name:
         ...
     TypeError: first_name must be a string
 
-Passing first name as None.
+Error 2: Passing None as both the first name and the last name:
+
     >>> say_my_name(None, "Breezy")
     Traceback (most recent call last):
         ...
     TypeError: first_name must be a string
 
-Passing wrong types as first_name and last_name
+Error 3: Passing wrong types as first_name and last_name:
     >>> say_my_name(1, "Breezy")
     Traceback (most recent call last):
         ...
@@ -55,7 +56,7 @@ Passing wrong types as first_name and last_name
         ...
     TypeError: last_name must be a string
 
-Passing more than two arguments to say_my_name().
+Error 4: Passing more than two arguments to say_my_name().:
     >>> say_my_name("Chris", "Breezy", "Brown") #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
