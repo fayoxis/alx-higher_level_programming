@@ -1,11 +1,6 @@
 #!/usr/bin/python3
-
-class MagicString:
-    def __init__(self):
-        self.n = 0
-
-    def magic_string(self):
-        self.n += 1
-        return ("BestSchool, " * (self.n - 1) + "BestSchool")
-
-magic_string = MagicString().magic_string
+def magic_string():
+    if not hasattr(magic_string, 'n'):
+        magic_string.n = 0
+    magic_string.n += 1
+    return ("BestSchool, " * (magic_string.n - 1) + "BestSchool")
