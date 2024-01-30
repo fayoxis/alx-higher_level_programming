@@ -21,18 +21,18 @@ example 1 : Passing the given text.
     <BLANKLINE>
     
 
-Passing an empty string as text.
+example 2: Passing an empty string just as text.
     >>> text_indentation("")
 
-Passing a text with space at the beginning.
+Passing  text with space just at the beginning.
     >>> text_indentation("        Hello Breezy")
     Hello Breezy
 
-Printing a word with spaces around it.
+Printing  word with spaces just around it:
     >>> text_indentation("    Villegas    ")
     Villegas
 
-Printing a word with a special character at the end.
+Printing a word with a special character just at the end:
     >>> text_indentation("    Hello    .")
     Hello.
     <BLANKLINE>
