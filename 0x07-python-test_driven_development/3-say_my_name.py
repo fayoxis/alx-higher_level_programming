@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""Defines a function that prints my name.
+"""Defines a function that prints a given name.
 
 Attributes:
-    say_my_name: function that prints my name.
+    say_given_name: function that prints a given name.
 """
-
 
 def say_my_name(first_name, last_name=""):
     """Prints a given name.
