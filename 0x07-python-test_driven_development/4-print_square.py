@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""Defines a function that prints a square with the character #.
+"""This script defines a function that prints a square with the character #.
 
 Attributes:
-    print_square: function that prints a square with the character #.
+    print_square: A function that prints a square with the character #.
 """
 
 
@@ -10,7 +10,7 @@ def print_square(size):
     """Prints a square with the character #.
 
     Args:
-        size (int): Size of the square (1 side).
+        size (int): The size of the square (length of one side).
 
     Raises:
         TypeError: If size is not an integer or is less than 0.
