@@ -44,19 +44,20 @@ Passing a text with space between words and a special character at end.
     how are you?
     <BLANKLINE>
 
-Passing a non-string as text.
+Passing a non-string as text will raise a TypeError:
     >>> text_indentation(123)
     Traceback (most recent call last):
         ...
     TypeError: text must be a string
 
-Passing None as text:
+Passing None as text will raise a TypeError:
     >>> text_indentation(None)
     Traceback (most recent call last):
         ...
     TypeError: text must be a string
 
-Passing no arguments to text_indentation.
+If no arguments are passed to text_indentation(), it will raise a
+TypeError with a message indicating a missing argument:
     >>> text_indentation()
     Traceback (most recent call last):
         ...
