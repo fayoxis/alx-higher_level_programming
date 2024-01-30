@@ -1,99 +1,70 @@
-======================
-5-text_square
-======================
+# This is the ``5-text_indentation`` module
+============================================
 
-Print square  module is the unit test that verifies print of '#' in a row
+his is an example of how to use the "5-text_indentation.py" module.
 
-=====================
+The module provides a function called text_indentation().
 
-::
+The text_indentation() function prints a text with two new lines
+after each of the following characters: ., ? and :
 
+Here is an example of how to import and use the function:
+
+Importing the function matrix_divided.
     >>> text_indentation = __import__('5-text_indentation').text_indentation
-    >>> text_indentation("elit.")
-    elit.
+
+example 1 : Passing the given text.
+    >>> text_indentation("""Lorem ipsum dolor sit amet, """)
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
     <BLANKLINE>
 
-It also works when there is a space in the beginning of a line.
+Passing an empty string as text.
+    >>> text_indentation("")
 
-::
+Passing a text with space at the beginning.
+    >>> text_indentation("        Hello Breezy")
+    Hello Breezy
 
-    >>> text_indentation("	adipiscing elit.")
-    adipiscing elit.
+Printing a word with spaces around it.
+    >>> text_indentation("    Villegas    ")
+    Villegas
+
+Printing a word with a special character at the end.
+    >>> text_indentation("    Hello    .")
+    Hello.
     <BLANKLINE>
 
-It also works when there is no argument printed in the string
-
-::
-
-    >>> text_indentation("    ")
-
-
-It also works when there are spaces at the end of a line
-
-::
-
-    >>> text_indentation("commovere?    ")
-    commovere?
+Passing a text with space between words and a special character at end.
+    >>> text_indentation("What is up baby doll?    how are you?")
+    What is up baby doll?
+    <BLANKLINE>
+    how are you?
     <BLANKLINE>
 
-It also works when there are spaces and a new line with the same pattern
-
-::
-
-    >>> text_indentation("    illud quidem.    nihil dolere.   ")
-    illud quidem.
-    <BLANKLINE>
-    nihil dolere.
-    <BLANKLINE>
-
-It also works when there is no '?', '.', ':' in the end of the line
-
-::
-
-    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur")
-    Lorem ipsum dolor sit amet, consectetur
-
-It also works when you print a newline \n
-
-::
-
-    >>> text_indentation("finem illi videri nihil dolere.\n Transfer idem.")
-    finem illi videri nihil dolere.
-    <BLANKLINE>
-    <BLANKLINE>
-    Transfer idem.
-    <BLANKLINE>
-
-::
-
-    >>> text_indentation("\n\n Lorem ipsum dolor.")
-    <BLANKLINE>
-    <BLANKLINE>
-    Lorem ipsum dolor.
-    <BLANKLINE>
-
-TypeError is not a string
-
-::
-
-    >>> text_indentation(4)
+Passing a non-string as text.
+    >>> text_indentation(123)
     Traceback (most recent call last):
+        ...
     TypeError: text must be a string
 
-TypeError is not string
-
-::
-
-    >>> text_indentation({"Lorem": 1, "ipsum": 2})
-    Traceback (most recent call last):
-    TypeError: text must be a string
-
-TypeError is None
-
-::
-
+Passing None as text:
     >>> text_indentation(None)
     Traceback (most recent call last):
+        ...
     TypeError: text must be a string
 
-::
+Passing no arguments to text_indentation.
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Passing more than one argument to text_indentation.
+    >>> text_indentation("Hola", "Commo Estas") #doctest: +ELLIPSIS
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() takes 1 positional argument but ...
