@@ -3,8 +3,11 @@
 How to use 3-say_my_name.py
 ============================================
 
-This library has one function called ``say_my_name()``
+This is an example of how to use the 3-say_my_name.py library.
 
+The library contains a single function called say_my_name().
+
+To import the say_my_name() function, use the following code:
 ``say_my_name()`` prints a person's first name and last name.
 
 Importing the function say_my_name.
