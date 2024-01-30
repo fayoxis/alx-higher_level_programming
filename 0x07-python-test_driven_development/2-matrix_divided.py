@@ -52,7 +52,7 @@ def matrix_divided(matrix, div):
     return new_matrix
 
 # Example usage
-matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-divisor = 2
+matrix = [[1, 2, 3], [4, 5, 6]]
+divisor = 3
 result = matrix_divided(matrix, divisor)
 print(result)
