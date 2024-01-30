@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Defines a function that prints a given name.
+"""Defines a function that prints my name.
 
 Attributes:
-    say_given_name: function that prints a given name.
+    say_my_name: function that prints my name.
 """
 
 
-def say_given_name(given_name, family_name=""):
+def say_my_name(first_name, last_name=""):
     """Prints a given name.
 
     Args:
@@ -19,10 +19,10 @@ def say_given_name(given_name, family_name=""):
     Prints:
         The name in the format "The name is {given_name} {family_name}".
     """
-    if not isinstance(given_name, str):
-        raise TypeError("given_name must be a string")
+    if not isinstance(first_name, str):
+        raise TypeError("first_name must be a string")
 
-    if not isinstance(family_name, str):
-        raise TypeError("family_name must be a string")
+    if not isinstance(last_name, str):
+        raise TypeError("last_name must be a string")
 
-    print("The name is {} {}".format(given_name, family_name))
+    print("My name is {} {}".format(first_name, last_name))
