@@ -1,5 +1,5 @@
 ======================
-module 0-add_integer
+0-add_integer
 ======================
 
 This module serves as a unit test for the add_integer function.
@@ -8,24 +8,23 @@ This module serves as a unit test for the add_integer function.
 
 ::
 
->>> add_integer = __import__('0-add_integer').add_integer
->>> add_integer(1, 2)
-3
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
 
 ::
 
 	>>> add_integer(3, -2)
 	1
 
-The add_integer function also works with float numbers.
-
+It also works with float numbers
 
 ::
 
 	>>> add_integer(98.5, 30.2)
 	128
 
-It also works with two float negative numbers.
+It also works with 2 float negative numbers
 
 ::
 
@@ -39,83 +38,83 @@ It also works with one integer number and one float number.
     >>> add_integer(5.5, -2)
     3
 
-It also works with only one argument. The second argument defaults to 98.
+It also works with one argument. 2nd arg is default as 98
 
 ::
 
     >>> add_integer(2)
     100
 
-TypeError message: is of None arguments declared
+TypeError message of None arguments declared
 
 ::
 
     >>> add_integer(None)
-    Traceback (the most recent call last):
-    TypeError: here a must be an integer
+    Traceback (most recent call last):
+    TypeError: a must be an integer
 
-TypeError message: is of second argument non declared
+TypeError message of second argument non declared
 
 ::
 
     >>> add_integer(5, None)
-    Traceback (the most recent call last):
-    TypeError: here b must be an integer
+    Traceback (most recent call last):
+    TypeError: b must be an integer
 
-TypeError a : it is not an integer
+TypeError a is not a integer
 
 ::
 
     >>> add_integer("text", 3)
-    Traceback (the most recent call last):
-    TypeError: here a must be an integer
+    Traceback (most recent call last):
+    TypeError: a must be an integer
 
-TypeError b: it is not an integer
+TypeError b is not a integer
 
 ::
 
     >>> add_integer(3, "text")
-    Traceback (the most recent call last):
-    TypeError: here b must be an integer
+    Traceback (most recent call last):
+    TypeError: b must be an integer
 
-NameError a : it is not an integer is not string
+NameError a is not a integer is not string
 
 ::
 
     >>> add_integer(text, 3)
-    Traceback (the most recent call last):
-    NameError: the name here is 'text' is not defined
+    Traceback (most recent call last):
+    NameError: name 'text' is not defined
 
-NameError a and b : here are not integers nor string
+NameError a and b are not integers nor string
 
 ::
 
     >>> add_integer(text1, text2)
-    Traceback (the most recent call last):
-    NameError: here the name  is 'text1' is not defined
+    Traceback (most recent call last):
+    NameError: name 'text1' is not defined
 
-TypeError a and b: here they are not integers
+TypeError a and b are not integers
 
 ::
 
     >>> add_integer("text1", "text2")
-    Traceback (the most recent call last):
-    TypeError: here a must be an integer
+    Traceback (most recent call last):
+    TypeError: a must be an integer
 
-OverflowError is causing infinity flow where a is int and b is inf
+OverflowError causing infinity flow when a is int and b is inf
 
 ::
 
     >>> add_integer(4, float('inf'))
-    Traceback (the most recent call last):
-    OverflowError: this cannot convert float infinity to an integer
+    Traceback (most recent call last):
+    OverflowError: cannot convert float infinity to integer
 
-ValueError : this is for Non assigned Number NaN
+ValueError for Non assigned Number NaN
 
 ::
 
     >>> add_integer(float('NaN'))
-    Traceback (the most recent call last):
-    ValueError: here this is cannot convert float NaN to integer
+    Traceback (most recent call last):
+    ValueError: cannot convert float NaN to integer
 
 ::
