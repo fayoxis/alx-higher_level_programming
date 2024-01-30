@@ -24,20 +24,20 @@ example 1 : Passing the given text.
 example 2: Passing an empty string just as text.
     >>> text_indentation("")
 
-Passing  text with space just at the beginning.
+example 3 : Passing  text with space just at the beginning.
     >>> text_indentation("        Hello Breezy")
     Hello Breezy
 
-Printing  word with spaces just around it:
+example 4: Printing  word with spaces just around it:
     >>> text_indentation("    Villegas    ")
     Villegas
 
-Printing a word with a special character just at the end:
+example 5 : Printing a word with a special character just at the end:
     >>> text_indentation("    Hello    .")
     Hello.
     <BLANKLINE>
 
-Passing a text with spaces between words and a special character at the end:
+example 6 : Passing a text with spaces between words and a special character at the end:
     >>> text_indentation("What is up?    how are you?")
     What is up?
     <BLANKLINE>
