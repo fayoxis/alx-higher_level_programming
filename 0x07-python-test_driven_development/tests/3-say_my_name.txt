@@ -22,13 +22,17 @@ Example 1: Passing both the first name and the last name
     >> say_my_name("Breezy")
     My name is Breezy
 
-Passing last_name as None.
+Example 2: Passing only the first name.
+
     >>> say_my_name("Wendy", None)
     Traceback (most recent call last):
         ...
     TypeError: last_name must be a string
 
-Passing first_name and last_name as None.
+Please note that there are some error cases that you should be aware of:
+
+Error 1: Passing None as the last name:
+
     >>> say_my_name(None, None)
     Traceback (most recent call last):
         ...
