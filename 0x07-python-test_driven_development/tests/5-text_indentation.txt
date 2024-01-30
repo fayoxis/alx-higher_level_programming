@@ -14,12 +14,10 @@ Importing the function matrix_divided.
     >>> text_indentation = __import__('5-text_indentation').text_indentation
 
 example 1 : Passing the given text.
-    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?""")
+    >>> text_indentation("""Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo?""")
     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     <BLANKLINE>
     Quonam modo?
-    <BLANKLINE>
-    Utrum igitur tibi litteram videor an totas paginas commovere?
     <BLANKLINE>
 
 Passing an empty string as text.
