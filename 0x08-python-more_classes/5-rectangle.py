@@ -1,11 +1,6 @@
-#!/usr/bin/python3
-"""
-This module defines the Rectangle class.
-"""
-
 class Rectangle:
     """
-    Represents a rectangle with a given width and height.
+    A class that defines a Rectangle.
     """
 
     def __init__(self, width=0, height=0):
@@ -13,48 +8,11 @@ class Rectangle:
         Initializes a new instance of the Rectangle class.
 
         Args:
-            width (int, optional): The width of the rectangle. Defaults set to 0.
-            height (int, optional): The height of the rectangle. Defaults set to 0.
+            width (int): The width of the rectangle. Defaults to 0.
+            height (int): The height of the rectangle. Defaults to 0.
         """
-        self.__width = width
-        self.__height = height
-
-    def __str__(self):
-        """
-        Returns the string representating rectangle using '#' characters.
-
-        Returns:
-            str: The rectangle is a string.
-        """
-        rectangle = []
-
-        if self.__width == 0 or self.__height == 0:
-            return ""
-
-        for i in range(self.__height):
-            for j in range(self.__width):
-                rectangle.append("#")
-            rectangle.append("\n")
-
-        # Remove the last newline character
-        rectangle.pop()
-
-        return "".join(rectangle)
-
-    def __repr__(self):
-        """
-        Returns the string representating rectangle.
-
-        Returns:
-            str: The rectangle representation.
-        """
-        return f"Rectangle({self.__width}, {self.__height})"
-
-    def __del__(self):
-        """
-        Deletes an instance of the Rectangle class.
-        """
-        print("Rectangle instance has been deleted.")
+        self.width = width
+        self.height = height
 
     @property
     def width(self):
@@ -62,7 +20,7 @@ class Rectangle:
         Retrieves the width of the rectangle.
 
         Returns:
-            int: The width of the rectangle.
+            The width of the rectangle.
         """
         return self.__width
 
@@ -75,23 +33,22 @@ class Rectangle:
             value (int): The width of the rectangle.
 
         Raises:
-            TypeError: If width is not an integer.
-            ValueError: If width is less than 0.
+            TypeError: If value is not an integer.
+            ValueError: If value is less than 0.
         """
         if not isinstance(value, int):
-            raise TypeError("Width must be an integer.")
-        elif value < 0:
-            raise ValueError("Width must be >= 0.")
-        else:
-            self.__width = value
+            raise TypeError("width must be an integer")
+        if value < 0:
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
     @property
     def height(self):
         """
-        Retrieves height of the rectangle.
+        Retrieves the height of the rectangle.
 
         Returns:
-            int: The height of the rectangle.
+            The height of the rectangle.
         """
         return self.__height
 
@@ -104,33 +61,58 @@ class Rectangle:
             value (int): The height of the rectangle.
 
         Raises:
-            TypeError: If height is not an integer.
-            ValueError: If height is less than 0.
+            TypeError: If value is not an integer.
+            ValueError: If value is less than 0.
         """
         if not isinstance(value, int):
-            raise TypeError("Height must be an integer.")
-        elif value < 0:
-            raise ValueError("Height must be >= 0.")
-        else:
-            self.__height = value
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
 
     def area(self):
         """
-        Calculates  area of the rectangle.
+        Computes the area of the rectangle.
 
         Returns:
-            int: The area of the rectangle.
+            The area of the rectangle.
         """
-        return self.__height * self.__width
+        return self.__width * self.__height
 
     def perimeter(self):
         """
-        Calculates perimeter of the rectangle.
+        Computes the perimeter of the rectangle.
 
         Returns:
-            int: The perimeter of the rectangle.
+            The perimeter of the rectangle.
         """
-        if self.__height == 0 or self.width == 0:
+        if self.__width == 0 or self.__height == 0:
             return 0
         else:
-            return 2 * (self.__height + self.__width)
+            return (self.__width + self.__height) * 2
+
+    def __str__(self):
+        """
+        Returns a string representation of the Rectangle object with "#" characters.
+        """
+        rec_string = ""
+        if self.__width == 0 or self.__height == 0:
+            return rec_string
+        else:
+            for i in range(0, self.__height):
+                for j in range(0, self.__width):
+                    rec_string += "#"
+                rec_string += "\n"
+            return rec_string[:-1]
+
+    def __repr__(self):
+        """
+        Returns a string representation of the Rectangle object.
+        """
+        return "Rectangle({}, {})".format(self.__width, self.__height)
+
+    def __del__(self):
+        """
+        Destructor for the Rectangle object.
+        """
+        print("Bye rectangle...", flush=True)
