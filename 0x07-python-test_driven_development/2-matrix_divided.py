@@ -1,32 +1,32 @@
 #!/usr/bin/python3
 import math
-"""Defines a function that divides all elements of a matrix.
+"""Defines the function that divides all elements of matrix.
 
 Attributes:
-    matrix_divided: divides all elements of a matrix.
+    matrix_divided: it divides all elements of matrix.
 """
 
 
 def matrix_divided(matrix, div):
-    """Divides all elements of a matrix.
+    """Divides all elements of matrix.
 
     Args:
-        matrix (list): A list of lists of integers or floats.
-        div (int/float): Value to divide by.
+        matrix (list): it is a list of lists of integers or floats.
+        div (int/float): it is Value to divide by.
 
     Raises:
-        TypeError: If matrix is not a list of lists of integers or floats.
-        TypeError: If each row of the matrix isn't of the same size.
-        TypeError: If an element of any list is not an integer or float.
-        TypeError: If a row in the matrix is not a list.
-        TypeError: If div is not an integer or a float.
-        ZeroDivisionError: If div is equal to 0.
+        TypeError: If matrix is not a list of lists of integers || floats.
+        TypeError: If each row of the matrix isn't same size.
+        TypeError: If an element of any list is not an integer || float.
+        TypeError: If a row in the matrix is not the list.
+        TypeError: If div is not an integer || a float.
+        ZeroDivisionError: If div is equal to zero.
 
     Returns:
-        matrix: A result of the division.
+        matrix: A result of a division.
     """
     row_size = None
-    message = "matrix must be a matrix (list of lists) of integers/floats"
+    message = "matrix should be a matrix of integers/floats"
 
     if not matrix or not isinstance(matrix, list):
         raise TypeError(message)
