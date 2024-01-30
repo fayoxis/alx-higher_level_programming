@@ -62,7 +62,9 @@ Passing no arguments to text_indentation.
         ...
     TypeError: text_indentation() missing 1 required positional argument: 'text'
 
-Passing more than one argument to text_indentation.
+Passing more than one argument to text_indentation() will raise a TypeError with
+a message indicating that only one argument is expected:
+
     >>> text_indentation("Hola", "Commo Estas") #doctest: +ELLIPSIS
     Traceback (most recent call last):
         ...
