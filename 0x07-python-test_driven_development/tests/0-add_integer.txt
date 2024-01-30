@@ -45,7 +45,7 @@ It also works with only one argument. The second argument defaults to 98.
     >>> add_integer(2)
     100
 
-TypeError message of None arguments declared
+If no arguments are provided, a TypeError is raised with the message "a must be an integer".
 
 ::
 
