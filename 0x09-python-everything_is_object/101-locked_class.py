@@ -1,11 +1,11 @@
-#!/usr/bin/python3
-"""Defines a restricted class."""
+ #!/usr/bin/python3
+"""Defines a locked class."""
 
 
-class RestrictedClass:
+class LockedClass:
     """
-    Restricts the user from creating new attributes in RestrictedClass
-    except for attributes named 'first_name'.
+    restrict the user from instantiating new LockedClass attributes
+    for anything but attributes called 'first_name'.
     """
 
     __slots__ = ["first_name"]
