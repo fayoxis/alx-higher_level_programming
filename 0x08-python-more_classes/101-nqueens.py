@@ -1,56 +1,53 @@
 #!/usr/bin/python3
 
-"""
-module for calculation of n-queens problem
-"""
 import sys
 
-class Solution_Board:
-    """class for use with n queens problem
-    """
-    solutions = []
+def solve(row, column):
+    solver = [[]]
+    for q in range(row):
+        solver = place_queen(q, column, solver)
+    return solver
 
-    def __init__(self, num):
-        self.num = num
+def place_queen(q, column, prev_solver):
+    solver_queen = []
+    for array in prev_solver:
+        for x in range(column):
+            if is_safe(q, x, array):
+                solver_queen.append(array + [x])
+    return solver_queen
 
-    @property
-    def num(self):
-        return self.__num
+def is_safe(q, x, array):
+    if x in array:
+        return (False)
+    else:
+        return all(abs(array[column] - x) != q - column
+                   for column in range(q))
 
-    @num.setter
-    def num(self, value):
-        if not isinstance(num, int):
-            raise TypeError("num should be an int")
-        self.__num = value
 
-args = sys.argv
+def init():
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    if sys.argv[1].isdigit():
+        the_queen = int(sys.argv[1])
+    else:
+        print("N must be a number")
+        sys.exit(1)
+    if the_queen < 4:
+        print("N must be at least 4")
+        sys.exit(1)
+    return(the_queen)
 
-if len(args) != 2:
-    exit(1)
-if not args[1].isdigit():
-    print("N must be a number")
-    exit(1)
+def n_queens():
 
-num = int(args[1])
-if num < 4:
-    print("N must be at least 4")
-    exit(1)
+    the_queen = init()
+    solver = solve(the_queen, the_queen)
+    for array in solver:
+        clean = []
+        for q, x in enumerate(array):
+            clean.append([q, x])
+        print(clean)
 
-solutions = []
-board = [[0 for a in range(0, num)] for b in range(0, num)]
-running = True
-while running:
-    sol = get_n_queens(board)
-    solutions.append(sol)
-    running = False
 
-def get_n_queens(chess_board, column, num):
-    if column >= num:
-        return True
-    for i in range(0, num):
-        if board_safe(chess_board, column):
-            chess_board[i][column] = 1
-            if get_n_queens(chess_board, column + 1):
-                return True
-            board[i][column] = 0
-    return False
+if __name__ == '__main__':
+    n_queens()
