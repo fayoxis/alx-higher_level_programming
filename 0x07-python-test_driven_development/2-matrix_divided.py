@@ -25,7 +25,7 @@ def matrix_divided(matrix, div):
     Returns:
         matrix: A result of a division.
     """
- row_size = None
+    row_size = None
     message = "matrix should be a matrix of integers/floats"
 
     if not matrix or not isinstance(matrix, list):
@@ -53,4 +53,3 @@ def matrix_divided(matrix, div):
     new_matrix = [[round(j / div, 2) for j in i] for i in matrix]
 
     return new_matrix
-
