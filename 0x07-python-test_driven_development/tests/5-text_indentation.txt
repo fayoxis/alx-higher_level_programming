@@ -21,31 +21,24 @@ example 1 : Passing the given text.
     <BLANKLINE>
     
 
-Here are some additional examples of using the text_indentation() function:
-
-Passing an empty string as text:
-
+Passing an empty string as text.
     >>> text_indentation("")
 
-Passing a text with spaces at the beginning:
-
+Passing a text with space at the beginning.
     >>> text_indentation("        Hello Breezy")
     Hello Breezy
 
-Printing a word with spaces around it:
-
+Printing a word with spaces around it.
     >>> text_indentation("    Villegas    ")
     Villegas
 
-Printing a word with a special character at the end:
-
+Printing a word with a special character at the end.
     >>> text_indentation("    Hello    .")
     Hello.
     <BLANKLINE>
 
-Passing a text with spaces between words and a special character at the end:
-
-  >>> text_indentation("What is up?    how are you?")
+Passing a text with space between words and a special character at end.
+    >>> text_indentation("What is up?    how are you?")
     What is up?
     <BLANKLINE>
     how are you?
