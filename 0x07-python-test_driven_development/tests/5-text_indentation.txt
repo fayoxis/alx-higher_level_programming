@@ -45,8 +45,8 @@ Printing a word with a special character at the end:
 
 Passing a text with spaces between words and a special character at the end:
 
-    >>> text_indentation("What is up ?    how are you?")
-    What is up ?
+  >>> text_indentation("What is up baby doll?    how are you?")
+    What is up baby doll?
     <BLANKLINE>
     how are you?
     <BLANKLINE>
