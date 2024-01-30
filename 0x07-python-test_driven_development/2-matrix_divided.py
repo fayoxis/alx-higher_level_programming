@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import math
 """Defines a function that divides all elements of a matrix.
 
 Attributes:
