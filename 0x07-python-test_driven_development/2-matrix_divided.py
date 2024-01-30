@@ -52,3 +52,7 @@ def matrix_divided(matrix, div):
     new_matrix = [[round(j / div, 2) for j in i] for i in matrix]
 
     return new_matrix
+
+matrix = [[1, 2, 3], [1, 2, 3]]
+div = 2
+print(matrix_divided(matrix, div))
