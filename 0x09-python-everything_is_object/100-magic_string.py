@@ -8,5 +8,4 @@ class MagicString:
         self.n += 1
         return ("BestSchool, " * (self.n - 1) + "BestSchool")
 
-magic = MagicString()
-magic_string = magic.magic_string
+magic_string = MagicString().magic_string
