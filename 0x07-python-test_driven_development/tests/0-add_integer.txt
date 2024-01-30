@@ -1,5 +1,4 @@
-======================
-0-add_integer
+module 0-add_integer
 ======================
 
 This module serves as a unit test for the add_integer function.
