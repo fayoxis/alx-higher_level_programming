@@ -1,12 +1,13 @@
-# The ``5-text_indentation`` module
+# This is the ``5-text_indentation`` module
 ============================================
-How to use 5-text_indentation.py
+different ways to use 5-text_indentation.py
 ============================================
 
-This library has one function called ``text_indentation()``
+The "5-text_indentation" module provides a function called text_indentation()
+that can be used to format text by adding two new lines after each occurrence
+of the characters ".", "?", and ":".
 
-``text_indentation()`` prints a text with 2 new lines after each of these
-characters: ., ? and :
+Here is an example of how to use the text_indentation() function: :
 
 Importing the function matrix_divided.
     >>> text_indentation = __import__('5-text_indentation').text_indentation
