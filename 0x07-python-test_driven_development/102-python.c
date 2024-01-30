@@ -9,6 +9,7 @@
  * @p: Array of PyObject pointers representing Python objects.
  */
 void print_python_string(PyObject *p) {
+    Py_ssize_t i 
     wprintf(L"[.] string object info\n");
     if (strcmp(p->ob_type->tp_name, "str")) {
         wprintf(L"  [ERROR] Invalid String Object\n");
@@ -21,7 +22,7 @@ void print_python_string(PyObject *p) {
     wprintf(L"  length: %lu\n", PyUnicode_GET_LENGTH(p));
     
     Py_UNICODE* string_data = PyUnicode_AS_UNICODE(p);
-    for (Py_ssize_t i = 0; i < PyUnicode_GET_LENGTH(p); i++) {
+    for (i = 0; i < PyUnicode_GET_LENGTH(p); i++) {
         wprintf(L"  value[%zd]: %lc\n", i, string_data[i]);
     }
 }
