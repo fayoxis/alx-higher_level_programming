@@ -7,17 +7,17 @@ Attributes:
 
 
 def add_integer(a, b=98):
-    """Adds two integer and/or float values.
+    """Adds two integer values.
 
     Args:
-        a (int): First value
-        b (int, optional): Second value. Defaults to 98.
+        a (int): The first integer value.
+        b (int, optional): The second integer value. Defaults to 98.
 
     Raises:
-        TypeError: If a and b are not integers or floats.
+        TypeError: If a or b is not an integer.
 
     Returns:
-        int: Sum of a and b.
+        int: The sum of a and b.
     """
     if not isinstance(a, int) and not isinstance(a, float):
         raise TypeError("a must be an integer")
