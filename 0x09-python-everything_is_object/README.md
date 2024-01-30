@@ -1,2 +1,2 @@
-0x09. Python - Everything is object
-by mawliid mphamud haib
+🧑0x09. Python - Everything is object🧑
+
