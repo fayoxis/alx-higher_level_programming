@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+import math
 """Defines a function add_integer(a, b=98) that adds two integers.
 
 Attributes:
