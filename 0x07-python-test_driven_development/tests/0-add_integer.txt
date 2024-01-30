@@ -1,185 +1,119 @@
-# The `0-add_integer` module
-# ========================
-# 
-# This module provides a function called `add_integer()` that calculates the sum of two integers.
+module 0-add_integer
+======================
 
-def add_integer(a, b=98):
-    """
-    Returns the sum of two integers.
+Add integer module this module is the the unit test for the add_integer function
 
-    Parameters:
-    a (int): The first integer.
-    b (int, optional): The second integer. Defaults to 98.
+=====================
 
-    Returns:
-    int: The sum of the two integers.
+::
 
-    Raises:
-    TypeError: If either `a` or `b` is not an integer.
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(1, 2)
+	3
 
-    Examples:
-    >>> add_integer(1, 2)
+::
+
+	>>> add_integer(3, -2)
+	1
+
+It also works with float numbers
+
+::
+
+	>>> add_integer(98.5, 30.2)
+	128
+
+It also works with 2 float negative numbers
+
+::
+
+    >>> add_integer(-5.9, -0.7)
+    -5
+
+It also works with one integer number and one float number.
+
+::
+
+    >>> add_integer(5.5, -2)
     3
 
-    >>> add_integer(2, 3.0)
-    5
+It also works with one argument. 2nd arg is default as 98
 
-    >>> add_integer(3.0, 3)
-    6
+::
 
     >>> add_integer(2)
     100
 
-    >>> add_integer(2, -4)
-    -2
+TypeError message of None arguments declared
 
-    >>> add_integer(-6, 8)
-    2
-
-    >>> add_integer(4, True)
-    5
-
-    >>> add_integer(True, 4)
-    5
-
-    >>> add_integer(False, True)
-    1
-
-    >>> add_integer(True, True)
-    2
-
-    >>> add_integer(True)
-    99
-
-    >>> add_integer(4, False)
-    4
-
-    >>> add_integer(False, 4)
-    4
-
-    >>> add_integer(True, False)
-    1
-
-    >>> add_integer(False, False)
-    0
-
-    >>> add_integer(False)
-    98
-
-    >>> add_integer(3.0, 9.0)
-    12
-
-    >>> add_integer(12.3, 9.0)
-    21
-
-    >>> add_integer(12.3, 9.8)
-    21
+::
 
     >>> add_integer(None)
     Traceback (most recent call last):
-        ...
     TypeError: a must be an integer
 
-    >>> add_integer(2, None)
+TypeError message of second argument non declared
+
+::
+
+    >>> add_integer(5, None)
     Traceback (most recent call last):
-        ...
     TypeError: b must be an integer
 
-    >>> add_integer('a', 3)
+TypeError a is not a integer
+
+::
+
+    >>> add_integer("text", 3)
     Traceback (most recent call last):
-        ...
     TypeError: a must be an integer
 
-    >>> add_integer((), 3)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+TypeError b is not a integer
 
-    >>> add_integer({}, 3)
-    Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
+::
 
-    >>> add_integer([], 3)
+    >>> add_integer(3, "text")
     Traceback (most recent call last):
-        ...
-    TypeError: a must be an integer
-
-    >>> add_integer(2, '3')
-    Traceback (most recent call last):
-        ...
     TypeError: b must be an integer
 
-    >>> add_integer(2, ())
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+NameError a is not a integer is not string
 
-    >>> add_integer(2, {})
-    Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+::
 
-    >>> add_integer(3, [])
+    >>> add_integer(text, 3)
     Traceback (most recent call last):
-        ...
-    TypeError: b must be an integer
+    NameError: name 'text' is not defined
 
-    >>> add_integer((3, 4))
+NameError a and b are not integers nor string
+
+::
+
+    >>> add_integer(text1, text2)
     Traceback (most recent call last):
-        ...
+    NameError: name 'text1' is not defined
+
+TypeError a and b are not integers
+
+::
+
+    >>> add_integer("text1", "text2")
+    Traceback (most recent call last):
     TypeError: a must be an integer
 
-    >>> add_integer(float("nan"), 4)
+OverflowError causing infinity flow when a is int and b is inf
+
+::
+
+    >>> add_integer(4, float('inf'))
     Traceback (most recent call last):
-        ...
+    OverflowError: cannot convert float infinity to integer
+
+ValueError for Non assigned Number NaN
+
+::
+
+    >>> add_integer(float('NaN'))
+    Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
 
-    >>> add_integer(1, float('nan'))
-    Traceback (most recent call last):
-        ...
-    ValueError: cannot convert float NaN to integer
-
-    >>> add_integer(1, float('inf'))
-    Traceback (most recent call last):
-        ...
-    OverflowError: cannot convert float infinity to integer
-
-    >>> add_integer(1, float('-inf'))
-    Traceback (most recent call last):
-        ...
-    OverflowError: cannot convert float infinity to integer
-
-    >>> add_integer(float('inf'), 1)
-    Traceback (most recent call last):
-        ...
-    OverflowError: cannot convert float infinity to integer
-
-    >>> add_integer(float('-inf'), 1)
-    Traceback (most recent call last):
-        ...
-    OverflowError: cannot convert float infinity to integer
-
-    >>> add_integer(2, 3, 5, 6)
-    Traceback (most recent call last):
-        ...
-    TypeError: add_integer() takes from 1 to 2 positional arguments but ...
-
-    >>> add_integer(, 3)
-    Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
-
-    >>> add_integer(,)
-    Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
-
-    >>> add_integer(/)
-    Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
-
-    >>> add_integerApologies, but it seems like the code got cut off at the end.
-It appears that the code you provided is not complete. Could you please provide
-the missing parts or clarify your request?
+::
