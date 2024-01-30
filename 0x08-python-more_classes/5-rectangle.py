@@ -1,114 +1,87 @@
 #!/usr/bin/python3
 '''
-    A module that define a Rectangle class.
+    This script defines a Square class.
 '''
 
-
-class Rectangle:
+class Square:
     '''
-    A Recatangle class that define a rectangle.
+    A Square class that represents a square shape.
     '''
 
-    def __init__(self, width=0, height=0) -> None:
+    def __init__(self, side=0):
         '''
-            Initializes a new private instance of the Rectangle class.
-        '''
-        self.width = width
-        self.height = height
-
-    @property
-    def width(self) -> int:
-        '''
-        Retrieves the width of the rectangle.
-
-        Returns:
-            The width of the rectangle.
-        '''
-        return self.__width
-
-    @width.setter
-    def width(self, value: int) -> None:
-        '''
-        Sets the width of the rectangle.
+        Initializes a new instance of the Square class.
 
         Args:
-            value (int): the width of the rectangle.
-
-        Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is less than 0
+            side (int): The side length of the square.
         '''
-        if not isinstance(value, int):
-            raise TypeError("width must an intager")
-        if value < 0:
-            raise ValueError("width must be >= 0")
-        self.__width = value
+        self.side = side
 
     @property
-    def height(self) -> int:
+    def side(self):
         '''
-        Retrieves the height of the rectangle.
+        Retrieves the side length of the square.
 
         Returns:
-            The height of the rectangle.
+            The side length of the square.
         '''
-        return self.__height
+        return self.__side
 
-    @height.setter
-    def height(self, value: int) -> None:
+    @side.setter
+    def side(self, value):
         '''
-        Sets the hight of the rectangle.
+        Sets the side length of the square.
 
         Args:
-            value (int): the height of the rectangle.
+            value (int): The side length of the square.
 
         Raises:
-            TypeError: if value is not an integer
-            ValueError: if value is less than 0
+            TypeError: If value is not an integer.
+            ValueError: If value is less than 0.
         '''
         if not isinstance(value, int):
-            raise TypeError("height must an intager")
+            raise TypeError("side length must be an integer")
         if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
+            raise ValueError("side length must be >= 0")
+        self.__side = value
 
-    def area(self) -> int:
+    def area(self):
         """
-        Computes the area of the rectangle.
+        Computes the area of the square.
 
         Returns:
-            The area of the rectangle.
+            The area of the square.
         """
-        return self.__width * self.__height
+        return self.__side * self.__side
 
-    def perimeter(self) -> int:
+    def perimeter(self):
         """
-        Computes the perimeter of the rectangle.
+        Computes the perimeter of the square.
 
         Returns:
-            The perimeter of the rectangle.
+            The perimeter of the square.
         """
-        if self.__width == 0 or self.__height == 0:
-            return 0
-        else:
-            return (self.__width + self.__height) * 2
+        return self.__side * 4
 
-    def __str__(self) -> str:
+    def __str__(self):
         '''
-        Returns a string representation of the Rectangle object with "#" char.
+        Returns a string representation of the Square object.
+
+        Returns:
+            A string representation of the Square object.
         '''
-        rec_string = ""
-        if self.__width == 0 or self.__height == 0:
-            return rec_string
+        square_string = ""
+        if self.__side == 0:
+            return square_string
         else:
-            for i in range(0, self.__height):
-                for j in range(0, self.__width):
-                    rec_string += "#"
-                rec_string += "\n"
-            return rec_string[:-1]
+            for i in range(0, self.__side):
+                for j in range(0, self.__side):
+                    square_string += "*"
+                square_string += "\n"
+            return square_string[:-1]
 
-    def __repr__(self) -> str:
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+    def __repr__(self):
+        return "Square({})".format(self.__side)
 
-    def __del__(self) -> None:
-        print("Bye rectangle...", flush=True)
+    def __del__(self):
+        print("Bye square...", flush=True)
