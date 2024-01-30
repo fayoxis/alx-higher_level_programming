@@ -53,7 +53,7 @@ If no arguments are provided, a TypeError is raised with the message "a must be 
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-TypeError message of second argument non declared
+If the second argument is not provided, a TypeError is raised with the message "b must be an integer".
 
 ::
 
@@ -61,7 +61,7 @@ TypeError message of second argument non declared
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-TypeError a is not a integer
+If the first argument is not an integer, a TypeError is raised with the message "a must be an integer".
 
 ::
 
@@ -69,7 +69,7 @@ TypeError a is not a integer
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-TypeError b is not a integer
+If the second argument is not an integer, a TypeError is raised with the message "b must be an integer".
 
 ::
 
@@ -77,7 +77,7 @@ TypeError b is not a integer
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-NameError a is not a integer is not string
+If the first argument is not defined as a variable, a NameError is raised with the message "name 'text' is not defined".
 
 ::
 
@@ -85,7 +85,7 @@ NameError a is not a integer is not string
     Traceback (most recent call last):
     NameError: name 'text' is not defined
 
-NameError a and b are not integers nor string
+If both arguments are not defined as variables, a NameError is raised with the message "name 'text1' is not defined".
 
 ::
 
@@ -93,7 +93,7 @@ NameError a and b are not integers nor string
     Traceback (most recent call last):
     NameError: name 'text1' is not defined
 
-TypeError a and b are not integers
+If both arguments are not integers, a TypeError is raised with the message "a must be an integer".
 
 ::
 
@@ -101,15 +101,14 @@ TypeError a and b are not integers
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-OverflowError causing infinity flow when a is int and b is inf
-
+f the first argument is an integer and the second argument is float('inf'), an OverflowError is raised with the message "cannot convert float infinity to integer"
 ::
 
     >>> add_integer(4, float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
-ValueError for Non assigned Number NaN
+If the argument is float('NaN'), a ValueError is raised with the message "cannot convert float NaN to integer".
 
 ::
 
