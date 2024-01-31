@@ -1,17 +1,11 @@
-module 0-add_integer
+"this is the 0-add_integer module"
 ======================
 
-This module serves as a unit test for the add_integer function.
-
-=====================
-
-::
+Example 1: This module serves as a unit test for the add_integer function.
 
 	>>> add_integer = __import__('0-add_integer').add_integer
 	>>> add_integer(1, 2)
 	3
-
-::
 
 	>>> add_integer(3, -2)
 	1
