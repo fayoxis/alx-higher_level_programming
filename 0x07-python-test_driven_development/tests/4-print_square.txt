@@ -6,78 +6,80 @@ The 'print_square' module is a unit test that verifies the
 printing of '#' in a row to create a square.
 
 Example 1: usage:
+    >>> print_square = __import__('4-print_square').print_square
+    >>> print_square(4)
+    ####
+    ####
+    ####
+    ####
 
->>> from 4-print_square import print_square
->>> print_square(4)
-####
-####
-####
-####
+It also works with 10 square
 
-Example 2 : It also works with larger squares, such as a 10x10 square:
+::
 
->>> print_square(10)
-##########
-##########
-##########
-##########
-##########
-##########
-##########
-##########
-##########
-##########
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
 
-Example 3 : When the size is set to 0, it doesn't print anything:
+It also works with square 0 but prints nothing
 
->>> print_square(0)
+::
 
-It also works with a 1x1 square:
+    >>> print_square(0)
 
->>> print_square(1)
-#
+It also works with 1 square
 
-However, there are certain error cases that are handled by the module:
+::
 
-- TypeError is raised when None is passed as the size parameter:
+    >>> print_square(1)
+    #
 
->>> print_square(None)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "4-print_square.py", line 12, in print_square
-    raise TypeError("size must be an integer")
-TypeError: size must be an integer
+TypeError when adding None
 
-- ValueError is raised when a negative number is passed as the size parameter:
+::
 
->>> print_square(-10)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "4-print_square.py", line 16, in print_square
-    raise ValueError("size must be >= 0")
-ValueError: size must be >= 0
+    >>> print_square(None)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
 
-- TypeError is raised when a negative float is passed as the size parameter:
+ValueError when adding negative number to size
 
->>> print_square(-10.5)
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "4-print_square.py", line 20, in print_square
-    raise TypeError("size must be an integer")
-TypeError: size must be an integer
+::
 
-- TypeError is raised when a string is passed as the size parameter:
+    >>> print_square(-10)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
 
->>> print_square("hello")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-  File "4-print_square.py", line 24, in print_square
-    raise TypeError("size must be an integer")
-TypeError: size must be an integer
+ValueError when adding a negative float
 
-- TypeError is raised when no value is passed to the function:
+::
 
->>> print_square()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: print_square() missing 1 required positional argument: 'size'
+    >>> print_square(-10.5)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+TypeError when adding a string in the size parameter
+
+::
+
+    >>> print_square("hello")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+TyeError when non value is added to the parameter
+
+::
+
+    >>> print_square()
+    Traceback (most recent call last):
+    TypeError: print_square() missing 1 required positional argument: 'size'
+
+::
