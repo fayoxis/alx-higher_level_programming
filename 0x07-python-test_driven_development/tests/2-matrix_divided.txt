@@ -59,25 +59,21 @@ Example 4 : It raises a TypeError when the input matrix is not a list:
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 TypeError matrix is empty
-
-::
+Example 5 : It raises a TypeError when the input matrix is empty or None:
 
     >>> matrix = None
     >>> print(matrix_divided(matrix, 3))
     Traceback (most recent call last):
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-It also works with a empty list of list
-
-::
+Example 6 : It correctly handles an empty list of lists as the matrix:
 
     >>> matrix = [[]]
     >>> print(matrix_divided(matrix, 3))
     [[]]
 
 TypeError matrix only one empty list
-
-::
+Example 6 : It raises a TypeError when the matrix contains only one empty list:
 
     >>> matrix = []
     >>> print(matrix_divided(matrix, 3))
@@ -85,8 +81,7 @@ TypeError matrix only one empty list
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 TypeError matrix is not the same size
-
-::
+Example 7 : It raises a TypeError when the rows of the matrix have different sizes:
 
     >>> matrix = [
     ...     [1, 2, 3, 4],
@@ -97,9 +92,8 @@ TypeError matrix is not the same size
     TypeError: Each row of the matrix must have the same size
 
 TypeError matrix contains only a list
-
-::
-
+Example 8 : It raises a TypeError when the matrix contains an element
+that is not an integer or a float:
 
     >>> matrix = [1, 3, 5]
     >>> print(matrix_divided(matrix, 3))
@@ -107,8 +101,6 @@ TypeError matrix contains only a list
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 TypeError there is one element that is not an integer or a float
-
-::
 
     >>> matrix = [
     ...     [1, "text", 3],
@@ -119,8 +111,7 @@ TypeError there is one element that is not an integer or a float
     TypeError: matrix must be a matrix (list of lists) of integers/floats
 
 TypeError the divisior is not an integer or a float
-
-::
+Example 8 : It raises a TypeError when the divisor is not an integer or a float:
 
     >>> matrix = [
     ...     [1, 2, 3],
@@ -131,19 +122,16 @@ TypeError the divisior is not an integer or a float
     TypeError: div must be a number
 
 TypeError the divisior has a None value
-
-::
+Example 9: It raises a TypeError when the divisor is None:
 
     >>> print(matrix_divided(matrix, None))
     Traceback (most recent call last):
     TypeError: div must be a number
 
-::
+Example 10: It raises a ZeroDivisionError when the divisor is zero
 
     >>> print(matrix_divided(matrix, 0))
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
 
 TypeError the divisior is not an integer or a float
-
-::
