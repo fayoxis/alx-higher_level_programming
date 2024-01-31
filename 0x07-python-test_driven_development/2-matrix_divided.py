@@ -1,8 +1,8 @@
 #!/usr/bin/python3
-"""
-matrix_divided module
-This function divides all elements in a matrix
+"""Defines the function that divides all elements of matrix.
 
+Attributes:
+    matrix_divided: it divides all elements of matrix.
 """
 
 
