@@ -1,13 +1,9 @@
+
+"this isthe  2-matrix_divided module"
 ======================
-2-matrix_divided
-======================
 
-Matrix divided module this module is the the unit test for
-the matrix_divided function. Divides all elements of a matrix
-
-=====================
-
-::
+The matrix_divided module contains unit tests for the matrix_divided
+function, which divides all elements of a matrix.
 
     >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
     >>> matrix = [
@@ -18,8 +14,6 @@ the matrix_divided function. Divides all elements of a matrix
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
 It also works with the main matrix
-
-::
 
     >>> matrix = [
     ...     [2, 4, 6],
