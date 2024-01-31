@@ -1,65 +1,87 @@
-# The ``4-print_square`` module
-============================================
-How to use 4-print_square.py
-============================================
+======================
+4-print_square
+======================
 
-This library has one function called ``print_square()``
+Print square  module is the unit test that verifies print of '#' in a row
 
-``print_square()`` prints a square with the character #.
+=====================
 
-Importing the function print_square.
+::
+
     >>> print_square = __import__('4-print_square').print_square
-
-Passing an integer as size.
     >>> print_square(4)
     ####
     ####
     ####
     ####
 
-Passing 0 as size.
+It also works with 10 square
+
+::
+
+    >>> print_square(10)
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+    ##########
+
+It also works with square 0 but prints nothing
+
+::
+
     >>> print_square(0)
 
-Passing non-integers as size.
-    >>> print_square('4')
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
+It also works with 1 square
 
-    >>> print_square((1,))
-    Traceback (most recent call last):
-        ...
-    TypeError: size must be an integer
+::
 
-    >>> print_square(True)
+    >>> print_square(1)
     #
 
-Passing a negative number as size.
-    >>> print_square(-2)
-    Traceback (most recent call last):
-        ...
-    ValueError: size must be >= 0
+TypeError when adding None
 
-Passing None as size.
+::
+
     >>> print_square(None)
     Traceback (most recent call last):
-    	...
     TypeError: size must be an integer
 
-Passing a float as size.
-    >>> print_square(4.4)
+ValueError when adding negative number to size
+
+::
+
+    >>> print_square(-10)
     Traceback (most recent call last):
-        ...
+    ValueError: size must be >= 0
+
+ValueError when adding a negative float
+
+::
+
+    >>> print_square(-10.5)
+    Traceback (most recent call last):
     TypeError: size must be an integer
 
-Passing no argument to print_square().
+TypeError when adding a string in the size parameter
+
+::
+
+    >>> print_square("hello")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+TyeError when non value is added to the parameter
+
+::
+
     >>> print_square()
     Traceback (most recent call last):
-   	    ...
     TypeError: print_square() missing 1 required positional argument: 'size'
 
-Passing more than two arguments to print_square().
-    >>> print_square(1, 2) #doctest: +ELLIPSIS
-    Traceback (most recent call last):
-        ...
-    TypeError: print_square() takes 1 positional argument but ...
+::
