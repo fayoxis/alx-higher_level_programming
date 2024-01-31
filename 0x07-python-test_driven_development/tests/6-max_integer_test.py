@@ -5,7 +5,7 @@ max_integer = __import__('6-max_integer').max_integer
 
 class TestMaxInteger(unittest.TestCase):
     """
-    This is the class unittest for the max integer function
+    Test class that defines the test cases for all max_integer function.
     """
 
     def test_sorted_list(self):
@@ -17,6 +17,23 @@ class TestMaxInteger(unittest.TestCase):
 
         unsorted_list = [1, 2, 3, 4]
         self.assertEqual(max_integer(unsorted_list), 4)
+        
+    def test_positive_integers(self):
+
+        test_list1 = [1, 2, 3, 4]
+        test_list2 = [ 4, 1, 2, 3]
+
+        self.assertEqual(max_integer(test_list1), 4)
+        self.assertEqual(max_integer(test_list2), 4)
+
+    def test_negative_integers(self):
+
+        test_list1 = [-91, -31, -4, -2]
+        test_list2 = [-2, -91, -31, -4]
+
+        self.assertEqual(max_integer(test_list1), -2)
+        self.assertEqual(max_integer(test_list2), -2)
+
 
     def test_empty_list(self):
 
