@@ -3,10 +3,12 @@
 
 
 class Rectangle:
-    """
-    The `Rectangle` class represents a rectangle object with a given width and height.
-    - `number_of_instances`: attribute that keeps track of the num of `Rectangle` instances created.
-    - `print_symbol`: A class attribute that represents the symbol used to print the rectangle.
+     """
+    Class that defines properties of rectangle by: (based on 7-rectangle.py).
+
+    Attributes:
+        width (int): width of the rectangle.
+        height (int): height of the rectangle.
     """
 
     number_of_instances = 0
