@@ -1,4 +1,4 @@
-# This is the ``101-lazy_matrix_mul`` module
+"This is the 101-lazy_matrix_mul module"
 ============================================
 
 This module provides a function called lazy_matrix_mul() that can be used to
