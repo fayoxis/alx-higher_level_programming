@@ -38,7 +38,7 @@ example 2 : Passing non-lists as matrices:
         ...
     ValueError: Scalar operands are not allowed, use '*' instead
 
-Passing a non-list in any element of matrix_divided
+example 3 : Passing  non-list in any element as matrix_divided
     >>> m_a = [2, [3, 4]]
     >>> m_b = [[1, 2], [3, 4]]
     >>> lazy_matrix_mul(m_a, m_b)
@@ -46,7 +46,7 @@ Passing a non-list in any element of matrix_divided
         ...
     ValueError: setting an array element with a sequence.
 
-Passing an empty matrix.
+example 4 : Passing empty matrix.
     >>> m_a = []
     >>> m_b = [[1, 2], [3, 4]]
     >>> lazy_matrix_mul(m_a, m_b)
@@ -68,7 +68,7 @@ Passing an empty matrix.
         ...
     ValueError: shapes (2,2) and (0,) not aligned: 2 (dim 1) != 0 (dim 0)
 
-If one element of those list of lists is not an integer or a float.
+If an  element of this list is not an integer || a float.
     >>> m_a = [[1, "b"], [3, 4]]
     >>> m_b = [[1, 2], [3, 4]]
     >>> lazy_matrix_mul(m_a, m_b)
@@ -76,7 +76,7 @@ If one element of those list of lists is not an integer or a float.
         ...
     TypeError: invalid data type for einsum
 
-Passing None as a matrix.
+example 5 : Passing None asvalve of a matrix.
     >>> lazy_matrix_mul(None, None)
     Traceback (most recent call last):
     	...
@@ -87,7 +87,7 @@ Passing None as a matrix.
         ...
     TypeError: Object arrays are not currently supported
 
-Passing a matrix which its rows have different size.
+example 6 : Pass a trix when  its rows have different size.
     >>> m_a = [[2, 2, 2], [4, 4, 4]]
     >>> m_b = [[2], [3, 3]]
     >>> lazy_matrix_mul(m_a, m_b)
@@ -95,7 +95,7 @@ Passing a matrix which its rows have different size.
         ...
     ValueError: setting an array element with a sequence.
 
-Passing mismatched matrices.
+example 7 : Passvalve when it mismatched matrices.
     >>> m_a = [[1, 2, 3], [4, 5, 6]]
     >>> m_b = [[1, 2], [3, 4,]]
     >>> lazy_matrix_mul(m_a, m_b)
@@ -103,19 +103,19 @@ Passing mismatched matrices.
         ...
     ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
 
-Passing one argument to lazy_matrix_mul
+example 8 : Passing an argument to module lazy_matrix_mul
     >>> lazy_matrix_mul([[1, 2]])
     Traceback (most recent call last):
         ...
     TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
 
-Passing no argument to lazy_matrix_mul.
+example 9 : Passing no argument to module lazy_matrix_mul.
     >>> lazy_matrix_mul()
     Traceback (most recent call last):
         ...
     TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
 
-Passing more than two argument to lazy_matrix_mul.
+example 10 : Passing more than two argument to lazy_matrix_mul.
     >>> m_a = [[1, 2], [3, 4]]
     >>> m_b = [[1, 2], [3, 4]]
     >>> m_c = [[4, 5], [7, 8]]
