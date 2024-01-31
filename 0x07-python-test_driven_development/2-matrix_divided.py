@@ -39,7 +39,7 @@ def matrix_divided(matrix, div):
     if not isinstance(div, int) and not isinstance(div, float):
         raise TypeError("div must be a number")
 
-    while div == 0:
+    if div == 0:
         raise ZeroDivisionError("division by 0")
 
     return ([list(map(lambda x: round(x / div, 2), row)) for row in matrix])
