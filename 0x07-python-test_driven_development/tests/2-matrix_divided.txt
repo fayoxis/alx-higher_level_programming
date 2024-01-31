@@ -13,7 +13,13 @@ function, which divides all elements of a matrix.
     >>> print(matrix_divided(matrix, 3))
     [[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
 
-It also works with the main matrix
+The above code demonstrates how the matrix_divided function operates
+correctly on a given matrix. It divides each element of the matrix by
+the divisor (3 in this case) and returns the resulting matrix.
+
+The module also includes additional test cases:
+
+Example 1 : The function works with different matrices and divisors, such as:
 
     >>> matrix = [
     ...     [2, 4, 6],
@@ -22,9 +28,7 @@ It also works with the main matrix
     >>> print(matrix_divided(matrix, 3))
     [[0.67, 1.33, 2.0], [4.0, 8.0, 16.0]]
 
-It also works with the original matrix
-
-::
+Example 2 : The function handles matrices with float values correctly:
 
     >>> matrix = [
     ...     [2, 4, 6],
@@ -33,9 +37,8 @@ It also works with the original matrix
     >>> print(matrix_divided(matrix, 3))
     [[0.67, 1.33, 2.0], [0.8, 1.23, 8.47]]
 
-It also works with floats
-
-::
+Example 3 : The function correctly handles matrices with float elements and
+returns a matrix with the correct float division results:
 
     >>> matrix = [
     ...     [3.2, 5.6, 9.9],
@@ -46,7 +49,9 @@ It also works with floats
 
 TypeError matrix is not a list
 
-::
+The module also tests various error cases:
+
+Example 4 : It raises a TypeError when the input matrix is not a list:
 
     >>> matrix = "not a list"
     >>> print(matrix_divided(matrix, 3))
