@@ -3,11 +3,12 @@
 
 
 class Rectangle:
-   """
+    """
     The `Rectangle` class represents a rectangle object with a given width and height.
+    - `number_of_instances`: attribute that keeps track of the num of `Rectangle` instances created.
     - `print_symbol`: A class attribute that represents the symbol used to print the rectangle.
     """
-    
+
     number_of_instances = 0
     print_symbol = "#"
 
@@ -24,7 +25,7 @@ class Rectangle:
 
     @property
     def width(self):
-        """Width retriver.
+        """Width retriever.
 
         Returns:
             int: the width of the rectangle.
@@ -33,7 +34,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """Height retriver.
+        """Height retriever.
 
         Returns:
             int: the height of the rectangle.
@@ -60,7 +61,7 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        """Property setter for height of recyangle.
+        """Property setter for height of rectangle.
 
         Args:
             value (int): height of the rectangle.
@@ -85,21 +86,21 @@ class Rectangle:
         return self.__height * self.__width
 
     def perimeter(self):
-        """Calculates perimeter of a rectangle
+        """Calculates perimeter of a rectangle.
 
         Returns:
             int: perimeter.
         """
-        if self.__height == 0 or self.width == 0:
+        if self.__height == 0 or self.__width == 0:
             return 0
         else:
             return 2 * (self.__height + self.__width)
 
     def __str__(self):
-        """Prints the rectangle with the character # .
+        """Prints the rectangle with the character #.
 
         Returns:
-            str: the rectangle
+            str: the rectangle.
         """
         rectangle = []
 
@@ -125,7 +126,7 @@ class Rectangle:
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Deletes an instance of a class
+        """Deletes an instance of a class.
         """
         print("{:s}".format("Bye rectangle..."))
         type(self).number_of_instances -= 1
@@ -140,7 +141,7 @@ class Rectangle:
 
         Returns:
             Rectangle: the rectangle with the biggest area else rect_1 if
-            areas are equal
+            areas are equal.
         """
         if not isinstance(rect_1, Rectangle):
             raise TypeError("rect_1 must be an instance of Rectangle")
