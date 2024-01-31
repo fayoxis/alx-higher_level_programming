@@ -50,7 +50,7 @@ example 4 : Passing a non-list in elements  of type matrix_divided in different 
     >>> matrix_mul(m_a, m_b)
     Traceback (most recent call last):
         ...
-  example 5 : the TypeError m_b must be a list of lists
+    TypeError: m_b must be a list of lists
 
     >>> m_a = [[1, 2], [3, 4]]
     >>> m_b = [["1", "2"], ["3", "4"]]
@@ -59,7 +59,7 @@ example 4 : Passing a non-list in elements  of type matrix_divided in different 
         ...
     TypeError: m_b should contain only integers or floats
 
-Passing an empty matrix.
+example 5 : Passing  empty matrixes.
     >>> m_a = []
     >>> m_b = [[1, 2], [3, 4]]
     >>> matrix_mul(m_a, m_b)
@@ -81,7 +81,7 @@ Passing an empty matrix.
         ...
     ValueError: m_b can't be empty
 
-If one element of those list of lists is not an integer or a float.
+example 6 : If an element of this list  is not an integer || a float.
     >>> m_a = [[1, "b"], [3, 4]]
     >>> m_b = [[1, 2], [3, 4]]
     >>> matrix_mul(m_a, m_b)
@@ -89,7 +89,7 @@ If one element of those list of lists is not an integer or a float.
         ...
     TypeError: m_a should contain only integers or floats
 
-Passing None as a matrix.
+example 7 : Passing None  as a valve of a  matrix.
     >>> matrix_mul(None, None)
     Traceback (most recent call last):
     	...
@@ -100,7 +100,7 @@ Passing None as a matrix.
         ...
     TypeError: m_b must be a list
 
-Passing a matrix which its rows have different size.
+example 8 : Passing matrixes when its rows have different size.
     >>> m_a = [[2, 2, 2], [4, 4, 4]]
     >>> m_b = [[2], [3, 3]]
     >>> matrix_mul(m_a, m_b)
@@ -115,7 +115,7 @@ Passing a matrix which its rows have different size.
         ...
     TypeError: each row of m_a must be of the same size
 
-Passing mismatched matrices.
+example 9 : Passing valves when mismatched matrices.
     >>> m_a = [[1, 2, 3], [4, 5, 6]]
     >>> m_b = [[1, 2], [3, 4,]]
     >>> matrix_mul(m_a, m_b)
@@ -123,19 +123,19 @@ Passing mismatched matrices.
         ...
     ValueError: m_a and m_b can't be multiplied
 
-Passing one argument to matrix_mul
+example 10 : Passing an argument to matrix_mul
     >>> matrix_mul([[1, 2]])
     Traceback (most recent call last):
         ...
     TypeError: matrix_mul() missing 1 required positional argument: 'm_b'
 
-Passing no argument to matrix_mul.
+example 11 : Passing no argument to matrix_mul.
     >>> matrix_mul()
     Traceback (most recent call last):
         ...
     TypeError: matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
 
-Passing more than two argument to matrix_mul.
+example 12 : Passing more than 2 argument to matrix_mul.
     >>> m_a = [[1, 2], [3, 4]]
     >>> m_b = [[1, 2], [3, 4]]
     >>> m_c = [[4, 5], [7, 8]]
