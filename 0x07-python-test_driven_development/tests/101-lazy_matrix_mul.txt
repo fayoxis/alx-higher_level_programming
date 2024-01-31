@@ -1,16 +1,15 @@
-# The ``101-lazy_matrix_mul`` module
-============================================
-How to use 101-lazy_matrix_mul.py
+# This is the ``101-lazy_matrix_mul`` module
 ============================================
 
-This library has one function called ``lazy_matrix_mul()``
+This module provides a function called lazy_matrix_mul() that can be used to
+multiply two matrices using the numpy module.
 
-``lazy_matrix_mul()`` multiplies 2 matrices using the numpy module.
+To use the lazy_matrix_mul() function, you need to follow these steps:
 
 Importing the function lazy_matrix_mul.
     >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
-Passing matrices.
+example 1 : Pass the matrices you want to multiply as arguments to lazy_matrix_mul():
     >>> m_a = [[1, 2], [3, 4]]
     >>> m_b = [[1, 2], [3, 4]]
     >>> lazy_matrix_mul(m_a, m_b)
@@ -22,7 +21,10 @@ Passing matrices.
     >>> lazy_matrix_mul(m_a, m_b)
     array([[13, 16]])
 
-Passing non-lists.
+Ensure that the matrices are properly formatted as lists of lists. 
+The function will raise an error if any of the following conditions are met:
+
+example 2 : Passing non-lists as matrices:
     >>> m_a = ([1, 2], [3, 4])
     >>> m_b = [[1, 2], [3, 4]]
     >>> lazy_matrix_mul(m_a, m_b)
