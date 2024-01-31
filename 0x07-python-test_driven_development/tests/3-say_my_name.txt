@@ -1,6 +1,4 @@
-# This is the  ``3-say_my_name`` module
-============================================
-different ways to use 3-say_my_name.py
+" This is the  3-say_my_name  module"
 ============================================
 
 This is an example of how to use the 3-say_my_name.py library.
