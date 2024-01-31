@@ -64,6 +64,21 @@ class TestMaxInteger(unittest.TestCase):
 
         max_middle = [1, 2, 4, 3]
         self.assertEqual(max_integer(max_middle), 4)
+        
+    def test_pos_neg_integers(self):
+        
+        test_list = [-9, -14, 23, 98, 0, -9, -100, -1]
+        self.assertEqual(max_integer(test_list), 98)
+
+    def test_mixed_characters(self):
+        
+        test_list1 = ['-a', '-d', '-k', '-w']
+        test_list2 = ['-a', '-d', 'k', '-w']
+        test_list3 = ['-a', 'z', 'k', '-w']
+
+        self.assertEqual(max_integer(test_list1), '-w')
+        self.assertEqual(max_integer(test_list2), 'k')
+        self.assertEqual(max_integer(test_list3), 'z')
 
     def test_non_string(self):
 
