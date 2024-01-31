@@ -7,12 +7,22 @@ Attributes:
 
 
 def matrix_divided(matrix, div):
-    """Divide all elements in a matrix
+   """Divides all elements of matrix.
+
     Args:
-    param1: matrix type arg of list
-    param2: div type int or float
-    Return: new matrix with division calculated
-    Raise: TypeError, ZeroError
+        matrix (list): it is a list of lists of integers or floats.
+        div (int/float): it is Value to divide by.
+
+    Raises:
+        TypeError: If matrix is not a list of lists of integers || floats.
+        TypeError: If each row of the matrix isn't same size.
+        TypeError: If an element of any list is not an integer || float.
+        TypeError: If a row in the matrix is not the list.
+        TypeError: If div is not an integer || a float.
+        ZeroDivisionError: If div is equal to zero.
+
+    Returns:
+        matrix: A result of a division.
     """
 
     if (not isinstance(matrix, list) or matrix == [] or
