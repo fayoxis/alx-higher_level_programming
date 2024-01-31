@@ -1,7 +1,7 @@
 "this is the 0-add_integer module"
 ======================
 
-Example 1: This module serves as a unit test for the add_integer function.
+Example 1: This module serves as a unit test for the add_integer function.:
 
 	>>> add_integer = __import__('0-add_integer').add_integer
 	>>> add_integer(1, 2)
@@ -10,103 +10,84 @@ Example 1: This module serves as a unit test for the add_integer function.
 	>>> add_integer(3, -2)
 	1
 
-The add_integer function also works with float numbers.
-
-::
+Example 2: The add_integer function also works with float numbers.:
 
 	>>> add_integer(98.5, 30.2)
 	128
 
-It also works with two float negative numbers.
-
-::
+Example 3 : It also works with two float negative numbers.:
 
     >>> add_integer(-5.9, -0.7)
     -5
 
-It also works with one integer number and one float number.
-
-::
+Example 4 : It also works with one integer number and one float number.:
 
     >>> add_integer(5.5, -2)
     3
 
-It also works with only one argument. The second argument defaults to 98.
-
-::
-
+Example 5 : It also works with only one argument. The second argument defaults to 98.:
     >>> add_integer(2)
     100
 
-If no arguments are provided, a TypeError is raised with the message "a must be an integer".
-
-::
+Example 6: If no arguments are provided, a TypeError is raised with
+the message "a must be an integer".:
 
     >>> add_integer(None)
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-If the second argument is not provided, a TypeError is raised with the message "b must be an integer".
-
-::
+Example 7: If the second argument is not provided, a TypeError
+is raised with the message "b must be an integer".:
 
     >>> add_integer(5, None)
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-If the first argument is not an integer, a TypeError is raised with the message "a must be an integer".
-
-::
+Example 8: If the first argument is not an integer, a TypeError is
+raised with the message "a must be an integer".:
 
     >>> add_integer("text", 3)
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-If the second argument is not an integer, a TypeError is raised with the message "b must be an integer".
-
-::
+Example 9 : If the second argument is not an integer, a TypeError
+is raised with the message "b must be an integer".:
 
     >>> add_integer(3, "text")
     Traceback (most recent call last):
     TypeError: b must be an integer
 
-If the first argument is not defined as a variable, a NameError is raised with the message "name 'text' is not defined".
-
-::
+Example 10: If the first argument is not defined as a variable, a NameError
+is raised with the message "name 'text' is not defined".:
 
     >>> add_integer(text, 3)
     Traceback (most recent call last):
     NameError: name 'text' is not defined
 
-If both arguments are not defined as variables, a NameError is raised with the message "name 'text1' is not defined".
-
-::
+Example 11: If both arguments are not defined as variables,
+a NameError is raised with the message "name 'text1' is not defined".:
 
     >>> add_integer(text1, text2)
     Traceback (most recent call last):
     NameError: name 'text1' is not defined
 
-If both arguments are not integers, a TypeError is raised with the message "a must be an integer".
-
-::
+Example 12 : If both arguments are not integers, a TypeError
+is raised with the message "a must be an integer".:
 
     >>> add_integer("text1", "text2")
     Traceback (most recent call last):
     TypeError: a must be an integer
 
-f the first argument is an integer and the second argument is float('inf'), an OverflowError is raised with the message "cannot convert float infinity to integer"
-::
+Example 13: the first argument is an integer and the second argument
+is float('inf'), an OverflowError is raised with the message "cannot convert float infinity to integer":
 
     >>> add_integer(4, float('inf'))
     Traceback (most recent call last):
     OverflowError: cannot convert float infinity to integer
 
-If the argument is float('NaN'), a ValueError is raised with the message "cannot convert float NaN to integer".
-
-::
+Example 14: If the argument is float('NaN'), a ValueError is raised
+with the message "cannot convert float NaN to integer".:
 
     >>> add_integer(float('NaN'))
     Traceback (most recent call last):
     ValueError: cannot convert float NaN to integer
-
-::
