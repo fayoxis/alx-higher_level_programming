@@ -1,16 +1,16 @@
-# The ``100-matrix_mul`` module
-============================================
-How to use 100-matrix_mul.py
+# This is the  ``100-matrix_mul`` module
 ============================================
 
-This library has one function called ``matrix_mul()``
+This module provides a function called matrix_mul() that is used to multiply two matrices.
 
-``matrix_mul()`` multiplies 2 matrices.
+To use the matrix_mul() function, follow these steps:
+
+Import the matrix_mul() function from the module:
 
 Importing the function matrix_mul.
     >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
 
-Passing matrices.
+example 1 : Passing the matrices.
     >>> m_a = [[1, 2], [3, 4]]
     >>> m_b = [[5, 6], [7, 8]]
     >>> matrix_mul(m_a, m_b)
@@ -21,7 +21,7 @@ Passing matrices.
     >>> matrix_mul(m_a, m_b)
     [[13, 16]]
 
-Passing non-lists.
+example 2 :Passing valve of non-lists.
     >>> m_a = ([1, 2], [3, 4])
     >>> m_b = [[1, 2], [3, 4]]
     >>> matrix_mul(m_a, m_b)
