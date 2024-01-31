@@ -13,9 +13,7 @@ Example 1: usage:
     ####
     ####
 
-It also works with 10 square
-
-::
+Example 2 : It also works with larger squares, such as a 10x10 square:
 
     >>> print_square(10)
     ##########
@@ -29,30 +27,24 @@ It also works with 10 square
     ##########
     ##########
 
-It also works with square 0 but prints nothing
-
-::
+Example 3 : It also works When the size is set to 0, it doesn't print anything:
 
     >>> print_square(0)
 
-It also works with 1 square
-
-::
+Example 4 : It also works with a 1x1 square:
 
     >>> print_square(1)
     #
 
 TypeError when adding None
-
-::
+Example 5 : However, there are certain error cases that are handled by the module:
 
     >>> print_square(None)
     Traceback (most recent call last):
     TypeError: size must be an integer
 
 ValueError when adding negative number to size
-
-::
+Example 6 : raised when a negative number is passed as the size parameter:
 
     >>> print_square(-10)
     Traceback (most recent call last):
@@ -60,26 +52,20 @@ ValueError when adding negative number to size
 
 ValueError when adding a negative float
 
-::
-
     >>> print_square(-10.5)
     Traceback (most recent call last):
     TypeError: size must be an integer
 
 TypeError when adding a string in the size parameter
-
-::
+Example 7 : raised when a negative float is passed as the size parameter:
 
     >>> print_square("hello")
     Traceback (most recent call last):
     TypeError: size must be an integer
 
 TyeError when non value is added to the parameter
-
-::
+Example 8 : is raised when a string is passed as the size parameter:
 
     >>> print_square()
     Traceback (most recent call last):
     TypeError: print_square() missing 1 required positional argument: 'size'
-
-::
