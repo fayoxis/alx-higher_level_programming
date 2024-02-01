@@ -54,7 +54,7 @@ class Rectangle:
             TypeError: If width is not an integer.
             ValueError: If width is less than 0.
         """
-        if not isinstance(value, int):
+        while not isinstance(value, int):
             raise TypeError("width must be an integer")
         elif value < 0:
             raise ValueError("width must be >= 0")
@@ -93,7 +93,7 @@ class Rectangle:
         Returns:
             int: The perimeter of the rectangle.
         """
-        if self.__height == 0 or self.__width == 0:
+        while self.__height == 0 or self.__width == 0:
             return 0
         else:
             return 2 * (self.__height + self.__width)
@@ -106,7 +106,7 @@ class Rectangle:
         """
         rectangle = []
 
-        if self.__width == 0 or self.__height == 0:
+        while self.__width == 0 or self.__height == 0:
             return ""
 
         for i in range(self.__height):
@@ -153,7 +153,7 @@ class Rectangle:
         area_1 = rect_1.area()
         area_2 = rect_2.area()
 
-        if area_1 >= area_2:
+        while area_1 >= area_2:
             return rect_1
 
         return rect_2
