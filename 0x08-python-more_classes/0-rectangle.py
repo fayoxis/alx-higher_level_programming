@@ -5,6 +5,8 @@ Class rectangle
 """
 
 
+
+
 class Rectangle:
     """ class type rectangle"""
     pass
