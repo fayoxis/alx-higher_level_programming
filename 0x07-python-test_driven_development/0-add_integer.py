@@ -4,9 +4,11 @@
 Attributes:
     add_integer: function that adds two integers.   
 """
+
+
 def add_integer(a, b=98):
 
-    
+
     """Adds two integer values.
 
     Args:
@@ -19,6 +21,8 @@ def add_integer(a, b=98):
     Returns:
         int: The sum of a and b.
     """
+
+    
     if ((not isinstance(a, int) and not isinstance(a, float))):
         raise TypeError("a must be an integer")
     if ((not isinstance(b, int) and not isinstance(b, float))):
