@@ -2,11 +2,11 @@
 """Defines a function add_integer(a, b=98) that adds two integers.
 
 Attributes:
-    add_integer: function that adds two integers.
-
-    
+    add_integer: function that adds two integers.   
 """
 def add_integer(a, b=98):
+
+    
     """Adds two integer values.
 
     Args:
