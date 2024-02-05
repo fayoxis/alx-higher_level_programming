@@ -6,10 +6,11 @@ This module provides a class called MyList with a single function print_sorted()
 The print_sorted() function returns a list of integers sorted in ascending order.
 To use this function, follow these steps:
 
-Importing the function:
+example 1: Importing the function:
     >>> MyList = __import__('1-my_list').MyList
 
-Test if MyList is a subclass and/or instance of list.
+Testing the Functionality
+example2 : Test if MyList is a subclass and/or instance of list.
     >>> my_list = MyList()
     >>> issubclass(MyList, list)
     True
@@ -18,11 +19,13 @@ Test if MyList is a subclass and/or instance of list.
     >>> isinstance(my_list, list)
     True
 
-Test if 'print_sorted' is an attribute of class MyList.
+example3 : Test if 'print_sorted' is an attribute of class MyList.
     >>> my_list = MyList()
     >>> 'print_sorted' in dir(MyList)
     True
 
+Perform various tests with different types of lists to verify
+the functionality of print_sorted(). Here are some examples:
 Test a list of positive numbers.
     >>> my_list = MyList()
     >>> my_list.append(1)
