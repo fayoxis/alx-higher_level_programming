@@ -1,8 +1,10 @@
 #!/usr/bin/python3
-"""Defines an empty class BaseGeometry"""
-
+"""
+This script defines an empty class called BaseGeometry.
+"""
 
 class BaseGeometry:
-    """Empty class
+    """
+    Empty class.
     """
     pass
