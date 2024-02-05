@@ -1,41 +1,43 @@
 #!/usr/bin/python3
 """
-This script defines a Square class based on the Rectangle class from 9-rectangle.py.
+This script defines a class called Square, which is based
+on the Rectangle class from the module 9-rectangle.py.
 
 Attributes:
     width (int): The width of the rectangle.
     height (int): The height of the rectangle.
 """
 
-import sys
-sys.path.append('.')
-from typing import Any
-from rectangle import Rectangle
-
+# Import the Rectangle class from the module 9-rectangle.py
+Rectangle = __import__('9-rectangle').Rectangle
 
 class Square(Rectangle):
     """
-    This class defines a Square.
+    This class defines a square.
 
     Args:
-        Rectangle (Rectangle): The rectangle class.
+        Rectangle (Rectangle): The base class of the square.
+
+    Attributes:
+        size (int): The size of one side of the square.
     """
 
-    def __init__(self, size: int) -> None:
+    def __init__(self, size):
         """
-        Initializes instances of the Square class.
+        Initializes a new instance of the Square class.
 
         Args:
             size (int): The size of one side of the square.
         """
+        self.integer_validator("size", size)
+        self.__size = size
         super().__init__(size, size)
-        self.size = size
 
-    def area(self) -> int:
+    def area(self):
         """
-        Calculates the area of a square.
+        Calculates the area of the square.
 
         Returns:
             int: The area of the square.
         """
-        return self.size ** 2
+        return self.__size ** 2
