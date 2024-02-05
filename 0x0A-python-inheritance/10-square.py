@@ -1,36 +1,70 @@
 #!/usr/bin/python3
-"""Defines a class Square based on 9-rectangle.py.
+"""Defines a class Square based on the Rectangle class.
 
 Attributes:
-    width (int): width of the rectangle.
-    height (int): height of the rectangle.
+    width (int): The width of the rectangle.
+    height (int): The height of the rectangle.
 """
 
 
-Rectangle = __import__('9-rectangle').Rectangle
+from typing import Union
+
+
+class Rectangle:
+    """Defines a class Rectangle.
+
+    Args:
+        width (int): The width of the rectangle.
+        height (int): The height of the rectangle.
+    """
+
+    def __init__(self, width: int, height: int):
+        """Creates new instances of the Rectangle class.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        self.width = width
+        self.height = height
+
+    def area(self) -> int:
+        """Calculates the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.width * self.height
+
+    def __str__(self) -> str:
+        """Returns a string representation of the rectangle.
+
+        Returns:
+            str: A string representation of the rectangle.
+        """
+        return f"Rectangle({self.width}, {self.height})"
 
 
 class Square(Rectangle):
     """Defines a class Square.
 
     Args:
-        Rectangle (Rectangle): rectangle
+        Rectangle (Rectangle): The base rectangle class.
     """
 
-    def __init__(self, size):
-        """Creates new instances of class Square.
+    def __init__(self, size: int):
+        """Creates new instances of the Square class.
 
         Args:
-            size (int): size of 1 side of square.
+            size (int): The size of one side of the square.
         """
-        self.integer_validator("size", size)
-        self.__size = size
         super().__init__(size, size)
+        self.size = size
 
-    def area(self):
-        """Calculates the area of a square.
+    def area(self) -> int:
+        """Calculates the area of the square.
 
         Returns:
-            int: the area of the square.
+            int: The area of the square.
         """
-        return self.__size ** 2
+        return self.size ** 2
