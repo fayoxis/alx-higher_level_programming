@@ -1,18 +1,21 @@
 #!/usr/bin/python3
-"""Defines a function inherits_from()"""
-
+"""
+This script defines a function called inherits_from().
+"""
 
 def inherits_from(obj, a_class):
-    """Returns True if the object is an instance of a class that inherited,
-    (directly or indirectly) from the specified class ; otherwise False.
+    """
+    Checks if the given object is an instance of a class that
+    directly or indirectly inherits from the specified class.
 
     Args:
-        obj (a_class): object to check type.
-        a_class (type): type of type to check.
+        obj (a_class): The object to check the type of.
+        a_class (type): The type of class to check.
 
     Returns:
-        boolean: True or False..
+        bool: True if the object is an instance of a class that
+        inherits from the specified class, False otherwise.
     """
-    if type(obj) is a_class:
+    while type(obj) is a_class:
         return False
     return issubclass(type(obj), a_class)
