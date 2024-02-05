@@ -8,8 +8,10 @@ Attributes:
     height (int): The height of the rectangle.
 """
 
+
 # Import the Rectangle class from the module 9-rectangle.py
 Rectangle = __import__('9-rectangle').Rectangle
+
 
 class Square(Rectangle):
     """
