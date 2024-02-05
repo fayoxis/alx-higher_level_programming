@@ -36,39 +36,41 @@ example 4: Test for passing a negative value.
     	...
     ValueError: name must be greater than 0
 
-Test for passing a 0 value.
+example 5: Test for passing a 0 value.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 0)
     Traceback (most recent call last):
     	...
     ValueError: name must be greater than 0
 
-Test for passing a positive value.
+example 6:Test for passing a positive value.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 5)
 
-Test for passing one argument to integer_validator.
+example 7: Test for passing one argument to integer_validator.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name")
     Traceback (most recent call last):
     	...
     TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-Test for passing more than two arguments to integer_validator.
+This will raise a TypeError with the message "integer_validator()
+takes 3 positional arguments but 4 were given".
+example 8: Test for passing more than two arguments to integer_validator.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 12, 13)
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-Test for passing no arguments to integer_validator.
+example 9: Test for passing no arguments to integer_validator.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator()
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-Test for passing a boolean value.
+example 10: Test for passing a boolean value.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", True)
 
