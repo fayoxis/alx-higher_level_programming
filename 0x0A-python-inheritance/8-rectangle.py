@@ -15,6 +15,7 @@ class Rectangle(BaseGeometry):
     This class represents a rectangle.
     """
 
+    
     def __init__(self, width, height):
         """
         Initializes a new instance of the Rectangle class.
