@@ -3,6 +3,7 @@
 This script defines a function called inherits_from().
 """
 
+
 def inherits_from(obj, a_class):
     """
     Checks if the given object is an instance of a class that
