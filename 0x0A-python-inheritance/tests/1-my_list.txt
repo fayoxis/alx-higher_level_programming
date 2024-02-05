@@ -139,8 +139,8 @@ example 15: Test an empty list.
     >>> my_list = MyList()
     >>> my_list.print_sorted()
     []
-
-Passing more than one argument to sort method.
+more example cases
+example 16: Passing more than one argument to sort method.
     >>> my_list = MyList()
     >>> my_list.print_sorted([1, 2])
     Traceback (most recent call last):
@@ -153,18 +153,18 @@ Passing more than one argument to sort method.
     	...
     TypeError: print_sorted() takes 1 positional argument but 3 were given
 
-Test the type of the print_sorted method.
+example 16: Test the type of the print_sorted method.
     >>> my_list = MyList()
     >>> type(my_list.print_sorted)
     <class 'method'>
 
-Test to see the printable string.
+example 17: Test to see the printable string.
     >>> my_list = MyList()
     >>> my_list.append(7)
     >>> print(my_list)
     [7]
 
-Test to see if print_sorted() returns a new list.
+example 18: Test to see if print_sorted() returns a new list.
     >>> my_list = MyList()
     >>> my_list.append(7)
     >>> my_list.append(1)
