@@ -1,15 +1,20 @@
 #!/usr/bin/python3
-"""This script defines the BaseGeometry class based on
-the code in 5-base_geometry.py"""
+"""
+This code defines a class called BaseGeometry, which is
+based on the code in the file 5-base_geometry.py.
+"""
 
 
 class BaseGeometry:
-    """A class that serves as the base for geometrical calculations."""
-    
+    """
+    This class represents a BaseGeometry.
+    """
+
     def area(self):
-        """Calculates the area of the geometry.
+        """
+        This method calculates the area of the geometry.
 
         Raises:
-            Exception: If the area method is not implemented.
+            Exception: If the area is not implemented.
         """
-       raise Exception("area() is not implemented")
+        raise Exception("area() is not implemented")
