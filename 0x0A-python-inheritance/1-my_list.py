@@ -6,11 +6,16 @@ class MyList(list):
     """Class that inherits from list.
 
     Args:
-        list (list): list to sort in ascending order.
+        list (list): The list to be sorted in ascending order.
     """
+
     def print_sorted(self):
-        """Prints a list in ascending order.
+        """Prints the elements of the list in ascending order.
         """
-        list_ = self[:]
-        list_.sort()
-        print(list_)
+        sorted_list = sorted(self)
+        print(sorted_list)
+
+
+# Sample Usage
+my_list = MyList([5, 2, 8, 1])
+my_list.print_sorted()
