@@ -33,10 +33,10 @@ class Square(Rectangle):
 
     def __str__(self):
         """
-        Returns a string representation of the square.
+        Returns A string representation of a square.
 
         Returns:
-            str: A string representation of the square.
+            str: A string representation of a square.
         """
         return f"[Square] {self.__size}/{self.__size}"
 
