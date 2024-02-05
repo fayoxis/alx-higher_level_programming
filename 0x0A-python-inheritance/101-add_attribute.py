@@ -5,8 +5,10 @@
 def add_attribute(obj, attribute, value):
     """Adds a new attribute to an object if possible.
 
+
     Args:
-        obj (__main__.MyClass): The object to which the attribute will be added.
+        obj (__main__.MyClass): The object to which the
+        attribute will be added.
         attr_name ('str'): The name of the attribute.
         value (str): The value of the attribute.
 
