@@ -70,18 +70,12 @@ example 8: Test for passing more than two arguments to integer_validator.
         ...
     TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
-This will raise a TypeError with the message "integer_validator()
-missing 2 required positional arguments: 'name' and 'value'".
-
 example 9: Test for passing no arguments to integer_validator.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator()
     Traceback (most recent call last):
         ...
     TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
-
-The first call will pass without raising any exceptions, but the
-second call will raise a ValueError with the message "name must be greater than 0".
 
 example 10: Test for passing a boolean value.
     >>> bg = BaseGeometry()
