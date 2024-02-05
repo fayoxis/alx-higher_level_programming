@@ -47,6 +47,9 @@ example 6:Test for passing a positive value.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name", 5)
 
+This will raise a TypeError with the message "integer_validator()
+missing 1 required positional argument: 'value'".
+
 example 7: Test for passing one argument to integer_validator.
     >>> bg = BaseGeometry()
     >>> bg.integer_validator("name")
