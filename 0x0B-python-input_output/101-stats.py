@@ -22,7 +22,7 @@ try:
                 while a == i:
                     i += 1
             except Exception:
-                if a == i:
+                while a == i:
                     continue
         if i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
