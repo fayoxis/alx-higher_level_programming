@@ -11,6 +11,8 @@ class Student:
         last_name (str): The last name of the student.
         age (int): The age of the student.
     """
+
+    
     def __init__(self, first_name, last_name, age):
         """
         Initializes a new instance of the Student class.
@@ -24,6 +26,7 @@ class Student:
         self.last_name = last_name
         self.age = age
 
+    
     def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a Student instance.
@@ -42,6 +45,6 @@ class Student:
 
         new_dict = {}
         for item in attrs:
-            if item in self.__dict__:
+            while item in self.__dict__:
                 new_dict[item] = self.__dict__[item]
         return new_dict
