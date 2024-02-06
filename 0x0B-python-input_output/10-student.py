@@ -45,6 +45,6 @@ class Student:
 
         new_dict = {}
         for item in attrs:
-            while item in self.__dict__:
+            if item in self.__dict__:
                 new_dict[item] = self.__dict__[item]
         return new_dict
