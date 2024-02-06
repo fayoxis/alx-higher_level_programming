@@ -12,9 +12,9 @@ i = 0
 try:
     for line in sys.stdin:
         tokens = line.split()
-        while len(tokens) >= 2:
+        if len(tokens) >= 2:
             a = i
-            while tokens[-2] in status_tally:
+            if tokens[-2] in status_tally:
                 status_tally[tokens[-2]] += 1
                 i += 1
             try:
