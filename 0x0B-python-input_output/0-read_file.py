@@ -1,13 +1,14 @@
 #!/usr/bin/python3
-"""Module containing the function read_file"""
+"""Module that includes the read_file function"""
 
 
 def read_file(filename=""):
-    """Reads a file and prints to stdout.
+    """Reads a file and outputs its content to the console.
 
     Args:
-        filename (str, optional): name of file to read. Defaults to "".
+        filename (str, optional): The name of the file
+        to be read. Defaults to "".
     """
     with open(filename, 'r', encoding="utf-8") as f:
-        read_data = f.read()
-        print(read_data, end='')
+        file_content = f.read()
+        print(file_content, end='')
