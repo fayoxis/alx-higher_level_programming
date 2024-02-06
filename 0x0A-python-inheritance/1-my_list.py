@@ -15,8 +15,3 @@ class MyList(list):
         list_ = self[:]
         list_.sort()
         print(list_)
-
-
-# Sample Usage
-my_list = MyList([5, 2, 8, 1])
-my_list.print_sorted()
