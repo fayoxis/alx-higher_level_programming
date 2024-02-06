@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Module on 9-student.py"""
+
+
 class Student:
     """
     A class that represents a student.
