@@ -40,8 +40,6 @@ class Student:
 
         new_dict = {}
         for item in attrs:
-            try:
+            if item in self.__dict__:
                 new_dict[item] = self.__dict__[item]
-            except KeyError:
-                pass
         return new_dict
