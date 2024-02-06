@@ -3,6 +3,20 @@
 
 
 def write_file(filename="", text=""):
-    with open(filename, 'w', encoding="utf-8") as f:
-        """This method returns the number of characters written to a file."""
-        return f.write(text)
+    """Writes a string to a text file (UTF8) and returns the number
+    of characters written.
+
+    Args:
+        filename (str, optional): name of the file. Defaults to "".
+        text (str, optional): string of text to write to file. Defaults to "".
+
+    Returns:
+        int: number of characters written to file.
+    """
+    try:
+        with open(filename, 'w', encoding='utf-8') as file:
+            file.write(text)
+            return len(text)
+    except IOError:
+        # Handle the exception if there is an issue with writing to the file
+        return -1
