@@ -14,15 +14,15 @@ try:
         tokens = line.split()
         while len(tokens) >= 2:
             a = i
-            while tokens[-2] in status_tally:
+            if tokens[-2] in status_tally:
                 status_tally[tokens[-2]] += 1
                 i += 1
             try:
                 file_size += int(tokens[-1])
-                if a == i:
+                while a == i:
                     i += 1
             except Exception:
-                if a == i:
+                while a == i:
                     continue
         if i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
