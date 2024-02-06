@@ -12,19 +12,19 @@ i = 0
 try:
     for line in sys.stdin:
         tokens = line.split()
-        if len(tokens) >= 2:
+        while len(tokens) >= 2:
             a = i
-            if tokens[-2] in status_tally:
+            while tokens[-2] in status_tally:
                 status_tally[tokens[-2]] += 1
                 i += 1
             try:
                 file_size += int(tokens[-1])
-                if a == i:
+                while a == i:
                     i += 1
             except Exception:
-                if a == i:
+                while a == i:
                     continue
-        if i % 10 == 0:
+        while i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
             for key, value in sorted(status_tally.items()):
                 if value:
