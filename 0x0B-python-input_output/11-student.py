@@ -14,6 +14,8 @@ class Student:
         age (int): The age of the student.
     """
     def __init__(self, first_name, last_name, age):
+
+        
         """
         Initializes a new instance of the Student class.
 
@@ -26,7 +28,10 @@ class Student:
         self.last_name = last_name
         self.age = age
 
+    
     def to_json(self, attrs=None):
+
+        
         """
         Retrieves a dictionary representation of the Student instance.
         If attrs is a list of strings, only attribute names contained in
@@ -49,6 +54,7 @@ class Student:
                 pass
         return new_dict
 
+    
     def reload_from_json(self, json):
         """
         Replaces all attributes of the Student instance with the given JSON.
