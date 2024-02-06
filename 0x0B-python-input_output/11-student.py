@@ -1,21 +1,20 @@
 #!/usr/bin/python3
 """
-This module defines the Student class based on the 10-student.py module.
+Module 10-student.py
 """
 
 
 class Student:
     """
-    A class that represents a student.
+    Class that defines the properties of a student.
 
     Attributes:
         first_name (str): The first name of the student.
         last_name (str): The last name of the student.
         age (int): The age of the student.
     """
-    def __init__(self, first_name, last_name, age):
 
-        
+    def __init__(self, first_name, last_name, age):
         """
         Initializes a new instance of the Student class.
 
@@ -28,18 +27,16 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    
     def to_json(self, attrs=None):
-
-        
         """
-        Retrieves a dictionary representation of the Student instance.
+        Retrieves a dictionary representation of a Student instance.
+
         If attrs is a list of strings, only attribute names contained in
         this list will be retrieved. Otherwise, all attributes will be retrieved.
 
         Args:
-            attrs (list[str], optional): A list of attribute names to retrieve.
-                Defaults to None.
+            attrs (list): A list of attribute names (optional).
+
         Returns:
             dict: A dictionary representation of the Student instance.
         """
@@ -50,17 +47,15 @@ class Student:
         for item in attrs:
             try:
                 new_dict[item] = self.__dict__[item]
-            except Exception:
+            except KeyError:
                 pass
         return new_dict
 
-    
     def reload_from_json(self, json):
         """
-        Replaces all attributes of the Student instance with the given JSON.
+        Replaces all attributes of the Student instance.
 
         Args:
-            json (dict): A dictionary representation of the Student instance.
+            json (dict): A dictionary representing the Student instance.
         """
-        # print("Type json --> {}".format(type(json)))
         self.__dict__.update(json)
