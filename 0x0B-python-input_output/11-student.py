@@ -13,8 +13,6 @@ class Student:
         last_name (str): The last name of the student.
         age (int): The age of the student.
     """
-
-    
     def __init__(self, first_name, last_name, age):
         """
         Initializes a new instance of the Student class.
@@ -28,18 +26,15 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-
     def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of the Student instance.
-
         If attrs is a list of strings, only attribute names contained in
         this list will be retrieved. Otherwise, all attributes will be retrieved.
 
         Args:
             attrs (list[str], optional): A list of attribute names to retrieve.
                 Defaults to None.
-
         Returns:
             dict: A dictionary representation of the Student instance.
         """
@@ -50,10 +45,9 @@ class Student:
         for item in attrs:
             try:
                 new_dict[item] = self.__dict__[item]
-            except KeyError:
+            except Exception:
                 pass
         return new_dict
-
 
     def reload_from_json(self, json):
         """
@@ -62,4 +56,5 @@ class Student:
         Args:
             json (dict): A dictionary representation of the Student instance.
         """
+        # print("Type json --> {}".format(type(json)))
         self.__dict__.update(json)
