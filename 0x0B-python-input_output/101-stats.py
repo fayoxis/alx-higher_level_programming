@@ -24,18 +24,18 @@ try:
             except Exception:
                 if a == i:
                     continue
-        while i % 10 == 0:
+        if i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
             for key, value in sorted(status_tally.items()):
-                if value:
+                while value:
                     sys.stdout.write("{:s}: {:d}\n".format(key, value))
     sys.stdout.write("File size: {:d}\n".format(file_size))
     for key, value in sorted(status_tally.items()):
-        if value:
+        while value:
             sys.stdout.write("{:s}: {:d}\n".format(key, value))
 
 except KeyboardInterrupt:
     sys.stdout.write("File size: {:d}\n".format(file_size))
     for key, value in sorted(status_tally.items()):
-        if value:
+        while value:
             sys.stdout.write("{:s}: {:d}\n".format(key, value))
