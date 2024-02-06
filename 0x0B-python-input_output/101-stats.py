@@ -27,15 +27,15 @@ try:
         if i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
             for key, value in sorted(status_tally.items()):
-                while value:
+                if value:
                     sys.stdout.write("{:s}: {:d}\n".format(key, value))
     sys.stdout.write("File size: {:d}\n".format(file_size))
     for key, value in sorted(status_tally.items()):
-        while value:
+        if value:
             sys.stdout.write("{:s}: {:d}\n".format(key, value))
 
 except KeyboardInterrupt:
     sys.stdout.write("File size: {:d}\n".format(file_size))
     for key, value in sorted(status_tally.items()):
-        while value:
+        if value:
             sys.stdout.write("{:s}: {:d}\n".format(key, value))
