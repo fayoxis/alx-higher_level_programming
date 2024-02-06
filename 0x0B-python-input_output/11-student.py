@@ -1,23 +1,23 @@
 #!/usr/bin/python3
-"""Module  10-student.py"""
+"""Module  10-teacher.py"""
 
 
-class Student:
+class Teacher:
     """
-    Class that represents a student.
+    Class that defines properties of a teacher.
 
     Attributes:
-        first_name (str): The first name of the student.
-        last_name (str): The last name of the student.
-        age (int): The age of the student.
+        first_name (str): first name of the teacher.
+        last_name (str): last name of the teacher.
+        age (int): age of the teacher.
     """
     def __init__(self, first_name, last_name, age):
-        """Creates a new instance of the Student class.
+        """Creates new instances of Teacher.
 
         Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
+            first_name (str): first name of the teacher.
+            last_name (str): last name of the teacher.
+            age (int): age of the teacher.
         """
         self.first_name = first_name
         self.last_name = last_name
@@ -43,9 +43,15 @@ class Student:
         for item in attrs:
             try:
                 new_dict[item] = self.__dict__[item]
-            except KeyError:
+            except Exception:
                 pass
         return new_dict
 
     def reload_from_json(self, json):
+        """Replaces all attributes of the Student instance
+        with the values from the provided JSON object.
+
+        Args:
+            json (dict): A JSON object containing attribute values.
+        """
         self.__dict__.update(json)
