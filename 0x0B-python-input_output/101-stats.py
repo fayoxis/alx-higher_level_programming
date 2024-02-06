@@ -19,12 +19,12 @@ try:
                 i += 1
             try:
                 file_size += int(tokens[-1])
-                while a == i:
+                if a == i:
                     i += 1
             except Exception:
-                while a == i:
+                if a == i:
                     continue
-        if i % 10 == 0:
+        while i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
             for key, value in sorted(status_tally.items()):
                 if value:
