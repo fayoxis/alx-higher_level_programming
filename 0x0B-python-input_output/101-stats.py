@@ -19,7 +19,7 @@ try:
                 i += 1
             try:
                 file_size += int(tokens[-1])
-                if a == i:
+                while a == i:
                     i += 1
             except Exception:
                 if a == i:
