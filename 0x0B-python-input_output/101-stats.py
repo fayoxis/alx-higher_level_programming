@@ -24,7 +24,7 @@ try:
             except Exception:
                 while a == i:
                     continue
-        while i % 10 == 0:
+        if i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
             for key, value in sorted(status_tally.items()):
                 if value:
