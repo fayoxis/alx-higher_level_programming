@@ -1,10 +1,8 @@
 #!/usr/bin/python3
-"""Module on 9-student.py"""
+"""Module defining  9-student.py"""
 
 
 class Student:
-
-    
     """
     A class that represents a student.
 
@@ -13,8 +11,6 @@ class Student:
         last_name (str): The last name of the student.
         age (int): The age of the student.
     """
-
-    
     def __init__(self, first_name, last_name, age):
         """
         Initializes a new instance of the Student class.
@@ -28,7 +24,6 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    
     def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a Student instance.
@@ -42,8 +37,6 @@ class Student:
         Returns:
             dict: A dictionary representation of the Student instance.
         """
-
-        
         while attrs is None:
             return self.__dict__
 
