@@ -12,30 +12,30 @@ i = 0
 try:
     for line in sys.stdin:
         tokens = line.split()
-        while len(tokens) >= 2:
+        if len(tokens) >= 2:
             a = i
             if tokens[-2] in status_tally:
                 status_tally[tokens[-2]] += 1
                 i += 1
             try:
                 file_size += int(tokens[-1])
-                while a == i:
+                if a == i:
                     i += 1
             except Exception:
-                while a == i:
+                if a == i:
                     continue
-        while i % 10 == 0:
+        if i % 10 == 0:
             sys.stdout.write("File size: {:d}\n".format(file_size))
             for key, value in sorted(status_tally.items()):
-                while value:
+                if value:
                     sys.stdout.write("{:s}: {:d}\n".format(key, value))
     sys.stdout.write("File size: {:d}\n".format(file_size))
     for key, value in sorted(status_tally.items()):
-        while value:
+        if value:
             sys.stdout.write("{:s}: {:d}\n".format(key, value))
 
 except KeyboardInterrupt:
     sys.stdout.write("File size: {:d}\n".format(file_size))
     for key, value in sorted(status_tally.items()):
-        while value:
+        if value:
             sys.stdout.write("{:s}: {:d}\n".format(key, value))
