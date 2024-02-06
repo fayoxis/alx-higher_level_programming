@@ -3,6 +3,8 @@
 
 
 class Student:
+
+    
     """
     A class that represents a student.
 
@@ -40,6 +42,8 @@ class Student:
         Returns:
             dict: A dictionary representation of the Student instance.
         """
+
+        
         while attrs is None:
             return self.__dict__
 
