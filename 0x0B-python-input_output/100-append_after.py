@@ -3,14 +3,6 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """function that inserts a line of text to a file, after each line,
-    containing a specific string.
-
-    Args:
-        filename (str, optional): name of file. Defaults to "".
-        search_string (str, optional): string to search. Defaults to "".
-        new_string (str, optional): string to append. Defaults to "".
-    """
     with open(filename, "r") as f:
         text = f.readlines()
 
