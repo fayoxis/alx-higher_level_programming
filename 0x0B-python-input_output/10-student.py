@@ -1,14 +1,14 @@
 #!/usr/bin/python3
-"""Module 9-student.py"""
+"""Defines the Student class based on 9-student.py."""
 
 
 class Student:
     """
-    A class that represents a student.
+    A class representing a student with various properties.
 
     Attributes:
         first_name (str): The first name of the student.
-        last_name (str): The last name of the student.
+        last_name (int): The last name of the student.
         age (int): The age of the student.
     """
     def __init__(self, first_name, last_name, age):
@@ -17,7 +17,7 @@ class Student:
 
         Args:
             first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
+            last_name (int): The last name of the student.
             age (int): The age of the student.
         """
         self.first_name = first_name
@@ -27,11 +27,11 @@ class Student:
     def to_json(self, attrs=None):
         """
         Retrieves a dictionary representation of a Student instance.
-        If attrs is a list of strings, only the attribute names contained in
-        the list must be retrieved. Otherwise, all attributes must be retrieved.
 
-        Args:
-            attrs (list): A list of attribute names (optional).
+        If attrs is provided as a list of strings, only the attributes
+        specified in the list will be included in the dictionary.
+        If attrs is not provided or is None, all attributes will be included.
+
         Returns:
             dict: A dictionary representation of the Student instance.
         """
@@ -42,6 +42,6 @@ class Student:
         for item in attrs:
             try:
                 new_dict[item] = self.__dict__[item]
-            except Exception:
+            except KeyError:
                 pass
         return new_dict
