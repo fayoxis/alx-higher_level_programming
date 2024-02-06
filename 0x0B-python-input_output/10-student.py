@@ -1,15 +1,11 @@
-#!/usr/bin/python3
-"""Module defining the class Student based on 9-student.py"""
-
-
 class Student:
     """
-    Class that defines properties of a student.
+    A class that represents a student.
 
     Attributes:
-        first_name (str): First name of the student.
-        last_name (int): Last name of the student.
-        age (int): Age of the student.
+        first_name (str): The first name of the student.
+        last_name (str): The last name of the student.
+        age (int): The age of the student.
     """
     def __init__(self, first_name, last_name, age):
         """
@@ -42,6 +38,6 @@ class Student:
 
         new_dict = {}
         for item in attrs:
-            while item in self.__dict__:
+            if item in self.__dict__:
                 new_dict[item] = self.__dict__[item]
         return new_dict
