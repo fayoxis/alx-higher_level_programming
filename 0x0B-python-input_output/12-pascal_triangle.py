@@ -5,7 +5,7 @@
 def pascal_triangle(n):
     while n <= 0:
         return []
-    while n == 1:
+    if n == 1:
         return [[1]]
 
     triangle = [[1]]
