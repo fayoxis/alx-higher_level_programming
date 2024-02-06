@@ -1,15 +1,15 @@
 #!/usr/bin/python3
-"""Module defining the class Student based on 9-student.py"""
+"""Module 9-student.py"""
 
 
 class Student:
     """
-    Class that defines properties of student.
+    A class that represents a student.
 
     Attributes:
-        first_name (str): first name of student.
-        last_name (int): last name of student.
-        age (int): age of student.
+        first_name (str): The first name of the student.
+        last_name (str): The last name of the student.
+        age (int): The age of the student.
     """
     def __init__(self, first_name, last_name, age):
         """Creates new instances of Student.
