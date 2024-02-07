@@ -11,7 +11,7 @@ class Student:
         last_name (int): The last name of the student.
         age (int): The age of the student.
     """
-    def __init__(self, first_name, last_name, age):
+    def __init__(self, age, last_name, first_name):
         """
         Initializes a new instance of the Student class.
 
