@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""identify the class TestSquareMethods methode """
+"""Defines a class TestSquareMethods"""
 
 
 from unittest.mock import patch
@@ -12,18 +12,18 @@ from models.square import Square
 
 
 class TestSquareMethods(unittest.TestCase):
-    """ example1: identify the  tests for Square class """
+    """ Defines tests for Square class """
 
     def setUp(self):
-        """example2: Method invoked for each test """
+        """ Method invoked for each test """
         Base._Base__nb_objects = 0
 
     def tearDown(self):
-        """example3: it Cleans up after each test """
+        """ Cleans up after each test """
         pass
 
     def test_new_square(self):
-        """example4: the Test  for the new square """
+        """ Test new square """
         s1 = Square(3)
         s2 = Square(1, 2, 3, 4)
         self.assertEqual(s1.size, 3)
@@ -38,7 +38,7 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(s2.id, 4)
 
     def test_attributes_1(self):
-        """ example6: the Test for width and x and y types"""
+        """ Test for width and x and y types"""
         with self.assertRaisesRegex(TypeError, "width must be an integer"):
             Square("1")
         with self.assertRaisesRegex(TypeError, "x must be an integer"):
@@ -47,7 +47,7 @@ class TestSquareMethods(unittest.TestCase):
             Square(1, 2, "3")
 
     def test_attributes_2(self):
-        """ example7: the Test for width and height ranges"""
+        """ Test for width and height ranges"""
         with self.assertRaisesRegex(ValueError, "width must be > 0"):
             Square(-1)
             Square(0)
@@ -57,14 +57,14 @@ class TestSquareMethods(unittest.TestCase):
             Square(1, 2, -3)
 
     def test_constructor_no_args(self):
-        """example8: the Tests constructor that has no args """
+        """ Tests constructor with no args """
         with self.assertRaises(TypeError) as e:
             r = Square()
         s = "__init__() missing 1 required positional argument: 'size'"
         self.assertEqual(str(e.exception), s)
 
     def test_C_constructor_many_args(self):
-        """example9: the Tests constructor with many arguments """
+        """ Tests constructor with many arguments """
         with self.assertRaises(TypeError) as e:
             r = Square(1, 2, 3, 4, 5)
         s = "__init__() takes from 2 to 5 positional arguments but 6 \
@@ -72,24 +72,24 @@ were given"
         self.assertEqual(str(e.exception), s)
 
     def test_is_Rectangle_instance(self):
-        """ example10: the Test Square is a Rectangle instance """
+        """ Test Square is a Rectangle instance """
         s1 = Square(1)
         self.assertEqual(True, isinstance(s1, Rectangle))
 
     def test_area(self):
-        """ example11:the Test area method """
+        """ Test area method """
         s1 = Square(4)
         self.assertEqual(s1.area(), 16)
 
     def test_area_2(self):
-        """ example12: the Test area method after modifying size """
+        """ Test area method after modifying size """
         r1 = Square(4)
         self.assertEqual(r1.area(), 16)
         r1.size = 9
         self.assertEqual(r1.area(), 81)
 
     def test_area_no_args(self):
-        """ example13: the Test area method with no arguments"""
+        """ Test area method with no arguments"""
         r = Square(5)
         with self.assertRaises(TypeError) as e:
             Square.area()
@@ -97,12 +97,12 @@ were given"
         self.assertEqual(str(e.exception), s)
 
     def test_load_from_file(self):
-        """ example14: the Test  that loads JSON file """
+        """ Test load JSON file """
         load_file = Square.load_from_file()
         self.assertEqual(load_file, load_file)
 
     def test_basic_display(self):
-        """ example15: the Test display without x and y """
+        """ Test display without x and y """
         s1 = Square(6)
         result = "######\n######\n######\n######\n######\n######\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
@@ -110,7 +110,7 @@ were given"
             self.assertEqual(str_out.getvalue(), result)
 
     def test_display_no_args(self):
-        """example16: the Test display method has no arguments """
+        """ Test display method with no arguments """
         r = Square(9)
         with self.assertRaises(TypeError) as e:
             Square.display()
@@ -118,7 +118,7 @@ were given"
         self.assertEqual(str(e.exception), s)
 
     def test_str(self):
-        """ example17: the Test __str__ return has value """
+        """ Test __str__ return value """
         s1 = Square(3, 1, 3)
         result = "[Square] (1) 1/3 - 3\n"
         with patch('sys.stdout', new=StringIO()) as str_out:
@@ -126,7 +126,7 @@ were given"
             self.assertEqual(str_out.getvalue(), result)
 
     def test_str_no_args(self):
-        """ example18: the Tests __str__ method has no arguments """
+        """ Tests __str__ method with no arguments """
         r = Square(5, 2)
         with self.assertRaises(TypeError) as e:
             Square.__str__()
