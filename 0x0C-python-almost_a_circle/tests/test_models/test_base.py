@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a class BaseModelTest"""
+"""identify  a class BaseModelTest for the program"""
 
 
 import json
@@ -11,27 +11,27 @@ from models.square import Square
 
 
 class TestBaseMethods(unittest.TestCase):
-    """ Defines tests for Base class """
+    """ example1: identify the  tests for Base class """
 
     def setUp(self):
-        """ Runs for each test """
+        """ example2: Runs for each test """
         Base._Base__nb_objects = 0
         self.new_base = Base(id=1)
 
     def tearDown(self):
-        """ Cleans up after each test """
+        """ example3: Cleans up after each test """
         pass
 
     def test_check_instance_variables(self):
-        """ Checks instance variables """
+        """ example4: Checks instance variables """
         self.assertEqual(self.new_base.id, 1)
 
     def test_docstring(self):
-        """ Test if docstring is present """
+        """ example5: Test if docstring is present """
         self.assertIsNotNone(Base.__doc__)
 
     def test_randos_id(self):
-        """ Test random arguments passed """
+        """ example6: Test random arguments passed """
         test1 = Base(7)
         self.assertEqual(test1.id, 7)
         test2 = Base(24)
@@ -42,13 +42,13 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(test4.id, -24)
 
     def test_consecutive_ids(self):
-        """ Tests consecutive ids """
+        """example7: Tests consecutive ids """
         b1 = Base()
         b2 = Base()
         self.assertEqual(b1.id + 1, b2.id)
 
     def test_0_id(self):
-        """ Test id to see if it duplicates """
+        """ example8: Test id to see if it duplicates """
         Base._Base__nb_objects = 0
         b1 = Base()
         b2 = Base()
@@ -62,14 +62,14 @@ class TestBaseMethods(unittest.TestCase):
         self.assertEqual(b5.id, 4)
 
     def test_constructor(self):
-        """ Tests constructor signature """
+        """ example 9: Tests constructor signature """
         with self.assertRaises(TypeError) as e:
             Base.__init__()
         msg = "__init__() missing 1 required positional argument: 'self'"
         self.assertEqual(str(e.exception), msg)
 
     def test_constructor_args_2(self):
-        """ Tests constructor signature with 2 notself args """
+        """ example10: Tests constructor signature with 2 notself args """
         with self.assertRaises(TypeError) as e:
             Base.__init__(self, 1, 2)
         msg = "__init__() takes from 1 to 2 positional arguments but 3 \
@@ -77,7 +77,7 @@ were given"
         self.assertEqual(str(e.exception), msg)
 
     def test_to_json_string(self):
-        """ Test to_json_string method """
+        """ example11: Test to_json_string method """
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(11, 1, 3, 4)
         dict1 = r1.to_dictionary()
@@ -98,7 +98,7 @@ were given"
         self.assertEqual(d, [dict1, dict2])
 
     def test_from_json_string(self):
-        """ Test from_json_string method """
+        """ example12: Test from_json_string method """
         self.assertEqual(Base.from_json_string(""), [])
         self.assertEqual(Base.from_json_string(None), [])
         list_input = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
@@ -109,19 +109,19 @@ were given"
         self.assertTrue(type(list_output), list)
 
     def test_save_to_file_1(self):
-        """ Test save_to_file_method with empty_file """
+        """ example13: Test save_to_file_method with empty_file """
         Rectangle.save_to_file([])
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
 
     def test_save_to_file_2(self):
-        """ Test save_to_file method with None as file """
+        """ example14: Test save_to_file method with None as file """
         Rectangle.save_to_file(None)
         with open("Rectangle.json", mode="r") as myFile:
             self.assertEqual([], json.load(myFile))
 
     def test_save_to_file_3(self):
-        """ Test save_to_file method """
+        """ example15: Test save_to_file method """
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         s2f = [r1, r2]
@@ -130,7 +130,7 @@ were given"
         self.assertNotEqual(s2f, rf)
 
     def test_save_to_file_4(self):
-        """ Test save_to_file method """
+        """ example16: Test save_to_file method """
         import os
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
@@ -174,7 +174,7 @@ were given"
             self.assertEqual(len(file.read()), 38)
 
     def test_load_from_file(self):
-        """Test load_from_file method """
+        """ example17 : Test load_from_file method """
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)
         list_in = [r1, r2]
@@ -196,7 +196,7 @@ were given"
         self.assertEqual(str(list_in[1]), str(list_out[1]))
 
     def test_load_from_file_empty_file(self):
-        """ Test use of load_from_file with empty file """
+        """ example18: Test use of load_from_file with empty file """
         try:
             os.remove("Rectangle.json")
         except Exception:
@@ -205,7 +205,7 @@ were given"
         self.assertEqual(Rectangle.load_from_file(), [])
 
     def test_create(self):
-        """ Test create method """
+        """ example19: Test create method """
         r1 = Rectangle(3, 5, 1)
         r1_dictionary = r1.to_dictionary()
         r2 = Rectangle.create(**r1_dictionary)
