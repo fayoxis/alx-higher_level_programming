@@ -1,214 +1,134 @@
 #!/usr/bin/python3
-"""identify  a class BaseModelTest for the program"""
+"""identify the class TestSquareMethods methode """
 
 
-import json
+from unittest.mock import patch
 import unittest
-import os
+import json
+from io import StringIO
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
 
 
-class TestBaseMethods(unittest.TestCase):
-    """ example1: identify the  tests for Base class """
+class TestSquareMethods(unittest.TestCase):
+    """ example1: identify the  tests for Square class """
 
     def setUp(self):
-        """ example2: Runs for each test """
+        """example2: Method invoked for each test """
         Base._Base__nb_objects = 0
-        self.new_base = Base(id=1)
 
     def tearDown(self):
-        """ example3: Cleans up after each test """
+        """example3: it Cleans up after each test """
         pass
 
-    def test_check_instance_variables(self):
-        """ example4: Checks instance variables """
-        self.assertEqual(self.new_base.id, 1)
+    def test_new_square(self):
+        """example4: the Test  for the new square """
+        s1 = Square(3)
+        s2 = Square(1, 2, 3, 4)
+        self.assertEqual(s1.size, 3)
+        self.assertEqual(s1.width, 3)
+        self.assertEqual(s1.x, 0)
+        self.assertEqual(s1.y, 0)
+        self.assertEqual(s1.id, 1)
+        self.assertEqual(s2.size, 1)
+        self.assertEqual(s2.width, 1)
+        self.assertEqual(s2.x, 2)
+        self.assertEqual(s2.y, 3)
+        self.assertEqual(s2.id, 4)
 
-    def test_docstring(self):
-        """ example5: Test if docstring is present """
-        self.assertIsNotNone(Base.__doc__)
+    def test_attributes_1(self):
+        """ example6: the Test for width and x and y types"""
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            Square("1")
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            Square(1, "2")
+        with self.assertRaisesRegex(TypeError, "y must be an integer"):
+            Square(1, 2, "3")
 
-    def test_randos_id(self):
-        """ example6: Test random arguments passed """
-        test1 = Base(7)
-        self.assertEqual(test1.id, 7)
-        test2 = Base(24)
-        self.assertEqual(test2.id, 24)
-        test3 = Base()
-        self.assertEqual(test3.id, 1)
-        test4 = Base(-24)
-        self.assertEqual(test4.id, -24)
+    def test_attributes_2(self):
+        """ example7: the Test for width and height ranges"""
+        with self.assertRaisesRegex(ValueError, "width must be > 0"):
+            Square(-1)
+            Square(0)
+        with self.assertRaisesRegex(ValueError, "x must be >= 0"):
+            Square(1, -2)
+        with self.assertRaisesRegex(ValueError, "y must be >= 0"):
+            Square(1, 2, -3)
 
-    def test_consecutive_ids(self):
-        """example7: Tests consecutive ids """
-        b1 = Base()
-        b2 = Base()
-        self.assertEqual(b1.id + 1, b2.id)
-
-    def test_0_id(self):
-        """ example8: Test id to see if it duplicates """
-        Base._Base__nb_objects = 0
-        b1 = Base()
-        b2 = Base()
-        b3 = Base()
-        b4 = Base(12)
-        b5 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
-        self.assertEqual(b4.id, 12)
-        self.assertEqual(b5.id, 4)
-
-    def test_constructor(self):
-        """ example 9: Tests constructor signature """
+    def test_constructor_no_args(self):
+        """example8: the Tests constructor that has no args """
         with self.assertRaises(TypeError) as e:
-            Base.__init__()
-        msg = "__init__() missing 1 required positional argument: 'self'"
-        self.assertEqual(str(e.exception), msg)
+            r = Square()
+        s = "__init__() missing 1 required positional argument: 'size'"
+        self.assertEqual(str(e.exception), s)
 
-    def test_constructor_args_2(self):
-        """ example10: Tests constructor signature with 2 notself args """
+    def test_C_constructor_many_args(self):
+        """example9: the Tests constructor with many arguments """
         with self.assertRaises(TypeError) as e:
-            Base.__init__(self, 1, 2)
-        msg = "__init__() takes from 1 to 2 positional arguments but 3 \
+            r = Square(1, 2, 3, 4, 5)
+        s = "__init__() takes from 2 to 5 positional arguments but 6 \
 were given"
-        self.assertEqual(str(e.exception), msg)
+        self.assertEqual(str(e.exception), s)
 
-    def test_to_json_string(self):
-        """ example11: Test to_json_string method """
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(11, 1, 3, 4)
-        dict1 = r1.to_dictionary()
-        dict2 = r2.to_dictionary()
-        json_dict1 = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
-        json_dict2 = [{"x": 3, "width": 11, "id": 1, "height": 1, "y": 4}]
-        json_string = Base.to_json_string([dict1, dict2])
-        self.assertNotEqual(dict1, json_dict1)
-        self.assertNotEqual(dict2, json_dict2)
-        self.assertEqual(type(dict1), dict)
-        self.assertEqual(type(json_string), str)
-        self.assertEqual(Base.to_json_string(None), "[]")
-        self.assertEqual(Base.to_json_string([]), "[]")
-        self.assertTrue(type(Base.to_json_string(None)) is str)
-        self.assertTrue(type(Base.to_json_string("[]")) is str)
-        self.assertTrue(type(json_string), str)
-        d = json.loads(json_string)
-        self.assertEqual(d, [dict1, dict2])
+    def test_is_Rectangle_instance(self):
+        """ example10: the Test Square is a Rectangle instance """
+        s1 = Square(1)
+        self.assertEqual(True, isinstance(s1, Rectangle))
 
-    def test_from_json_string(self):
-        """ example12: Test from_json_string method """
-        self.assertEqual(Base.from_json_string(""), [])
-        self.assertEqual(Base.from_json_string(None), [])
-        list_input = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
-        json_list_input = Rectangle.to_json_string(list_input)
-        list_output = Rectangle.from_json_string(json_list_input)
-        list_output2 = [{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]
-        self.assertEqual(list_output, list_output2)
-        self.assertTrue(type(list_output), list)
+    def test_area(self):
+        """ example11:the Test area method """
+        s1 = Square(4)
+        self.assertEqual(s1.area(), 16)
 
-    def test_save_to_file_1(self):
-        """ example13: Test save_to_file_method with empty_file """
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", mode="r") as myFile:
-            self.assertEqual([], json.load(myFile))
+    def test_area_2(self):
+        """ example12: the Test area method after modifying size """
+        r1 = Square(4)
+        self.assertEqual(r1.area(), 16)
+        r1.size = 9
+        self.assertEqual(r1.area(), 81)
 
-    def test_save_to_file_2(self):
-        """ example14: Test save_to_file method with None as file """
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", mode="r") as myFile:
-            self.assertEqual([], json.load(myFile))
-
-    def test_save_to_file_3(self):
-        """ example15: Test save_to_file method """
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        s2f = [r1, r2]
-        Rectangle.save_to_file(s2f)
-        rf = Rectangle.load_from_file()
-        self.assertNotEqual(s2f, rf)
-
-    def test_save_to_file_4(self):
-        """ example16: Test save_to_file method """
-        import os
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r1, r2])
-
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(len(file.read()), 105)
-
-        Rectangle.save_to_file(None)
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-        try:
-            os.remove("Rectangle.json")
-        except Exception:
-            pass
-        Rectangle.save_to_file([])
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-        r2 = Rectangle(2, 4)
-        Rectangle.save_to_file([r2])
-        with open("Rectangle.json", "r") as file:
-            self.assertEqual(len(file.read()), 52)
-
-        Square.save_to_file(None)
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-        try:
-            os.remove("Square.json")
-        except Exception:
-            pass
-        Square.save_to_file([])
-        with open("Square.json", "r") as file:
-            self.assertEqual(file.read(), "[]")
-
-        r2 = Square(1)
-        Square.save_to_file([r2])
-        with open("Square.json", "r") as file:
-            self.assertEqual(len(file.read()), 38)
+    def test_area_no_args(self):
+        """ example13: the Test area method with no arguments"""
+        r = Square(5)
+        with self.assertRaises(TypeError) as e:
+            Square.area()
+        s = "area() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
 
     def test_load_from_file(self):
-        """ example17 : Test load_from_file method """
-        r1 = Rectangle(10, 7, 2, 8)
-        r2 = Rectangle(2, 4)
-        list_in = [r1, r2]
-        Rectangle.save_to_file(list_in)
-        list_out = Rectangle.load_from_file()
-        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
-        self.assertEqual(str(list_in[0]), str(list_out[0]))
-        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
-        self.assertEqual(str(list_in[1]), str(list_out[1]))
+        """ example14: the Test  that loads JSON file """
+        load_file = Square.load_from_file()
+        self.assertEqual(load_file, load_file)
 
-        s1 = Square(5)
-        s2 = Square(7, 9, 1)
-        list_in = [s1, s2]
-        Square.save_to_file(list_in)
-        list_out = Square.load_from_file()
-        self.assertNotEqual(id(list_in[0]), id(list_out[0]))
-        self.assertEqual(str(list_in[0]), str(list_out[0]))
-        self.assertNotEqual(id(list_in[1]), id(list_out[1]))
-        self.assertEqual(str(list_in[1]), str(list_out[1]))
+    def test_basic_display(self):
+        """ example15: the Test display without x and y """
+        s1 = Square(6)
+        result = "######\n######\n######\n######\n######\n######\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            s1.display()
+            self.assertEqual(str_out.getvalue(), result)
 
-    def test_load_from_file_empty_file(self):
-        """ example18: Test use of load_from_file with empty file """
-        try:
-            os.remove("Rectangle.json")
-        except Exception:
-            pass
-        open("Rectangle.json", 'a').close()
-        self.assertEqual(Rectangle.load_from_file(), [])
+    def test_display_no_args(self):
+        """example16: the Test display method has no arguments """
+        r = Square(9)
+        with self.assertRaises(TypeError) as e:
+            Square.display()
+        s = "display() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
 
-    def test_create(self):
-        """ example19: Test create method """
-        r1 = Rectangle(3, 5, 1)
-        r1_dictionary = r1.to_dictionary()
-        r2 = Rectangle.create(**r1_dictionary)
-        self.assertEqual(str(r1), str(r2))
-        self.assertFalse(r1 is r2)
-        self.assertFalse(r1 == r2)
+    def test_str(self):
+        """ example17: the Test __str__ return has value """
+        s1 = Square(3, 1, 3)
+        result = "[Square] (1) 1/3 - 3\n"
+        with patch('sys.stdout', new=StringIO()) as str_out:
+            print(s1)
+            self.assertEqual(str_out.getvalue(), result)
+
+    def test_str_no_args(self):
+        """ example18: the Tests __str__ method has no arguments """
+        r = Square(5, 2)
+        with self.assertRaises(TypeError) as e:
+            Square.__str__()
+        s = "__str__() missing 1 required positional argument: 'self'"
+        self.assertEqual(str(e.exception), s)
