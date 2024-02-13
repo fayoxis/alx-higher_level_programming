@@ -6,7 +6,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """example1:the Class that defines properties of Rectangle.
+    """example1: the Class defines properties of Rectangle.
 
      Attributes:
         width (int): width of rectangle.
@@ -16,14 +16,14 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """ example2: makes new instances of rectangle.
+        """example2: makes new instances of rectangle.
 
         Args:
-            width (int): width of rectangle.
-            height (int): height of rectangle.
+            width (int): the width of rectangle.
+            height (int): the height of rectangle.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
-            id (int, optional): Identity number of rectangle. Defaults to None.
+            id (int, optional): it Identity # of rectangle. Defaults to None.
         """
         self.width = width
         self.height = height
@@ -32,14 +32,14 @@ class Rectangle(Base):
         super().__init__(id)
 
     def __str__(self):
-        """Prints rectangle"""
+        """example3: it Prints rectangle"""
         return ("[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}".
                 format(self.id, self.__x, self.__y, self.__width,
                        self.__height))
 
     @property
     def width(self):
-        """examplee3: the tWidth retriever.
+        """example4: the Width retriever.
 
         Returns:
             int: the width of rectangle.
@@ -48,10 +48,10 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """example4: the Property setter for width of rectangle.
+        """example5: Property setter for width of rectangle.
 
         Args:
-            value (int): width of rectangle.
+            value (int): the width of rectangle.
 
         Raises:
             TypeError: if width is not an integer.
@@ -65,16 +65,16 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """example5: it Height retriever.
+        """example6: the Height retriever.
 
         Returns:
-            int: it height of rectangle.
+            int: the height of rectangle.
         """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """example6: the Property setter for height of rectangle.
+        """example7: the Property setter for height of rectangle.
 
         Args:
             value (int): the height of rectangle.
@@ -91,7 +91,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """example7: x retriever.
+        """example8: the x retriever.
 
         Returns:
             int: x.
@@ -100,7 +100,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """ example8: the Property setter for x.
+        """Property setter for x.
 
         Args:
             value (int): x.
@@ -117,7 +117,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ example9: a y retriever.
+        """y retriever.
 
         Returns:
             int: y.
@@ -126,7 +126,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """example10: the Property setter for y.
+        """Property setter for y.
 
         Args:
             value (int): y.
@@ -142,7 +142,7 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """example11: Calculates area of a rectangle.
+        """Calculates area of a rectangle.
 
         Returns:
             int: area.
@@ -150,7 +150,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """example12: it Prints in stdout Rectangle instance with a character #."""
+        """Prints in stdout the Rectangle instance with the character #."""
         if self.__y > 0:
             for i in range(self.__y):
                 print()
@@ -163,7 +163,7 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
-        """example13: it Assigns an argument to each attribute
+        """Assigns an argument to each attribute
 
         Args:
             *args (tuple): arguments.
@@ -181,7 +181,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """example14: Returns dictionary representation of a Rectangle.
+        """Returns the dictionary representation of a Rectangle.
 
         Returns:
             dict: rectangle.
