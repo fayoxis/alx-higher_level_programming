@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a class Square"""
+"""identify a class Square"""
 
 
 from inspect import classify_class_attrs
@@ -7,43 +7,43 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """Class that defines properties of Square.
+    """the Class that defines properties of Square.
 
      Attributes:
-        width (int): width of rectangle.
-        height (int): height of rectangle.
+        width (int): the width of rectangle.
+        height (int): the height of rectangle.
         x (int): x.
         y (int): y.
-        id (int): identity of square.
+        id (int): it identity of square.
     """
     def __init__(self, size, x=0, y=0, id=None):
         """Creates new instances of Square
 
         Args:
-            size (int): width and height of square.
+            size (int): it is the width and height of square.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
-            id (int, optional): Identity number of square. Defaults to None.
+            id (int, optional): it Identity number of square. Defaults to None.
         """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Prints square"""
+        """it Prints square"""
         return ("[Square] ({}) {:d}/{:d} - {:d}".
                 format(self.id, self.x, self.y, self.size))
 
     @property
     def size(self):
-        """Property retriever for size.
+        """the Property retriever for size.
 
         Returns:
-            int: size of one side of square.
+            int: the size of one side of square.
         """
         return self.width
 
     @size.setter
     def size(self, value):
-        """Property setter for width of square.
+        """the Property setter for width of square.
         Args:
             value (int): width of square.
         Raises:
@@ -59,7 +59,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute
+        """it Assigns an argument to each attribute
 
         Args:
             *args (tuple): arguments.
@@ -82,7 +82,7 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Square.
+        """Returns t dictionary representation of a Square.
 
         Returns:
             dict: square.
