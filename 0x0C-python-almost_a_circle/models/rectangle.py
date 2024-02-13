@@ -1,29 +1,29 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle that inherits from Base"""
+"""identify class Rectangle that inherits from Base"""
 
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Class that defines properties of Rectangle.
+    """the Class that defines properties of Rectangle.
 
      Attributes:
-        width (int): width of rectangle.
-        height (int): height of rectangle.
+        width (int): the width of rectangle.
+        height (int): the height of rectangle.
         x (int): x.
         y (int): y.
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Creates new instances of rectangle.
+        """makes new instances of rectangle.
 
         Args:
-            width (int): width of rectangle.
-            height (int): height of rectangle.
+            width (int): the width of rectangle.
+            height (int): the height of rectangle.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
-            id (int, optional): Identity number of rectangle. Defaults to None.
+            id (int, optional): it Identity number of rectangle. Defaults to None.
         """
         self.width = width
         self.height = height
@@ -32,23 +32,23 @@ class Rectangle(Base):
         super().__init__(id)
 
     def __str__(self):
-        """Prints rectangle"""
+        """the Prints rectangle"""
         return ("[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}".
                 format(self.id, self.__x, self.__y, self.__width,
                        self.__height))
 
     @property
     def width(self):
-        """Width retriever.
+        """the Width retriever.
 
         Returns:
-            int: width of rectangle.
+            int: the width of rectangle.
         """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Property setter for width of rectangle.
+        """the Property setter for width of rectangle.
 
         Args:
             value (int): width of rectangle.
@@ -65,10 +65,10 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Height retriever.
+        """the Height retriever.
 
         Returns:
-            int: height of rectangle.
+            int: the height of rectangle.
         """
         return self.__height
 
