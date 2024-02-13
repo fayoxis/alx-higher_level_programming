@@ -7,7 +7,7 @@ import turtle
 
 
 class Base:
-    """Class that defines properties of Base.
+    """the Class that defines properties of Base.
 
      Attributes:
         id (int): Identity of each instance.
@@ -15,7 +15,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Creates new instances of Base.
+        """makes new instances of Base.
 
         Args:
             id (int, optional): Identity of each instance. Defaults to None.
