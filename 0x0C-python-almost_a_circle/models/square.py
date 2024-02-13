@@ -20,7 +20,7 @@ class Square(Rectangle):
         """Creates new instances of Square
 
         Args:
-            size (int): it is the width and height of square.
+            size (int): the width and height of square.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
             id (int, optional): Identity number of square. Defaults to None.
@@ -53,7 +53,7 @@ class Square(Rectangle):
         if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("width must be > 0")  
+            raise ValueError("width must be > 0")
         self.width = value
         self.height = value
 
@@ -81,7 +81,7 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns t dictionary representation of a Square.
+        """Returns dictionary representation of a Square.
 
         Returns:
             dict: square.
