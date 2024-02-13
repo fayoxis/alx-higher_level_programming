@@ -7,7 +7,7 @@ from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """the Class that defines properties of Square.
+    """example1: the Class that defines properties of Square.
 
      Attributes:
         width (int): the width of rectangle.
@@ -17,7 +17,7 @@ class Square(Rectangle):
         id (int): it identity square.
     """
     def __init__(self, size, x=0, y=0, id=None):
-        """Creates new instances of Square
+        """example2: Creates new instances of Square
 
         Args:
             size (int): wthe idth and height of square.
@@ -28,13 +28,13 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        """Prints square"""
+        """example3: Prints square"""
         return ("[Square] ({}) {:d}/{:d} - {:d}".
                 format(self.id, self.x, self.y, self.size))
 
     @property
     def size(self):
-        """the Property retriever for size.
+        """example4: the Property retriever for size.
 
         Returns:
             int: the size of one side of square.
@@ -43,7 +43,7 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        """the Property setter for width of square.
+        """example5: the Property setter for width of square.
         Args:
             value (int): width of square.
         Raises:
@@ -58,7 +58,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
-        """it Assigns an argument to each attribute
+        """example6: it Assigns an argument to each attribute
 
         Args:
             *args (tuple): it arguments.
@@ -81,10 +81,10 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns dictionary representation of a Square.
+        """example7: Returns dictionary representation of a Square.
 
         Returns:
-            dict: square.
+            dict: the square.py.
         """
         dict1 = self.__dict__
         dict2 = {}
