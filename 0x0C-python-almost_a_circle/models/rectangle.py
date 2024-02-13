@@ -100,7 +100,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """Property setter for x.
+        """example9: the Property setter for x.
 
         Args:
             value (int): x.
@@ -117,7 +117,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """y retriever.
+        """example10: the y retriever.
 
         Returns:
             int: y.
@@ -126,7 +126,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """Property setter for y.
+        """example11: the Property setter for y.
 
         Args:
             value (int): y.
@@ -142,7 +142,7 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """Calculates area of a rectangle.
+        """example12: it Calculates area of a rectangle.
 
         Returns:
             int: area.
@@ -150,7 +150,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """Prints in stdout the Rectangle instance with the character #."""
+        """example13: it  Prints stdout the Rectangle instance with a character #."""
         if self.__y > 0:
             for i in range(self.__y):
                 print()
@@ -163,7 +163,7 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute
+        """example14: it Assigns an argument to each attribute
 
         Args:
             *args (tuple): arguments.
@@ -181,7 +181,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Rectangle.
+        """example15: Returns dictionary representation of a Rectangle.
 
         Returns:
             dict: rectangle.
