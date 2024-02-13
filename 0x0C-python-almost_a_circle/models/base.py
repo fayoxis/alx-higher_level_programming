@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines a class Base"""
+"""identify a class Base"""
 import json
 import os.path
 import csv
@@ -7,7 +7,7 @@ import turtle
 
 
 class Base:
-    """Class that defines properties of Base.
+    """the Class that defines properties of Base.
 
      Attributes:
         id (int): Identity of each instance.
@@ -15,7 +15,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Creates new instances of Base.
+        """make new instances of Base.
 
         Args:
             id (int, optional): Identity of each instance. Defaults to None.
@@ -28,13 +28,13 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the JSON string representation of list_dictionaries.
+        """ Returns  JSON string representation of list_dictionaries.
 
         Args:
             list_dictionaries (list): list of dictionaries.
 
         Returns:
-            str: jason string representation.
+            str: json string representation.
         """
         if list_dictionaries is None or list_dictionaries == "[]":
             return "[]"
@@ -42,7 +42,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Writes the JSON string representation of list_objs to a file.
+        """Writes JSON string representation of list_objs to a file.
 
         Args:
             list_objs (list): instances who inherits of Base - example:
@@ -64,13 +64,13 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ Returns the list of the JSON string representation json_string.
+        """ Returns a list of the JSON string representation json_string.
 
         Args:
             json_string (str): _description_
 
         Returns:
-            list: JSON string representation json_string
+            list: the JSON string representation json_string
         """
         if json_string is None or len(json_string) == 0:
             return []
@@ -78,24 +78,20 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Returns an instance with all attributes already set.
+        """Returns the instance with all attributes already set.
 
         Args:
-            dictionary (dict): double pointer to a dictionary.
+            dictionary (dict): this will double pointer to a dictionary.
             cls (any): class.
 
-        To use the update method to assign all attributes, you must,
-        create a “dummy” instance before:
+        use the update method to assign all attributes, you should,
+        create any “dummy” instance:
         Create a Rectangle or Square instance with “dummy” mandatory,
         attributes (width, height, size, etc.),
         Call update instance method to this “dummy” instance to apply your,
         real values.
-        You must use the method def update(self, *args, **kwargs).
-        **dictionary must be used as **kwargs of the method update.
-        You are not allowed to use eval.
-
         Returns:
-            list: an instance with all attributes already set.
+            list: the instance with all attributes already set.
         """
         if cls.__name__ == "Rectangle":
             dummy = cls(1, 1)
@@ -113,8 +109,6 @@ class Base:
         If the file doesn’t exist, return an empty list.
         Otherwise, return a list of instances - the type of these instances,
         depends on cls (current class using this method).
-        You must use the from_json_string and create methods (implemented,
-        previously).
         Args:
             cls (any): class.
 
@@ -183,7 +177,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ Opens a window and draws all the Rectangles and Squares
+        """ it Opens a window and draws all the Rectangles and Squares
 
         NOT COMPLETE!!!!!!
 
