@@ -18,7 +18,7 @@ class Base:
         """makes new instances of Base.
 
         Args:
-            id (int, optional): Identity of each instance. Defaults to None.
+            id (int, optional):it  Identity each instance. Defaults to None.
         """
         if id is not None:
             self.id = id
@@ -42,10 +42,10 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Writes the JSON string representation of list_objs to a file.
+        """Writes JSON string representation of list_objs to a file.
 
         Args:
-            list_objs (list): instances who inherits of Base - example:
+            list_objs (list): it is instances who inherits of Base - example:
             list of Rectangle or list of Square instances.
         """
         filename = "{}.json".format(cls.__name__)
@@ -64,13 +64,13 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ Returns the list of the JSON string representation json_string.
+        """ Returns list of JSON string representation json_string.
 
         Args:
             json_string (str): _description_
 
         Returns:
-            list: JSON string representation json_string
+            list: JSON string representation of json_string
         """
         if json_string is None or len(json_string) == 0:
             return []
@@ -78,10 +78,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Returns an instance with all attributes already set.
+        """Returns any instance with all attributes already set.
 
         Args:
-            dictionary (dict): double pointer to a dictionary.
+            dictionary (dict): it double pointer to a dictionary.
             cls (any): class.
 
         To use the update method to assign all attributes, you must,
@@ -90,9 +90,6 @@ class Base:
         attributes (width, height, size, etc.),
         Call update instance method to this “dummy” instance to apply your,
         real values.
-        You must use the method def update(self, *args, **kwargs).
-        **dictionary must be used as **kwargs of the method update.
-        You are not allowed to use eval.
 
         Returns:
             list: an instance with all attributes already set.
