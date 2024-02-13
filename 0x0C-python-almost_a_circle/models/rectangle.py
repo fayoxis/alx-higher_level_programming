@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Defines a class Rectangle that inherits from Base"""
+"""identify a class Rectangle that inherits from Base"""
 
 
 from models.base import Base
 
 
 class Rectangle(Base):
-    """Class that defines properties of Rectangle.
+    """ the Class that defines properties of Rectangle.
 
      Attributes:
         width (int): width of rectangle.
@@ -16,7 +16,7 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Creates new instances of rectangle.
+        """makes new instances of rectangle.
 
         Args:
             width (int): width of rectangle.
@@ -39,16 +39,16 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Width retriever.
+        """he tWidth retriever.
 
         Returns:
-            int: width of rectangle.
+            int: the width of rectangle.
         """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Property setter for width of rectangle.
+        """the Property setter for width of rectangle.
 
         Args:
             value (int): width of rectangle.
@@ -65,19 +65,19 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Height retriever.
+        """it Height retriever.
 
         Returns:
-            int: height of rectangle.
+            int: it height of rectangle.
         """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Property setter for height of rectangle.
+        """the Property setter for height of rectangle.
 
         Args:
-            value (int): height of rectangle.
+            value (int): the height of rectangle.
 
         Raises:
             TypeError: if height is not an integer.
@@ -100,7 +100,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """Property setter for x.
+        """ the Property setter for x.
 
         Args:
             value (int): x.
@@ -117,7 +117,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """y retriever.
+        """ a y retriever.
 
         Returns:
             int: y.
@@ -126,7 +126,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """Property setter for y.
+        """the Property setter for y.
 
         Args:
             value (int): y.
@@ -150,7 +150,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """Prints in stdout the Rectangle instance with the character #."""
+        """it Prints in stdout the Rectangle instance with the character #."""
         if self.__y > 0:
             for i in range(self.__y):
                 print()
@@ -163,7 +163,7 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
-        """Assigns an argument to each attribute
+        """it Assigns an argument to each attribute
 
         Args:
             *args (tuple): arguments.
@@ -181,7 +181,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """Returns the dictionary representation of a Rectangle.
+        """Returns dictionary representation of a Rectangle.
 
         Returns:
             dict: rectangle.
