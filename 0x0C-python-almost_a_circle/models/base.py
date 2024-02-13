@@ -64,7 +64,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ example5: Returns a list of the JSON string representation json_string.
+        """example5: Returns a list of the JSON string representation json_string.
 
         Args:
             json_string (str): _description_
