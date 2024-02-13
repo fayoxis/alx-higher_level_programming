@@ -6,7 +6,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """example1: the Class defines properties of Rectangle.
+    """Class that defines properties of Rectangle.
 
      Attributes:
         width (int): width of rectangle.
@@ -16,14 +16,14 @@ class Rectangle(Base):
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        """example2: makes new instances of rectangle.
+        """Creates new instances of rectangle.
 
         Args:
-            width (int): the width of rectangle.
-            height (int): the height of rectangle.
+            width (int): width of rectangle.
+            height (int): height of rectangle.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
-            id (int, optional): it Identity # of rectangle. Defaults to None.
+            id (int, optional): Identity number of rectangle. Defaults to None.
         """
         self.width = width
         self.height = height
@@ -32,26 +32,26 @@ class Rectangle(Base):
         super().__init__(id)
 
     def __str__(self):
-        """example3: it Prints rectangle"""
+        """Prints rectangle"""
         return ("[Rectangle] ({}) {:d}/{:d} - {:d}/{:d}".
                 format(self.id, self.__x, self.__y, self.__width,
                        self.__height))
 
     @property
     def width(self):
-        """example4: the Width retriever.
+        """Width retriever.
 
         Returns:
-            int: the width of rectangle.
+            int: width of rectangle.
         """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """example5: Property setter for width of rectangle.
+        """Property setter for width of rectangle.
 
         Args:
-            value (int): the width of rectangle.
+            value (int): width of rectangle.
 
         Raises:
             TypeError: if width is not an integer.
@@ -65,19 +65,19 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """example6: the Height retriever.
+        """Height retriever.
 
         Returns:
-            int: the height of rectangle.
+            int: height of rectangle.
         """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """example7: the Property setter for height of rectangle.
+        """Property setter for height of rectangle.
 
         Args:
-            value (int): the height of rectangle.
+            value (int): height of rectangle.
 
         Raises:
             TypeError: if height is not an integer.
@@ -91,7 +91,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """example8: the x retriever.
+        """x retriever.
 
         Returns:
             int: x.
@@ -100,7 +100,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        """example9: the Property setter for x.
+        """Property setter for x.
 
         Args:
             value (int): x.
@@ -117,8 +117,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """example10: the y retriever.
-
+        """y retriever.
         Returns:
             int: y.
         """
@@ -126,7 +125,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        """example11: the Property setter for y.
+        """Property setter for y.
 
         Args:
             value (int): y.
@@ -142,7 +141,7 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """example12: it Calculates area of a rectangle.
+        """Calculates area of a rectangle.
 
         Returns:
             int: area.
@@ -163,7 +162,7 @@ class Rectangle(Base):
             print()
 
     def update(self, *args, **kwargs):
-        """example14: it Assigns an argument to each attribute
+        """Assigns an argument to each attribute
 
         Args:
             *args (tuple): arguments.
@@ -181,7 +180,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
-        """example15: Returns dictionary representation of a Rectangle.
+        """Returns the dictionary representation of a Rectangle.
 
         Returns:
             dict: rectangle.
