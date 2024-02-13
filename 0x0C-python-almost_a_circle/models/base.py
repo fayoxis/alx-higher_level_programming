@@ -7,7 +7,7 @@ import turtle
 
 
 class Base:
-    """the Class that defines properties of Base.
+    """example1: the Class that defines properties of Base.
 
      Attributes:
         id (int): Identity of each instance.
@@ -15,7 +15,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """make new instances of Base.
+        """example2: make new instances of Base.
 
         Args:
             id (int, optional): Identity of each instance. Defaults to None.
@@ -28,7 +28,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """ Returns  JSON string representation of list_dictionaries.
+        """example3: Returns  JSON string representation of list_dictionaries.
 
         Args:
             list_dictionaries (list): list of dictionaries.
@@ -42,7 +42,7 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Writes JSON string representation of list_objs to a file.
+        """example4: Writes JSON string representation of list_objs to a file.
 
         Args:
             list_objs (list): instances who inherits of Base - example:
@@ -64,7 +64,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ Returns a list of the JSON string representation json_string.
+        """ example5: Returns a list of the JSON string representation json_string.
 
         Args:
             json_string (str): _description_
@@ -78,7 +78,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Returns the instance with all attributes already set.
+        """example6: Returns the instance with all attributes already set.
 
         Args:
             dictionary (dict): this will double pointer to a dictionary.
@@ -104,7 +104,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Returns a list of instances.
+        """example7: Returns a list of instances.
 
         If the file doesn’t exist, return an empty list.
         Otherwise, return a list of instances - the type of these instances,
@@ -133,7 +133,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Serializes a list of rectangles or squares in csv.
+        """ example8: Serializes a list of rectangles or squares in csv.
 
         Args:
             cls (any): class.
@@ -151,7 +151,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """deserializes a list of rectangles or squares in csv.
+        """example9: deserializes a list of rectangles or squares in csv.
 
         Args:
             cls (any): class.
@@ -177,7 +177,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ it Opens a window and draws all the Rectangles and Squares
+        """example10: it Opens a window and draws all the Rectangles and Squares
 
         NOT COMPLETE!!!!!!
 
