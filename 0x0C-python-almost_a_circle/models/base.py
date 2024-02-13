@@ -7,18 +7,18 @@ import turtle
 
 
 class Base:
-    """Class that defines properties of Base.
+    """example1: the Class that defines properties of Base.
 
      Attributes:
-        id (int): Identity of each instance.
+        id (int): it Identity of each instance.
     """
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """Creates new instances of Base.
+        """example2: makes new instances of Base.
 
         Args:
-            id (int, optional): Identity of each instance. Defaults to None.
+            id (int, optional): it Identity of each instance. Defaults to None.
         """
         if id is not None:
             self.id = id
@@ -28,13 +28,13 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the JSON string representation of list_dictionaries.
+        """example3: Returns JSON string representation of list_dictionaries.
 
         Args:
-            list_dictionaries (list): list of dictionaries.
+            list_dictionaries (list): the list of dictionaries.
 
         Returns:
-            str: jason string representation.
+            str: the jason string representation.
         """
         if list_dictionaries is None or list_dictionaries == "[]":
             return "[]"
@@ -42,10 +42,10 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """Writes the JSON string representation of list_objs to a file.
+        """example4: Writes JSON string representation of list_objs to a file.
 
         Args:
-            list_objs (list): instances who inherits of Base - example:
+            list_objs (list): the instances who inherits of Base - example:
             list of Rectangle or list of Square instances.
         """
         filename = "{}.json".format(cls.__name__)
@@ -64,7 +64,7 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        """ Returns the list of the JSON string representation json_string.
+        """ example5: Returns list of JSON string representation json_string.
 
         Args:
             json_string (str): _description_
@@ -78,21 +78,18 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        """Returns an instance with all attributes already set.
+        """example6: Returns an instance with all attributes already set.
 
         Args:
             dictionary (dict): double pointer to a dictionary.
             cls (any): class.
 
-        To use the update method to assign all attributes, you must,
-        create a “dummy” instance before:
-        Create a Rectangle or Square instance with “dummy” mandatory,
+        To use the update method to assign any attributes, you must,
+        make a “dummy” instance before:
+        make a Rectangle or Square instance with “dummy” mandatory,
         attributes (width, height, size, etc.),
         Call update instance method to this “dummy” instance to apply your,
         real values.
-        You must use the method def update(self, *args, **kwargs).
-        **dictionary must be used as **kwargs of the method update.
-        You are not allowed to use eval.
 
         Returns:
             list: an instance with all attributes already set.
@@ -108,14 +105,16 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Returns a list of instances.
+        """example7 : Returns  list of instances.
 
         If the file doesn’t exist, return an empty list.
-        Otherwise, return a list of instances - the type of these instances,
+        Otherwise, return a list of instances - type of these instances,
         depends on cls (current class using this method).
         You must use the from_json_string and create methods (implemented,
         previously).
         Args:
+            cls (any): class.
+
         Args:
             cls (any): class.
             list_objs (list): objects.
@@ -132,7 +131,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """deserializes a list of rectangles or squares in csv.
+        """example8 :deserializes a list of rectangles or squares in csv.
 
         Args:
             cls (any): class.
@@ -158,7 +157,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ Opens a window and draws all the Rectangles and Squares
+        """ example9 :Opens a window and draws all the Rectangles and Squares
 
         NOT COMPLETE!!!!!!
 
