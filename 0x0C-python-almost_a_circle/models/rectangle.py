@@ -23,7 +23,7 @@ class Rectangle(Base):
             height (int): the height of rectangle.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
-            id (int, optional): it Identity number of rectangle. Defaults to None.
+            id (int, optional): Identity number of rectangle. Defaults to None.
         """
         self.width = width
         self.height = height
@@ -150,7 +150,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
-        """it Prints in stdout the Rectangle instance with the character #."""
+        """Prints in stdout the Rectangle instance with the character #."""
         if self.__y > 0:
             for i in range(self.__y):
                 print()
