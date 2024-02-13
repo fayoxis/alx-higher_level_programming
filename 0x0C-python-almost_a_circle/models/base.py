@@ -10,7 +10,7 @@ class Base:
     """the Class that defines properties of Base.
 
      Attributes:
-        id (int): Identity of each instance.
+        id (int):it Identity  each instance.
     """
     __nb_objects = 0
 
@@ -28,13 +28,13 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """Returns the JSON string representation of list_dictionaries.
+        """Returns JSON string representation of list_dictionaries.
 
         Args:
-            list_dictionaries (list): list of dictionaries.
+            list_dictionaries (list): the list of dictionaries.
 
         Returns:
-            str: jason string representation.
+            str: json string representation.
         """
         if list_dictionaries is None or list_dictionaries == "[]":
             return "[]"
