@@ -131,7 +131,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
-        """example8 :deserializes a list of rectangles or squares in csv.
+        """deserializes a list of rectangles or squares in csv.
 
         Args:
             cls (any): class.
@@ -157,7 +157,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ example9 :Opens a window and draws all the Rectangles and Squares
+        """ example8 :Opens a window and draws all the Rectangles and Squares
 
         NOT COMPLETE!!!!!!
 
