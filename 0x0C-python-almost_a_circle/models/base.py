@@ -105,7 +105,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """Returns a list of instances.
+        """Returns list of instances.
 
         If the file doesn’t exist, return an empty list.
         Otherwise, return a list of instances - the type of these instances,
@@ -180,7 +180,7 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """ Opens a window and draws all the Rectangles and Squares
+        """ Opens window and draws all the Rectangles and Squares
 
         NOT COMPLETE!!!!!!
 
