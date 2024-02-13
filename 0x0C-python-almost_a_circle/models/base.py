@@ -84,12 +84,15 @@ class Base:
             dictionary (dict): double pointer to a dictionary.
             cls (any): class.
 
-        use the update method to assign any attributes, you must,
-        make a “dummy” instance before:
-        make a Rectangle or Square instance with “dummy” mandatory,
+        To use the update method to assign all attributes, you must,
+        create a “dummy” instance before:
+        Create a Rectangle or Square instance with “dummy” mandatory,
         attributes (width, height, size, etc.),
         Call update instance method to this “dummy” instance to apply your,
         real values.
+        You must use the method def update(self, *args, **kwargs).
+        **dictionary must be used as **kwargs of the method update.
+        You are not allowed to use eval.
 
         Returns:
             list: an instance with all attributes already set.
@@ -110,6 +113,8 @@ class Base:
         If the file doesn’t exist, return an empty list.
         Otherwise, return a list of instances - the type of these instances,
         depends on cls (current class using this method).
+        You must use the from_json_string and create methods (implemented,
+        previously).
         Args:
             cls (any): class.
 
