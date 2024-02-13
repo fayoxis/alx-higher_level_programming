@@ -23,7 +23,7 @@ class Square(Rectangle):
             size (int): it is the width and height of square.
             x (int, optional): x. Defaults to 0.
             y (int, optional): y. Defaults to 0.
-            id (int, optional): it Identity number of square. Defaults to None.
+            id (int, optional): Identity number of square. Defaults to None.
         """
         super().__init__(size, size, x, y, id)
 
