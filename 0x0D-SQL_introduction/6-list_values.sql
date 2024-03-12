@@ -1,4 +1,4 @@
 -- script 6
--- script that ists all rows of the table first_table from the database
--- hbtn_0c_0 in your MySQL server.
+-- this script show all rows of first_table in the database
+-- hbtn_0c_0 in a MySQL server.
 SELECT * FROM first_table;
