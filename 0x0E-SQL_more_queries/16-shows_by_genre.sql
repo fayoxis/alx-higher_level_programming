@@ -1,5 +1,5 @@
--- script that lists all shows, and all genres linked to that show, from
--- the database hbtn_0d_tvshows.
+-- this script lists all shows, all genres linked to that show, from
+-- hbtn_0d_tvshows.
 SELECT
     tv_shows.title AS title,
     tv_genres.name AS name
