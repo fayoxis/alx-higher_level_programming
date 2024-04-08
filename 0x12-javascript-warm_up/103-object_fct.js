@@ -3,16 +3,15 @@ const myObject = {
   type: 'object',
   value: 12
 };
-
 console.log(myObject);
 
 function increaseValue() {
   myObject.value++;
 }
 
-increaseValue();
+myObject.incr();
 console.log(myObject);
-increaseValue();
+myObject.incr();
 console.log(myObject);
-increaseValue();
+myObject.incr();
 console.log(myObject);
