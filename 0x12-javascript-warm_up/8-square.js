@@ -1,10 +1,10 @@
 #!/usr/bin/node
-const n = Math.floor(Number(process.argv[2]));
-if (isNaN(n)) {
+const lenght = Math.floor(Number(process.argv[2]));
+if (isNaN(lenght)) {
   console.log('Missing size');
 } else {
-  for (let i = 0; i < n; i++) {
-    let line = 'X'.repeat(n);
-    console.log(line);
+  for (let r = 0; r < lenght; r++) {
+    let row = '';
+    for (let c = 0; c < lenght; c++) row += 'X';
+    console.log(row);
   }
-}
