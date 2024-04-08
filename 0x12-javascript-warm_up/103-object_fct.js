@@ -11,8 +11,8 @@ class MyObject {
 }
 
 const myObject = new MyObject();
-
 console.log(myObject);
+
 myObject.incr();
 console.log(myObject);
 myObject.incr();
