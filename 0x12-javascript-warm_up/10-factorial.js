@@ -1,8 +1,7 @@
 #!/usr/bin/node
-function factorial (number) {
-  if ((isNaN(number)) || (number === 1)) {
-    return 1;
-  }
-  return factorial(number - 1) * number;
+function calculateFactorial(n) {
+  return n === 0 || isNaN(n) ? 1 : n * calculateFactorial(n - 1);
 }
-console.log(factorial(parseInt(process.argv[2])));
+
+const inputNumber = Number(process.argv[2]);
+console.log(calculateFactorial(inputNumber));
