@@ -1,10 +1,8 @@
 #!/usr/bin/node
-const args = process.argv.slice(2);
-const a = Number(args[0]);
-const b = Number(args[1]);
-
-function add(a, b) {
+const add = (a, b) => {
   return a + b;
-}
+};
 
-console.log(add(a, b));
+const arg1 = Number(process.argv[2]);
+const arg2 = Number(process.argv[3]);
+console.log(add(arg1, arg2));
