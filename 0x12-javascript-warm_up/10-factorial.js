@@ -7,6 +7,6 @@ function factorial(number) {
   }
 }
 
-const inputNumber = Math.floor(Number(process.argv[2]));
-const result = factorial(inputNumber);
+const n = Math.floor(Number(process.argv[2]));
+const result = factorial(n);
 console.log(result);
