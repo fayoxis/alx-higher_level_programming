@@ -1,3 +1,5 @@
 #!/usr/bin/env node
 
-export const converter = (base) => (num) => num.toString(base);
+module.exports = {
+  converter: (base) => (num) => num.toString(base),
+};
