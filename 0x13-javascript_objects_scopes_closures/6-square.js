@@ -1,6 +1,6 @@
 #!/usr/bin/node
 // Import the Square module
-const Square = require('./6-square');
+const Square = require('./5-square');
 
 // Create a new instance of Square with size 4
 const s1 = new Square(4);
