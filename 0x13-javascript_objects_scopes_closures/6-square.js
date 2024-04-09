@@ -1,24 +1,14 @@
 #!/usr/bin/node
-const Rectangle = require('./5-rectangle');
+// Import the Square module
+const Square = require('./6-square');
 
-class Square extends Rectangle {
-  /**
-   * @method charPrint - prints the square using the character c
-   * @param {string} c - the character to print the square with (default: 'X')
-   * @returns {void}
-   */
-  charPrint(c) {
-    if (c === undefined) {
-      c = 'X';
-    }
-    for (let i = 0; i < this.height; i++) {
-      let s = '';
-      for (let j = 0; j < this.width; j++) {
-        s += c;
-      }
-      console.log(s);
-    }
-  }
-}
+// Create a new instance of Square with size 4
+const s1 = new Square(4);
 
-module.exports = Square;
+// Call the charPrint method without passing any argument
+s1.charPrint();
+
+// Call the charPrint method and pass 'C' as the character argument
+s1.charPrint('C');
+
+// The output will remain the same as before.
