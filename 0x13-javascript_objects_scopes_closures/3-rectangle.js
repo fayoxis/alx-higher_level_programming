@@ -1,8 +1,10 @@
 #!/usr/bin/node
+// Define the `Rectangle` class with validation and the `print` instance
 class Rectangle {
-  constructor(width, height) {
-    if (width > 0 && height > 0) {
-      [this.width, this.height] = [width, height];
+  constructor(w, h) {
+    if (w > 0 && h > 0) {
+      this.width = w;
+      this.height = h;
     }
   }
 
@@ -13,4 +15,5 @@ class Rectangle {
   }
 }
 
+// Export the `Rectangle` class
 module.exports = Rectangle;
