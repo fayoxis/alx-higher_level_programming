@@ -1,7 +1,22 @@
 #!/usr/bin/node
-const Square = require('./5-square');
+const ParentSquare = require('./5-square.js');
 
-const s1 = new Square(4);
-s1.charPrint();
+class Square extends ParentSquare {
+  constructor() {
+    super();
+  }
 
-s1.charPrint('C');
+  charPrint(c) {
+    if (typeof c === 'undefined') {
+      this.print();
+    } else {
+      let square = '';
+      for (let i = 0; i < this.width; i++) {
+        square += c.repeat(this.width) + '\n';
+      }
+      console.log(square);
+    }
+  }
+}
+
+module.exports = Square;
