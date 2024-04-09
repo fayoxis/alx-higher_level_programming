@@ -1,10 +1,10 @@
 #!/usr/bin/node
-module.exports = class {
-  constructor(w, h) {
-    this.setDimensions(w, h);
+module.exports = class Rectangle {
+  constructor(width, height) {
+    this.setSize(width, height);
   }
 
-  setDimensions(w, h) {
+  setSize(w, h) {
     if (w > 0 && h > 0) {
       this.width = w;
       this.height = h;
