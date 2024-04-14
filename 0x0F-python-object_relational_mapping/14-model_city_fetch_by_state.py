@@ -11,9 +11,9 @@ if __name__ == '__main__':
         exit('Use: 14-model_city_fetch_by_state.py <mysql username> '
              '<mysql password> <database name>')
 
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
-    
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/'
+                           '{}'.format(argv[1], argv[2], argv[3]),
+                           pool_pre_ping=True)
     session = Session(engine)
     Base.metadata.create_all(engine)  # creates decprecated warning 1681
 
@@ -22,4 +22,5 @@ if __name__ == '__main__':
     for row in result:
         print('{}: ({}) {}'.format(row[0], row[1], row[2]))
 
+    session.close()
     session.close()
