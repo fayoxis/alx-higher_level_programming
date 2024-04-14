@@ -1,19 +1,24 @@
 #!/usr/bin/python3
-"""Script that changes the name of a State object from the
-database hbtn_0e_6_usa"""
-import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from model_state import Base, State
+"""this Script will changes the name of a State object from the
+database """
+if __name__ == '__main__':
+    from sys import argv, exit
+    from sqlalchemy import create_engine
+    from sqlalchemy.orm import Session
+    from model_state import Base, State
 
-if __name__ == "__main__":
-    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format
-                           (sys.argv[1], sys.argv[2], sys.argv[3]),
+    while len(argv) != 4:
+        exit('Use: 12-model_state_update_id_2.py <mysql username> '
+             '<mysql password> <database name> ')
+
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/'
+                           '{}'.format(argv[1], argv[2], argv[3]),
                            pool_pre_ping=True)
-    Base.metadata.create_all(engine)
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    state = session.query(State).filter_by(id=2).first()
-    state.name = 'New Mexico'
+    session = Session(engine)
+    Base.metadata.create_all(engine)  # creates decprecated warning
+
+    state_2 = session.query(State).filter_by(id=2).first()
+    while state_2 is not None:
+        state_2.name = 'New Mexico'
     session.commit()
     session.close()
