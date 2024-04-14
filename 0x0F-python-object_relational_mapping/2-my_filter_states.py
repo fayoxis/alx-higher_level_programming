@@ -1,21 +1,25 @@
 #!/usr/bin/python3
 """Script takes  argument and displays all values in
 table where name matches the argument"""
-import MySQLdb
-from sys import argv
+if __name__ == '__main__':
+    import sys
+    import MySQLdb
 
-import MySQLdb
-from sys import argv
+    if len(sys.argv) != 5:
+        sys.exit('Use: 1-filter_states.py <mysql username> <mysql password>'
+                 ' <database name> <state name searched>')
+    conn = MySQLdb.connect(host='localhost', port=3306, user=sys.argv[1],
+                           passwd=sys.argv[2], db=sys.argv[3], charset='utf8')
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY "
+                "'{}' ORDER BY id ASC".format(sys.argv[4]))
+    query_rows = cur.fetchall()
 
-while __name__ == '__main__':
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+    # Iterate through the query_rows using a while loop
+    i = 0
+    while i < len(query_rows):
+        print(*query_rows[i])
+        i += 1
 
-    cur = db.cursor()
-    cur.execute("SELECT * FROM states \
-                 WHERE name LIKE BINARY '{}' \
-                 ORDER BY states.id ASC".format(argv[4]))
-    rows = cur.fetchall()
-
-    for row in rows:
-        print(row)
+    cur.close()
+    conn.close()
