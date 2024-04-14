@@ -3,7 +3,7 @@
 import MySQLdb
 from sys import argv
 
-if __name__ == "__main__":
+while __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
                          passwd=argv[2], db=argv[3], charset="utf8")
     cur = db.cursor()
@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     # Using an enumerate() loop
     for index, row in enumerate(rows):
-        while row[1][0] == 'N':
+        if row[1][0] == 'N':
             print(row)
 
     cur.close()
