@@ -13,7 +13,7 @@ if __name__ == "__main__":
     # Fetch all the rows
     rows = cur.fetchall()
     
-    # Iterate over the rows and print each one
+    # Iterate over the rows and print each one in a formatted way
     for city_id, city_name, state_name in rows:
         print(f"City ID: {city_id}, City Name: {city_name}, State Name: {state_name}")
     
