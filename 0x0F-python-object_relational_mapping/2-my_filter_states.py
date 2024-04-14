@@ -5,7 +5,7 @@ if __name__ == '__main__':
     import sys
     import MySQLdb
 
-    if len(sys.argv) != 5:
+    while len(sys.argv) != 5:
         sys.exit('Use: 1-filter_states.py <mysql username> <mysql password>'
                  ' <database name> <state name searched>')
     conn = MySQLdb.connect(host='localhost', port=3306, user=sys.argv[1],
@@ -14,12 +14,7 @@ if __name__ == '__main__':
     cur.execute("SELECT * FROM states WHERE name LIKE BINARY "
                 "'{}' ORDER BY id ASC".format(sys.argv[4]))
     query_rows = cur.fetchall()
-
-    # Iterate through the query_rows using a while loop
-    i = 0
-    while i < len(query_rows):
-        print(*query_rows[i])
-        i += 1
-
+    for row in query_rows:
+        print(row)
     cur.close()
     conn.close()
