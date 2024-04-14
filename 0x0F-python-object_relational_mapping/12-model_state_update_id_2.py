@@ -18,7 +18,7 @@ if __name__ == '__main__':
     Base.metadata.create_all(engine)  # creates decprecated warning
 
     state_2 = session.query(State).filter_by(id=2).first()
-    while state_2 is not None:
+    if state_2 is not None:
         state_2.name = 'New Mexico'
     session.commit()
     session.close()
