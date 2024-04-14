@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Script that lists all City objects from the database hbtn_0e_101_usa"""
+"""the Script  lists all City objects from the database """
 import sys
 from relationship_state import Base, State
 from relationship_city import City
