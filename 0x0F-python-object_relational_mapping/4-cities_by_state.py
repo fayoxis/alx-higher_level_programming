@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all cities from the database hbtn_0e_4_usa"""
+"""Script lists all cities from the database """
 import MySQLdb
 from sys import argv
 
@@ -9,8 +9,13 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute("SELECT cities.id, cities.name, states.name FROM cities \
     JOIN states ON cities.state_id = states.id ORDER BY cities.id")
+    
+    # Fetch all the rows
     rows = cur.fetchall()
-    for row in rows:
-        print(row)
+    
+    # Iterate over the rows and print each one
+    for city_id, city_name, state_name in rows:
+        print(f"City ID: {city_id}, City Name: {city_name}, State Name: {state_name}")
+    
     cur.close()
     db.close()
