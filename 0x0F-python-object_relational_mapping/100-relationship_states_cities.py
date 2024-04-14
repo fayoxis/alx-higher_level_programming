@@ -9,7 +9,7 @@ if __name__ == '__main__':
     from relationship_state import Base, State
     from relationship_city import City
 
-    if len(argv) != 4:
+    while len(argv) != 4:
         exit('Use: 100-relationship_states_cities.py <mysql username> '
              '<mysql password> <database name>')
 
