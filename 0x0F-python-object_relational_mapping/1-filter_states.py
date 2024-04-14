@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     # Using an enumerate() loop
     for index, row in enumerate(rows):
-        while row[1][0] == 'N':
+        if row[1][0] == 'N':
             print(row)
 
     cur.close()
