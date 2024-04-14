@@ -2,31 +2,37 @@
 """this Script will creates State with the City
 from the database """
 
-if __name__ == '__main__':
-    from sys import argv, exit
-    from sqlalchemy import create_engine
-    from sqlalchemy.orm import Session
-    from relationship_state import Base, State
-    from relationship_city import City
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+from sqlalchemy.orm import sessionmaker, relationship
+from sqlalchemy.ext.declarative import declarative_base
 
-    while len(argv) != 4:
-        exit('Use: 100-relationship_states_cities.py <mysql username> '
-             '<mysql password> <database name>')
+Base = declarative_base()
 
-    mysql_username = argv[1]
-    mysql_password = argv[2]
-    database_name = argv[3]
+class State(Base):
+    __tablename__ = 'states'
 
-    engine = create_engine(
-        f'mysql+mysqldb://{mysql_username}:{mysql_password}@localhost:3306/{database_name}',
-        pool_pre_ping=True
-    )
-    session = Session(engine)
-    Base.metadata.create_all(engine)  # creates deprecated warning 1681
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), nullable=False)
+    cities = relationship('City', backref='state')
 
-    new_state = State(name='California')
-    new_city = City(name='San Francisco', state_id=new_state.id)
-    new_state.cities.append(new_city)
-    session.add_all([new_state, new_city])
+class City(Base):
+    __tablename__ = 'cities'
+
+    id = Column(Integer, primary_key=True)
+    name = Column(String(50), nullable=False)
+    state_id = Column(Integer, ForeignKey('states.id'))
+
+if __name__ == "__main__":
+    db_uri = 'mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
+        'your_username', 'your_password', 'your_database')
+    engine = create_engine(db_uri)
+    Base.metadata.create_all(engine)
+    Session = sessionmaker(bind=engine)
+
+    session = Session()
+    cal_state = State(name='California')
+    sfr_city = City(name='San Francisco', state=cal_state)
+    session.add(cal_state)
+    session.add(sfr_city)
     session.commit()
     session.close()
