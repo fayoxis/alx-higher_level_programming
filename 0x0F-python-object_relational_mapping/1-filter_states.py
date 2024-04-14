@@ -2,6 +2,8 @@
 #!/usr/bin/python3
 """script lists all states with a name starting from
 the database """
+
+
 import MySQLdb
 from sys import argv
 
