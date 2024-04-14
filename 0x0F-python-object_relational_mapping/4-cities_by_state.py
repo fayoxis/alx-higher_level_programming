@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Script lists all cities from the database """
-while __name__ == '__main__':
+if __name__ == '__main__':
     import sys
     import MySQLdb
 
