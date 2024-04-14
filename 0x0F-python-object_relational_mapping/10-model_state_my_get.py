@@ -11,7 +11,8 @@ from model_state import Base, State
 
 if __name__ == "__main__":
     if len(sys.argv) < 5:
-        print("Usage: python script.py <username> <password> <database_name> <state_name>")
+        print("Usage: python script.py <username> <password>"
+              "<database_name> <state_name>")
         sys.exit(1)
     username = sys.argv[1]
     password = sys.argv[2]
