@@ -1,31 +1,27 @@
 #!/usr/bin/python3
 
-"""
-This script retrieves & displays states from the `hbtn_0e_0_usa` database.
-"""
+if __name__ == '__main__':
+    import sys
+    import mysql.connector
 
-import MySQLdb
-import sys
-
-def main():
-    """
-    Connects to the database, fetches all states, and prints them.
-    """
     if len(sys.argv) != 4:
-        print("Usage: python script.py <username> <password> <database>")
-        return
+        sys.exit('Usage: python 0-select_states.py <mysql username> <mysql password> <database name>')
 
-    username, password, database = sys.argv[1], sys.argv[2], sys.argv[3]
-
-    db = MySQLdb.connect(host="localhost", user=username, port=3306, passwd=password, db=database)
-    cursor = db.cursor()
-    cursor.execute("SELECT * FROM states")
-    states = cursor.fetchall()
-
-    for state in states:
-        print(state)
-
-    db.close()
-
-if __name__ == "__main__":
-    main()
+    try:
+        conn = mysql.connector.connect(
+            host='localhost',
+            port=3306,
+            user=sys.argv[1],
+            password=sys.argv[2],
+            database=sys.argv[3],
+            charset='utf8'
+        )
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM states ORDER BY id ASC")
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
+        cursor.close()
+        conn.close()
+    except mysql.connector.Error as err:
+        sys.exit(f"Error connecting to the database: {err}")
