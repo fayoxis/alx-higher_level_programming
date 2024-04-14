@@ -9,7 +9,8 @@ from model_state import Base, State
 if __name__ == "__main__":
     # Check if the required command-line arguments are provided
     if len(sys.argv) < 5:
-        print("Usage: python script.py <username> <password> <database_name> <state_name>")
+        print("Usage: python script.py <username> <password> <database_name>
+           <state_name>")
         sys.exit(1)
 
     # Extract the command-line arguments
