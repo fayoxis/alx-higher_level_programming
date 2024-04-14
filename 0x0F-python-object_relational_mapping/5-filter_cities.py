@@ -1,30 +1,37 @@
 #!/usr/bin/python3
 """Script  takes the name of state in an argument and lists
 all cities """
-import MySQLdb
+import mysql.connector
 from sys import argv
 
-if __name__ == '__main__':
-    db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
-                         passwd=argv[2], db=argv[3])
+if __name__ == "__main__":
+    # Connect to the MySQL database
+    db = mysql.connector.connect(
+        host="localhost",
+        port=3306,
+        user=argv[1],
+        password=argv[2],
+        database=argv[3],
+        charset="utf8"
+    )
 
-    with db.cursor() as cur:
-        cur.execute("""
-            SELECT
-                cities.name
-            FROM
-                cities
-            JOIN
-                states
-            ON
-                cities.state_id = states.id
-            WHERE
-                states.name = %s
-            ORDER BY
-                cities.id ASC
-        """, (argv[4],))
+    # Create a cursor object
+    cursor = db.cursor()
 
-        rows = cur.fetchall()
+    # Execute the SQL query
+    cursor.execute(
+        "SELECT cities.name "
+        "FROM cities "
+        "JOIN states ON cities.state_id = states.id "
+        "WHERE states.name LIKE %s "
+        "ORDER BY cities.id",
+        (argv[4],)
+    )
 
-     if rows is not None:
-        print(", ".join(row[0] for row in rows))
+    # Fetch the results and print them
+    rows = cursor.fetchall()
+    print(", ".join(city[0] for city in rows))
+
+    # Close the cursor and the database connection
+    cursor.close()
+    db.close()
