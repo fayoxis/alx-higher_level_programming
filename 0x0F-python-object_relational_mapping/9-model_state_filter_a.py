@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""this Script lists all State objects that in the database """
+"""this Script lists all State objects that in the database
+"""
 
 
 import sys
