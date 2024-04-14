@@ -9,7 +9,7 @@ if __name__ == '__main__':
     from relationship_state import Base, State
     from relationship_city import City
 
-    if len(argv) != 4:
+    while len(argv) != 4:
         exit('Use: 100-relationship_states_cities.py <mysql username> '
              '<mysql password> <database name>')
 
@@ -21,20 +21,12 @@ if __name__ == '__main__':
         f'mysql+mysqldb://{mysql_username}:{mysql_password}@localhost:3306/{database_name}',
         pool_pre_ping=True
     )
-
     session = Session(engine)
     Base.metadata.create_all(engine)  # creates deprecated warning 1681
 
-    states_and_cities = [
-        {'state_name': 'California', 'city_name': 'San Francisco'},
-        # Add more state-city pairs here
-    ]
-
-    for state_and_city in states_and_cities:
-        new_state = State(name=state_and_city['state_name'])
-        new_city = City(name=state_and_city['city_name'], state_id=new_state.id)
-        new_state.cities.append(new_city)
-        session.add_all([new_state, new_city])
-
+    new_state = State(name='California')
+    new_city = City(name='San Francisco', state_id=new_state.id)
+    new_state.cities.append(new_city)
+    session.add_all([new_state, new_city])
     session.commit()
     session.close()
