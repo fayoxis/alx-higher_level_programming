@@ -11,7 +11,7 @@ if __name__ == '__main__':
     with db.cursor() as cur:
         cur.execute("""
             SELECT
-                cities.id, cities.name
+                cities.name
             FROM
                 cities
             JOIN
@@ -19,15 +19,12 @@ if __name__ == '__main__':
             ON
                 cities.state_id = states.id
             WHERE
-                states.name LIKE BINARY %(state_name)s
+                states.name = %s
             ORDER BY
                 cities.id ASC
-        """, {
-            'state_name': argv[4]
-        })
+        """, (argv[4],))
 
         rows = cur.fetchall()
 
     if rows:
-        city_names = [row[1] for row in rows]
-        print(", ".join(city_names))
+        print(", ".join(row[0] for row in rows))
