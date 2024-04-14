@@ -29,7 +29,5 @@ if __name__ == '__main__':
         rows = cur.fetchall()
 
     if rows:
-        city_names = []
-        for row in rows:
-            city_names.append(row[1])
+        city_names = [row[1] for row in rows]
         print(", ".join(city_names))
