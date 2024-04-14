@@ -2,6 +2,7 @@
 """this Script will creates State with the City
 from the database """
 
+
 if __name__ == '__main__':
     from sys import argv, exit
     from sqlalchemy import create_engine
