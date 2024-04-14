@@ -5,6 +5,11 @@ import MySQLdb
 from sys import argv
 
 if __name__ == '__main__':
+    """
+    Access to the database and get the cities
+    from the database.
+    """
+
     db = MySQLdb.connect(host="localhost", user=argv[1], port=3306,
                          passwd=argv[2], db=argv[3])
 
@@ -29,5 +34,7 @@ if __name__ == '__main__':
         rows = cur.fetchall()
 
     if rows:
-        city_names = [row[1] for row in rows]
+        city_names = []
+        for row in rows:
+            city_names.append(row[1])
         print(", ".join(city_names))
