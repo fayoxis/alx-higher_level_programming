@@ -2,12 +2,9 @@
 """
 this script will fetches https://alx-intranet.hbtn.io/status.
 """
-import sys
-import requests
-
-
 if __name__ == "__main__":
-    url = sys.argv[1]
+    import requests
 
-    r = requests.get(url)
-    print(r.headers.get("X-Request-Id"))
+    response = requests.get('https://intranet.hbtn.io/status')
+    print('Body response:\n\t- type: {}\n\t- content: {}'.format(
+        type(response.text), response.text))
