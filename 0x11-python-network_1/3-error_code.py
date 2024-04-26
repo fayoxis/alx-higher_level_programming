@@ -1,20 +1,21 @@
 #!/usr/bin/python3
 """
-script that takes in a URL, sends a request to the URL and displays the
-body of the response (decoded in utf-8).
-You have to manage urllib.error.HTTPError exceptions and
-print: Error code: followed by the HTTP status code.
+this script that takes in a URL, sends a request to the URL and
+displays the body of the response (decoded in utf-8).
 """
-import urllib.request
-import urllib.error
 import sys
+import urllib.error
+import urllib.request
 
 
 if __name__ == "__main__":
     url = sys.argv[1]
+
+    request = urllib.request.Request(url)
     try:
-        with urllib.request.urlopen(url) as response:
-            response_text = response.read().decode("utf-8")
-            print(response_text)
+        with urllib.request.urlopen(request) as response:
+            decoded_response = response.read().decode("ascii")
+            print(decoded_response)
     except urllib.error.HTTPError as e:
-        print("Error code: {}".format(e.code))
+        error_code = e.code
+        print("Error code: {}".format(error_code))
