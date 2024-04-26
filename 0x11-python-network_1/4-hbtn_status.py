@@ -4,8 +4,9 @@ this script will fetches https://alx-intranet.hbtn.io/status.
 """
 import requests
 
+
 if __name__ == "__main__":
-    r = requests.get("https://intranet.alxswe.com/status")
+    response = requests.get("https://alx-intranet.hbtn.io/status")
     print("Body response:")
-    print("\t- type: <class 'str'>")
-    print("\t- content: OK")
+    print(f"\t- type: {type(response.text)}")
+    print(f"\t- content: {response.text}")
