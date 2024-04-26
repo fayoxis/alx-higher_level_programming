@@ -8,12 +8,9 @@ if __name__ == "__main__":
     from sys import argv
 
     try:
-        url = argv[1]
-        response = get(url)
+        response = get(argv[1])
         response.raise_for_status()
-    except IndexError:
-        print("Error: No URL provided as command-line argument.")
-    except requests.exceptions.RequestException as e:
-        print(f"Error code: {response.status_code}")
+    except:
+        print('Error code: {}'.format(response.status_code))
     else:
         print(response.text)
