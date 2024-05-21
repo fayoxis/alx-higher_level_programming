@@ -9,18 +9,20 @@ request.get(url, (error, response, body) => {
   } else {
     const content = JSON.parse(body);
     const characters = content.characters;
-    let i = 0;
 
-    do {
-      request.get(characters[i], (error, response, body) => {
+    Promise.all(characters.map(character => new Promise((resolve, reject) => {
+      request.get(character, (error, response, body) => {
         if (error) {
-          console.log(error);
+          reject(error);
         } else {
           const names = JSON.parse(body);
-          console.log(names.name);
+          resolve(names.name);
         }
       });
-      i++;
-    } while (i < characters.length);
+    }))).then(names => {
+      names.forEach(name => console.log(name));
+    }).catch(error => {
+      console.log(error);
+    });
   }
 });
