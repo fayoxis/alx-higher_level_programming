@@ -1,20 +1,14 @@
 #!/usr/bin/node
-const https = require('https');
+const request = require('request');
 const episodeNum = process.argv[2];
 const API_URL = 'https://swapi-api.hbtn.io/api/films/';
-https.get(API_URL + episodeNum, (res) => {
-  if (res.statusCode === 200) {
-    let data = '';
-    res.on('data', (chunk) => {
-      data += chunk;
-    });
-    res.on('end', () => {
-      const responseJSON = JSON.parse(data);
-      console.log(responseJSON.title);
-    });
+request(API_URL + episodeNum, (err, response, body) => {
+  if (err) {
+    console.log(err);
+  } else if (response.statusCode === 200) {
+    const responseJSON = JSON.parse(body);
+    console.log(responseJSON.title);
   } else {
-    console.log(`Error code: ${res.statusCode}`);
+    console.log(`Error code: ${response.statusCode}`);
   }
-}).on('error', (err) => {
-  console.log(err);
 });
