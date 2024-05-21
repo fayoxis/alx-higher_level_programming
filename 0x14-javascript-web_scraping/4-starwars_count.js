@@ -1,22 +1,19 @@
 #!/usr/bin/node
-const axios = require('axios');
+const request = require('request');
 let num = 0;
-async function fetchFilmCount() {
-  try {
-    const response = await axios.get(process.argv[2]);
-    const { results } = response.data;
 
-    results.forEach((film) => {
+request.get(process.argv[2], (error, response, body) => {
+  if (error) {
+    console.log(error);
+  } else {
+    const content = JSON.parse(body);
+    content.results.forEach((film) => {
       film.characters.forEach((character) => {
-        if (character.includes('18')) {
+        if (character.includes(18)) {
           num += 1;
         }
       });
     });
-
     console.log(num);
-  } catch (error) {
-    console.error(error);
   }
-}
-fetchFilmCount();
+});
