@@ -10,8 +10,7 @@ request.get(url, (error, response, body) => {
     const content = JSON.parse(body);
     const characters = content.characters;
     let i = 0;
-
-    while (i < characters.length) {
+    do {
       request.get(characters[i], (error, response, body) => {
         if (error) {
           console.log(error);
@@ -21,6 +20,6 @@ request.get(url, (error, response, body) => {
         }
       });
       i++;
-    }
+    } while (i < characters.length);
   }
 });
