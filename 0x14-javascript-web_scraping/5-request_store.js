@@ -1,13 +1,14 @@
 #!/usr/bin/node
-const request = require('request');
-const fs = require('fs');
+const { createWriteStream } = require('fs');
+const fetch = require('node-fetch');
 
-// The first argument is the URL to request
-const baseURL = process.argv[2];
-// The second argument the file path to store the body response
-const bodyResp = process.argv[3];
-request(baseURL, (error, response, body) => {
-  if (error == null) {
-    fs.writeFileSync(bodyResp, body);
-  }
-});
+(async () => {
+  const response = await fetch(process.argv[2]);
+  const writer = createWriteStream(process.argv[3]);
+
+  await new Promise((resolve, reject) => {
+    response.body.pipe(writer)
+      .on('finish', resolve)
+      .on('error', reject);
+  });
+})();
