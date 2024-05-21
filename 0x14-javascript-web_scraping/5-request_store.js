@@ -1,14 +1,5 @@
 #!/usr/bin/node
-const { createWriteStream } = require('fs');
-const fetch = require('node-fetch');
+const fs = require('fs');
+const request = require('request');
 
-(async () => {
-  const response = await fetch(process.argv[2]);
-  const writer = createWriteStream(process.argv[3]);
-
-  await new Promise((resolve, reject) => {
-    response.body.pipe(writer)
-      .on('finish', resolve)
-      .on('error', reject);
-  });
-})();
+request(process.argv[2]).pipe(fs.createWriteStream(process.argv[3]));
