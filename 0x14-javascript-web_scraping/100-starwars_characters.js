@@ -1,26 +1,27 @@
 #!/usr/bin/node
-const axios = require('axios');
 
-const filmId = process.argv[2];
-const filmUrl = `https://swapi-api.alx-tools.com/api/films/${filmId}`;
+const request = require('request');
+const id = process.argv[2];
+const url = `https://swapi-api.alx-tools.com/api/films/${id}`;
 
-async function fetchCharacterNames() {
-  try {
-    // Fetch the film data
-    const filmResponse = await axios.get(filmUrl);
-    const { characters } = filmResponse.data;
+request.get(url, (error, response, body) => {
+  if (error) {
+    console.log(error);
+  } else {
+    const content = JSON.parse(body);
+    const characters = content.characters;
+    let i = 0;
 
-    // Fetch the character data for each character URL
-    const characterNames = await Promise.all(characters.map(async (characterUrl) => {
-      const characterResponse = await axios.get(characterUrl);
-      return characterResponse.data.name;
-    }));
-
-    // Print the character names
-    characterNames.forEach(name => console.log(name));
-  } catch (error) {
-    console.error(error);
+    do {
+      request.get(characters[i], (error, response, body) => {
+        if (error) {
+          console.log(error);
+        } else {
+          const names = JSON.parse(body);
+          console.log(names.name);
+        }
+      });
+      i++;
+    } while (i < characters.length);
   }
-}
-
-fetchCharacterNames();
+});
