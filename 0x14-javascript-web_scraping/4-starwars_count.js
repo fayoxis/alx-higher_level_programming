@@ -1,19 +1,22 @@
 #!/usr/bin/node
-const request = require('request');
+const axios = require('axios');
+let num = 0;
+async function fetchFilmCount() {
+  try {
+    const response = await axios.get(process.argv[2]);
+    const { results } = response.data;
 
-//  first argument is the API URL
-const URL = process.argv[2];
+    results.forEach((film) => {
+      film.characters.forEach((character) => {
+        if (character.includes('18')) {
+          num += 1;
+        }
+      });
+    });
 
-request(URL, (error, response, body) => {
-  if (error) {
-    console.log(error);
-  } else if (body) {
-    // Wedge Antilles is character ID 18 - use this ID for filtering the
-    // result of the API
-    const json = JSON.parse(body);
-    const charFilms = json.results.filter(
-      x => x.characters.find(y => y.match(/\/people\/18\/?$/))
-    );
-    console.log(charFilms.length);
+    console.log(num);
+  } catch (error) {
+    console.error(error);
   }
-});
+}
+fetchFilmCount();
