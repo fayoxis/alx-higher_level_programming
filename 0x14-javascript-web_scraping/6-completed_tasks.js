@@ -1,35 +1,21 @@
 #!/usr/bin/node
-const https = require('https');
+const request = require('request');
 
-https.get(process.argv[2], (res) => {
-  let data = '';
+request.get(process.argv[2], { json: true }, (error, response, body) => {
+  if (error) {
+    console.log(error);
+    return;
+  }
 
-  res.on('data', (chunk) => {
-    data += chunk;
-  });
-
-  res.on('end', () => {
-    const todos = JSON.parse(data);
-    const tasksCompleted = {};
-
-    todos.forEach((todo) => {
-      if (todo.completed) {
-        if (!tasksCompleted[todo.userId]) {
-          tasksCompleted[todo.userId] = 1;
-        } else {
-          tasksCompleted[todo.userId]++;
-        }
+  const tasksCompleted = {};
+  body.forEach((todo) => {
+    if (todo.completed) {
+      if (!tasksCompleted[todo.userId]) {
+        tasksCompleted[todo.userId] = 1;
+      } else {
+        tasksCompleted[todo.userId] += 1;
       }
-    });
-
-    console.log(tasksCompleted);
-  });
-}).on('error', (err) => {
-  console.error(err);
-});      aggregate[element.userId] = 0;
-      }
-      aggregate[element.userId]++;
     }
   });
-  console.log(aggregate);
+  console.log(tasksCompleted);
 });
